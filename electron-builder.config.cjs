@@ -1,4 +1,4 @@
-﻿const { execSync } = require("child_process");
+const { execSync } = require("child_process");
 const { readFileSync, writeFileSync, existsSync, readdirSync, statSync, mkdirSync, cpSync, renameSync, rmSync } = require("fs");
 const { createHash } = require("crypto");
 const { join } = require("path");

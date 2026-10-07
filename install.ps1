@@ -1,4 +1,4 @@
-﻿# ==============================================================================
+# ==============================================================================
 #  werathcord — Universal Windows PowerShell Installer
 #  Usage: irm https://source.werathcord.st/werathcord/werathcord/raw/branch/master/install.ps1 | iex
 # ==============================================================================

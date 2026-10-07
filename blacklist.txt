@@ -1,4 +1,4 @@
-﻿macOsButtons
+macOsButtons
 cursorMacOS
 wordBomb
 multiInstance

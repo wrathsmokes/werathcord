@@ -1,4 +1,4 @@
-﻿// werathcord preload — globalPaths fix + Equicord avec contextBridge
+// werathcord preload — globalPaths fix + Equicord avec contextBridge
 "use strict";
 
 (function () {

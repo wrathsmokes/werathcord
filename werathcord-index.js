@@ -1,4 +1,4 @@
-﻿// werathcord entry point
+// werathcord entry point
 "use strict";
 const path = require("path");
 const Module = require("module");

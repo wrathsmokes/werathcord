@@ -1,4 +1,4 @@
-﻿# Privacy Policy
+# Privacy Policy
 
 This file is a short summary. The full, always up to date Privacy Policy is published at
 **https://werathcord.st/privacy** — that page is the canonical version; if anything here ever

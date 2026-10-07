@@ -1,4 +1,4 @@
-﻿import {progress} from "../stores/installation";
+import {progress} from "../stores/installation";
 import {promises as fs} from "fs";
 import path from "path";
 import {killDiscord, startDiscord} from "./utils/kill";

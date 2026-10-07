@@ -1,4 +1,4 @@
-﻿# build-installer.ps1 — Build werathcord-Installer.exe (Electron Portable)
+# build-installer.ps1 — Build werathcord-Installer.exe (Electron Portable)
 # Usage: .\build-installer.ps1
 
 $ErrorActionPreference = "Stop"

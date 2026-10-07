@@ -1,4 +1,4 @@
-﻿<div align="center">
+<div align="center">
   <img src="https://werathcord.example.com/image.png" width="96" height="96" alt="werathcord Logo">
 
 # werathcord

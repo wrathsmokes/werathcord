@@ -1,4 +1,4 @@
-﻿import {progress, status} from "../stores/installation";
+import {progress, status} from "../stores/installation";
 import {remote} from "electron";
 import {promises as fs} from "fs";
 import {createWriteStream, existsSync, statSync} from "fs";

@@ -147,21 +147,7 @@ async function silentlyStageUpdate() {
         await rebuild(); // downloads zip to %temp%, extracts to staging dir, writes marker — no locked files touched
         UpdateLogger.info("Update staged successfully. Will be applied on next Discord restart.");
 
-        // Notify user in the top-right corner that the update is ready to be applied on restart
-        showNotification({
-            id: "werathcord-update-downloaded",
-            title: "Update Downloaded",
-            body: "A new update has been downloaded. Restart your client to apply and discover what's new.",
-            icon: "werathcord",
-            type: "info",
-            duration: 9000,
-            actions: [
-                {
-                    label: "Restart Now",
-                    onClick: () => relaunch()
-                }
-            ]
-        });
+        // No notification shown — updates are applied silently on next restart.
     } catch (e) {
         UpdateLogger.error("Silent update staging failed", e);
         stagedThisSession = false; // allow retry on next check interval

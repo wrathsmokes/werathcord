@@ -1,4 +1,4 @@
-﻿$ErrorActionPreference = "Stop"
+$ErrorActionPreference = "Stop"
 $DISCORD = "C:\Users\zzafi\AppData\Local\Discord\app-1.0.9228"
 $OUT = "C:\Users\zzafi\Desktop\equicord\release\win-unpacked"
 $RES = "$OUT\resources"

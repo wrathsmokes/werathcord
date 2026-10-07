@@ -1,7 +1,7 @@
 ﻿import { readFileSync, writeFileSync } from "fs";
 
 const strings = JSON.parse(readFileSync("scripts/extractedStrings.json", "utf8"));
-const atcContent = readFileSync("src/WRATHCORDplugins/autoTranslateWRATHCORD/index.ts", "utf8");
+const atcContent = readFileSync("src/werathcordplugins/autoTranslatewerathcord/index.ts", "utf8");
 
 const existingEntries = {};
 const entryRegex = /"((?:[^"\\]|\\.)*)":\s*\{\s*en:\s*"((?:[^"\\]|\\.)*)"(?:,\s*fr:\s*"((?:[^"\\]|\\.)*)")?(?:,\s*ar:\s*"((?:[^"\\]|\\.)*)")?(?:,\s*es:\s*"((?:[^"\\]|\\.)*)")?(?:,\s*ru:\s*"((?:[^"\\]|\\.)*)")?(?:,\s*zh:\s*"((?:[^"\\]|\\.)*)")?\s*\}/g;
@@ -18,7 +18,7 @@ while ((match = entryRegex.exec(atcContent)) !== null) {
 }
 
 const missingStrings = strings.filter(s => {
-    if (s === "WRATHCORD" || s === "WRATHCORD AI") return false;
+    if (s === "werathcord" || s === "werathcord AI") return false;
     const existing = existingEntries[s];
     if (!existing) return true;
     if (!existing.fr || !existing.ar || !existing.es || !existing.ru || !existing.zh) return true;
@@ -74,7 +74,7 @@ async function main() {
     }
 
     const fileHeader = `/*
- * WRATHCORD, a Discord client mod
+ * werathcord, a Discord client mod
  * Copyright (c) 2026 Vendicated and contributors
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
@@ -90,10 +90,10 @@ export const translations: TranslationMap = {\n`;
     const fileFooter = `\n};
 
 export default definePlugin({
-    name: "AutoTranslateWRATHCORD",
+    name: "AutoTranslatewerathcord",
     enabledByDefault: true,
     required: true,
-    description: "Automatic translation for WRATHCORD.",
+    description: "Automatic translation for werathcord.",
     authors: [{ name: "Trigger", id: 0n }],
     options: {
         autoTranslate: {
@@ -156,8 +156,8 @@ export function useTranslation() {
         entriesStr += `    ${safeKey}: { en: ${safeEn}, fr: ${safeFr}, ar: ${safeAr}, es: ${safeEs}, ru: ${safeRu}, zh: ${safeZh} },\n`;
     }
 
-    writeFileSync("src/WRATHCORDplugins/autoTranslateWRATHCORD/index.ts", fileHeader + entriesStr + fileFooter, "utf8");
-    console.log("Done! Written all translations to autoTranslateWRATHCORD/index.ts.");
+    writeFileSync("src/werathcordplugins/autoTranslatewerathcord/index.ts", fileHeader + entriesStr + fileFooter, "utf8");
+    console.log("Done! Written all translations to autoTranslatewerathcord/index.ts.");
 }
 
 main().catch(console.error);

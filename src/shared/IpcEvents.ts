@@ -39,7 +39,7 @@ export const enum IpcEvents {
     BUILD = "VencordBuild",
     OPEN_MONACO_EDITOR = "VencordOpenMonacoEditor",
     GET_MONACO_THEME = "VencordGetMonacoTheme",
-    GET_INSTALLER_PREFS = "WRATHCORDGetInstallerPrefs",
+    GET_INSTALLER_PREFS = "werathcordGetInstallerPrefs",
 
     GET_PLUGIN_IPC_METHOD_MAP = "VencordGetPluginIpcMethodMap",
 
@@ -60,24 +60,24 @@ export const enum IpcEvents {
 
     GET_DESKTOP_SOURCES = "VencordGetDesktopSources",
 
-    SET_WINDOW_BACKGROUND_MATERIAL = "WRATHCORDSetWindowBackgroundMaterial",
+    SET_WINDOW_BACKGROUND_MATERIAL = "werathcordSetWindowBackgroundMaterial",
 
     // SoundCord Player â€” thumbnail toolbar Windows
     SET_THUMBAR_BUTTONS = "SoundCordSetThumbarButtons",
     THUMBAR_BUTTON_CLICK = "SoundCordThumbarButtonClick",
 
-    // WRATHCORD Updater â€” tÃ©lÃ©charge un exe depuis une URL et le lance
-    WRATHCORD_DOWNLOAD_AND_RUN = "WRATHCORDDownloadAndRun",
+    // werathcord Updater â€” tÃ©lÃ©charge un exe depuis une URL et le lance
+    werathcord_DOWNLOAD_AND_RUN = "werathcordDownloadAndRun",
 
     // VB-Audio Virtual Cable (Windows only)
-    CHECK_VB_CABLE = "WRATHCORDCheckVBCable",
-    INSTALL_VB_CABLE = "WRATHCORDInstallVBCable",
+    CHECK_VB_CABLE = "werathcordCheckVBCable",
+    INSTALL_VB_CABLE = "werathcordInstallVBCable",
 
     // Net fetch via main process to bypass renderer CORS restrictions
-    WRATHCORD_NET_FETCH = "WRATHCORDNetFetch",
+    werathcord_NET_FETCH = "werathcordNetFetch",
 
     // Relaunch de l'app Electron
-    RELAUNCH_APP = "WRATHCORDRelaunchApp",
+    RELAUNCH_APP = "werathcordRelaunchApp",
 
     // WorldBomb â€” Simulation Clavier/Souris Native
     WORLD_BOMB_TYPE = "WorldBombType",
@@ -97,14 +97,14 @@ export const enum IpcEvents {
     // Redimensionne la fenÃªtre externe
     WORLD_BOMB_RESIZE_WINDOW = "WorldBombResizeWindow",
     // Modifie la protection Stream Proof globale
-    SET_CONTENT_PROTECTION = "WRATHCORDSetContentProtection",
+    SET_CONTENT_PROTECTION = "werathcordSetContentProtection",
 
     // Dynamic Runtime UserPlugins
-    GET_USERPLUGINS = "WRATHCORDGetUserPlugins",
-    COMPILE_USERPLUGIN = "WRATHCORDCompileUserPlugin",
-    COMPILE_ALL_USERPLUGINS = "WRATHCORDCompileAllUserPlugins",
-    OPEN_USERPLUGINS_FOLDER = "WRATHCORDOpenUserPluginsFolder",
-    USERPLUGINS_CHANGED = "WRATHCORDUserPluginsChanged"
+    GET_USERPLUGINS = "werathcordGetUserPlugins",
+    COMPILE_USERPLUGIN = "werathcordCompileUserPlugin",
+    COMPILE_ALL_USERPLUGINS = "werathcordCompileAllUserPlugins",
+    OPEN_USERPLUGINS_FOLDER = "werathcordOpenUserPluginsFolder",
+    USERPLUGINS_CHANGED = "werathcordUserPluginsChanged"
 }
 
 

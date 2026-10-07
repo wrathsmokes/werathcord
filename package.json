@@ -1,16 +1,16 @@
 {
-    "name": "wrathcord",
+    "name": "werathcord",
     "private": "true",
     "version": "1.28.6",
     "description": "Everything Discord doesn't build, we create",
     "main": "dist/js/main.js",
-    "homepage": "https://github.com/yourname/wrathcord",
+    "homepage": "https://github.com/wrathsmokes/werathcord",
     "bugs": {
-        "url": "https://github.com/yourname/wrathcord/issues"
+        "url": "https://github.com/wrathsmokes/werathcord/issues"
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/yourname/wrathcord.git"
+        "url": "https://github.com/wrathsmokes/werathcord.git"
     },
     "license": "GPL-3.0-or-later",
     "author": "Equicord",
@@ -32,7 +32,7 @@
         "dev": "pnpm watch",
         "watchWeb": "pnpm buildWeb --watch",
         "generateDevsList": "tsx scripts/generateDevsList.ts",
-        "generatePluginJson": "tsx scripts/generatePluginList.ts --WRATHCORD plugins.json",
+        "generatePluginJson": "tsx scripts/generatePluginList.ts --werathcord plugins.json",
         "generateEquicordPluginJson": "tsx scripts/generatePluginList.ts --equicord plugins.json",
         "generateVencordPluginJson": "tsx scripts/generatePluginList.ts --vencord plugins.json",
         "generateTypes": "tspc --emitDeclarationOnly --declaration --outDir packages/vencord-types --allowJs false",
@@ -70,6 +70,8 @@
         "nanoid": "^5.1.6",
         "native-file-system-adapter": "^3.0.1",
         "pdfjs-dist": "3.11.174",
+        "react": "^19.3.0",
+        "react-dom": "^19.3.0",
         "usercss-meta": "^0.12.0",
         "virtual-merge": "^1.0.1",
         "yaml-js": "^0.3.1"

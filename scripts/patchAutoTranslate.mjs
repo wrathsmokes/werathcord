@@ -1,6 +1,6 @@
 ﻿import { readFileSync, writeFileSync } from "fs";
 
-const p = "src/WRATHCORDplugins/autoTranslateWRATHCORD/index.ts";
+const p = "src/werathcordplugins/autoTranslatewerathcord/index.ts";
 let c = readFileSync(p, "utf8");
 
 const target = `function normalizeLang(lang: string): SupportedLang {
@@ -46,14 +46,14 @@ const replacement = `export function normalizeLang(lang: string): SupportedLang 
 
 export function getActiveLanguage(): SupportedLang {
     // 1. If plugin is explicitly disabled, revert to English
-    const pluginEnabled = Settings.plugins?.AutoTranslateWRATHCORD?.enabled ?? true;
+    const pluginEnabled = Settings.plugins?.AutoTranslatewerathcord?.enabled ?? true;
     if (!pluginEnabled) return "en";
 
     // 2. Check plugin-specific option if selected
-    const pluginOpt = (Settings.plugins?.AutoTranslateWRATHCORD as any)?.autoTranslate;
+    const pluginOpt = (Settings.plugins?.AutoTranslatewerathcord as any)?.autoTranslate;
     if (pluginOpt && pluginOpt !== "auto") return normalizeLang(pluginOpt);
 
-    // 3. Check global WRATHCORD setting
+    // 3. Check global werathcord setting
     const globalLang = Settings.language;
     if (globalLang && globalLang !== "en") return normalizeLang(globalLang);
 
@@ -97,7 +97,7 @@ const normTarget = target.replace(/\r\n/g, "\n");
 
 if (c.includes(normTarget)) {
     writeFileSync(p, c.replace(normTarget, replacement), "utf8");
-    console.log("Successfully updated autoTranslateWRATHCORD/index.ts");
+    console.log("Successfully updated autoTranslatewerathcord/index.ts");
 } else {
     console.error("Target content not found in file");
 }

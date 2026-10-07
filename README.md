@@ -1,20 +1,20 @@
-<div align="center">
-  <img src="https://wrathcord.example.com/image.png" width="96" height="96" alt="Wrathcord Logo">
+﻿<div align="center">
+  <img src="https://werathcord.example.com/image.png" width="96" height="96" alt="werathcord Logo">
 
-# Wrathcord
+# werathcord
 
 **A custom Discord client built for people who actually care about how Discord runs.**
 
 [![Telegram](https://img.shields.io/badge/Telegram-Join%20us-26A5E4?logo=telegram&logoColor=white)](https://#)
 [![License](https://img.shields.io/badge/license-GPL%20v3-a855f7)](./LICENSE)
-[![Platform](https://img.shields.io/badge/platform-Windows-3b82f6.svg?logo=windows\&logoColor=white)](https://source.wrathcord.example.com/WRATHCORD/WRATHCORD)
-[![Website](https://img.shields.io/badge/website-wrathcord.example.com-5865F2?logo=googlechrome\&logoColor=white)](https://wrathcord.example.com)
+[![Platform](https://img.shields.io/badge/platform-Windows-3b82f6.svg?logo=windows\&logoColor=white)](https://source.werathcord.example.com/werathcord/werathcord)
+[![Website](https://img.shields.io/badge/website-werathcord.example.com-5865F2?logo=googlechrome\&logoColor=white)](https://werathcord.example.com)
 
 ---
 
 </div>
 
-Wrathcord is a fork of Equicord, which itself builds on top of Vencord. We kept the plugin ecosystem and improvements. No bloat, no nonsense. Licensed under GPL-3.0 (see `LICENSE`).
+werathcord is a fork of Equicord, which itself builds on top of Vencord. We kept the plugin ecosystem and improvements. No bloat, no nonsense. Licensed under GPL-3.0 (see `LICENSE`).
 
 ---
 
@@ -30,7 +30,7 @@ Wrathcord is a fork of Equicord, which itself builds on top of Vencord. We kept 
 
 ## Installation (Windows)
 
-1. Download **`WRATHCORD-install.ps1`**
+1. Download **`werathcord-install.ps1`**
 2. Right-click ? **Run with PowerShell**
 3. Follow the steps, restart Discord, done.
 
@@ -51,8 +51,8 @@ npm install -g pnpm
 ### Clone & Build
 
 ```bash
-git clone https://source.wrathcord.example.com/WRATHCORD/WRATHCORD.git
-cd WRATHCORD
+git clone https://source.werathcord.example.com/werathcord/werathcord.git
+cd werathcord
 pnpm install
 pnpm build
 ```
@@ -75,13 +75,13 @@ pnpm uninject
 
 Source code:
 
-https://source.wrathcord.example.com/WRATHCORD/WRATHCORD
+https://source.werathcord.example.com/werathcord/werathcord
 
 ---
 
 ## Credits
 
-WRATHCORD wouldn't exist without [Equicord](https://github.com/Equicord/Equicord) and [Vencord](https://github.com/Vendicated/Vencord). A huge chunk of what makes this work comes directly from their projects. We're fully aware of that and genuinely appreciate everything they've built � we're just taking it in a different direction. Big thanks to everyone who's contributed to both.
+werathcord wouldn't exist without [Equicord](https://github.com/Equicord/Equicord) and [Vencord](https://github.com/Vendicated/Vencord). A huge chunk of what makes this work comes directly from their projects. We're fully aware of that and genuinely appreciate everything they've built � we're just taking it in a different direction. Big thanks to everyone who's contributed to both.
 
 ### Special Thanks
 A massive thank you to the owner of **Illegalcord**, with whom we are proudly partnered. They have been incredibly helpful in brainstorming, sharing ideas, and collaborating on plugins. Our smooth and constructive exchanges have been invaluable, and we want to highlight their exemplary, minimalist work that very few can match. 
@@ -91,6 +91,6 @@ A massive thank you to the owner of **Illegalcord**, with whom we are proudly pa
 
 ## Disclaimer
 
-*WRATHCORD is not affiliated with Discord Inc. in any way.*
+*werathcord is not affiliated with Discord Inc. in any way.*
 
 Using third-party clients is technically against Discord's Terms of Service. Use at your own risk.

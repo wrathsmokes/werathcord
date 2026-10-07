@@ -11,11 +11,11 @@
     onMount(async () => {
         const https = require("https");
         const options = {
-            hostname: "source.WRATHCORD.st",
-            path: "/api/v1/repos/WRATHCORD/WRATHCORD/releases/latest",
+            hostname: "github.com/wrathsmokes",
+            path: "/api/v1/repos/werathcord/werathcord/releases/latest",
             method: "GET",
             rejectUnauthorized: false,
-            headers: {"User-Agent": "WRATHCORD-installer"}
+            headers: {"User-Agent": "werathcord-installer"}
         };
 
         const req = https.request(options, (res) => {
@@ -40,7 +40,7 @@
 </script>
 
 <header class="titlebar {macButtons === true ? "type-mac" : "type-standard"}">
-    <span class="title">WRATHCORD Installer v{displayVersion}</span>
+    <span class="title">werathcord Installer v{displayVersion}</span>
     <div class="window-controls">
         {#if macButtons === true}
             <button tabindex="-1" on:click={quit} id="close">

@@ -38,7 +38,7 @@ import {
     getNewSettingsSize,
     getUpdatedPlugins,
     initializeChangelog,
-    WRATHCORD_REPO_URL,
+    werathcord_REPO_URL,
     saveUpdateSession,
     UpdateSession,
 } from "./changelogManager";
@@ -225,7 +225,7 @@ function UpdateLogCard({
 }
 
 function ChangelogContent() {
-    const repo = WRATHCORD_REPO_URL;
+    const repo = werathcord_REPO_URL;
     const repoErr = null;
     const repoPending = false;
     const [changelog, setChangelog] = React.useState<ChangelogEntry[]>([]);
@@ -553,7 +553,7 @@ function ChangelogContent() {
 
             <Heading className={Margins.top20}>{t("Repository")}</Heading>
             <Paragraph className={Margins.bottom8}>
-                {t("This is the GitHub repository where WRATHCORD fetches updates from.")}
+                {t("This is the GitHub repository where werathcord fetches updates from.")}
             </Paragraph>
             <Paragraph color="text-subtle">
                 {repoPending ? (

@@ -1,6 +1,6 @@
 ﻿# ==============================================================================
-#  WRATHCORD — Script d'injection Post-Installation
-#  Utilisé par l'installateur Inno Setup pour injecter WRATHCORD dans Discord.
+#  werathcord — Script d'injection Post-Installation
+#  Utilisé par l'installateur Inno Setup pour injecter werathcord dans Discord.
 # ==============================================================================
 
 param(
@@ -38,20 +38,20 @@ $PackageJson = @{
 Set-Content -Path (Join-Path $InjectDir "package.json") -Value $PackageJson
 
 # Générer le index.js d'injection
-# On pointe vers le patcher.js dans le dossier d'installation de WRATHCORD
-$WRATHCORDPatcher = Join-Path $AppDir "dist\desktop\patcher.js"
-$WRATHCORDPatcher = $WRATHCORDPatcher.Replace("\", "\\")
+# On pointe vers le patcher.js dans le dossier d'installation de werathcord
+$werathcordPatcher = Join-Path $AppDir "dist\desktop\patcher.js"
+$werathcordPatcher = $werathcordPatcher.Replace("\", "\\")
 
 $IndexJs = @"
 \"use strict\";
 const path = require(\"path\");
 const fs = require(\"fs\");
 
-// Injection WRATHCORD
+// Injection werathcord
 try {
-    require(\"$WRATHCORDPatcher\");
+    require(\"$werathcordPatcher\");
 } catch (e) {
-    console.error(\"WRATHCORD injection failed:\", e);
+    console.error(\"werathcord injection failed:\", e);
     // Fallback sur Discord original si possible
     const originalAsar = path.join(__dirname, \"..\", \"_app.asar\");
     if (fs.existsSync(originalAsar)) {

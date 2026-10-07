@@ -27,7 +27,7 @@ import { getEntryPoint, isPluginFile, parseDevs, parseEquicordDevs, parseFile, P
 
     // Setup userplugins
     try {
-        const userTarget = join(homedir(), "Documents", "WRATHCORD", "userplugins");
+        const userTarget = join(homedir(), "Documents", "werathcord", "userplugins");
         const srcLink = join(process.cwd(), "src", "userplugins");
         if (!existsSync(userTarget)) mkdirSync(userTarget, { recursive: true });
         if (!existsSync(srcLink)) {
@@ -35,25 +35,25 @@ import { getEntryPoint, isPluginFile, parseDevs, parseEquicordDevs, parseFile, P
             symlinkSync(userTarget, srcLink, process.platform === "win32" ? "junction" : "dir");
         }
     } catch (e) {
-        console.error("[WRATHCORD] Failed to setup userplugins link", e);
+        console.error("[werathcord] Failed to setup userplugins link", e);
     }
 
     const args = process.argv.slice(2);
 
     const equicordFlag = args.includes("--equicord");
     const vencordFlag = args.includes("--vencord");
-    const WRATHCORDFlag = args.includes("--WRATHCORD");
+    const werathcordFlag = args.includes("--werathcord");
 
     let dirs: string[];
 
-    if (WRATHCORDFlag) {
-        dirs = ["src/WRATHCORDplugins"];
+    if (werathcordFlag) {
+        dirs = ["src/werathcordplugins"];
     } else if (equicordFlag) {
-        dirs = ["src/WRATHCORDplugins", "src/userplugins"];
+        dirs = ["src/werathcordplugins", "src/userplugins"];
     } else if (vencordFlag) {
         dirs = ["src/plugins", "src/plugins/_core"];
     } else {
-        dirs = ["src/plugins", "src/plugins/_core", "src/WRATHCORDplugins", "src/userplugins"];
+        dirs = ["src/plugins", "src/plugins/_core", "src/werathcordplugins", "src/userplugins"];
     }
 
 

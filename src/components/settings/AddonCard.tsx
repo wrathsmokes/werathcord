@@ -42,7 +42,7 @@ interface Props {
     infoButton?: ReactNode;
     footer?: ReactNode;
     author?: ReactNode;
-    iconType?: "WRATHCORD" | "other";
+    iconType?: "werathcord" | "other";
     customIcon?: ComponentType<any>;
 }
 

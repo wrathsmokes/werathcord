@@ -49,11 +49,11 @@ if (!IS_COMPANION_TEST && process.argv.includes("--companion-test"))
     console.error("--companion-test must be run with --reporter for any effect");
 
 export const IS_UPDATER_DISABLED = process.argv.includes("--disable-updater");
-export const gitHash = process.env.WRATHCORD_HASH || execSync("git rev-parse HEAD", { encoding: "utf-8" }).trim();
+export const gitHash = process.env.werathcord_HASH || execSync("git rev-parse HEAD", { encoding: "utf-8" }).trim();
 
 export const banner = {
     js: `
-// WRATHCORD ${gitHash}
+// werathcord ${gitHash}
 // Standalone: ${IS_STANDALONE}
 // Platform: ${IS_STANDALONE === false ? process.platform : "Universal"}
 // Updater Disabled: ${IS_UPDATER_DISABLED}
@@ -147,7 +147,7 @@ export const globPlugins = kind => ({
         });
 
         build.onLoad({ filter, namespace: "import-plugins" }, async () => {
-            const pluginDirs = ["plugins/_api", "plugins/_core", "plugins", "userplugins", "WRATHCORDplugins", "WRATHCORDplugins/_api"];
+            const pluginDirs = ["plugins/_api", "plugins/_core", "plugins", "userplugins", "werathcordplugins", "werathcordplugins/_api"];
             
             let blacklist = [];
             try {
@@ -219,9 +219,9 @@ export const globPlugins = kind => ({
             }
             code += `export default {${pluginsCode}};export const PluginMeta={${metaCode}};export const ExcludedPlugins={${excludedCode}};`;
 
-            // ─── External User Plugins (~/Documents/WRATHCORD/userplugins/) ───────────
+            // ─── External User Plugins (~/Documents/werathcord/userplugins/) ───────────
             // Scan and auto-create the external userplugins directory.
-            const externalUserPluginsDir = join(homedir(), "Documents", "WRATHCORD", "userplugins");
+            const externalUserPluginsDir = join(homedir(), "Documents", "werathcord", "userplugins");
             try {
                 await mkdir(externalUserPluginsDir, { recursive: true });
             } catch { /* already exists or permission error — silently skip */ }
@@ -314,7 +314,7 @@ export const gitRemotePlugin = {
             namespace: "git-remote", path: args.path
         }));
         build.onLoad({ filter, namespace: "git-remote" }, async () => {
-            let remote = process.env.WRATHCORD_REMOTE;
+            let remote = process.env.werathcord_REMOTE;
             if (!remote) {
                 const res = await promisify(exec)("git remote get-url origin", { encoding: "utf-8" });
                 remote = res.stdout.trim()
@@ -434,11 +434,11 @@ export const stylePlugin = {
 const pluginAliasesPlugin = {
     name: "plugin-aliases",
     setup(build) {
-        build.onResolve({ filter: /^@(?:plugins|equicordplugins|WRATHCORDplugins)(?:\/(.*))?$/ }, async args => {
-            const match = args.path.match(/^@(?:plugins|equicordplugins|WRATHCORDplugins)(?:\/(.*))?$/);
+        build.onResolve({ filter: /^@(?:plugins|equicordplugins|werathcordplugins)(?:\/(.*))?$/ }, async args => {
+            const match = args.path.match(/^@(?:plugins|equicordplugins|werathcordplugins)(?:\/(.*))?$/);
             const rel = match?.[1] || "";
 
-            for (const base of ["./src/plugins", "./src/WRATHCORDplugins"]) {
+            for (const base of ["./src/plugins", "./src/werathcordplugins"]) {
                 const fullBase = join(process.cwd(), base);
                 const target = rel ? join(fullBase, rel) : fullBase;
                 for (const candidate of [
@@ -488,15 +488,15 @@ export const commonOpts = {
         "@webpack/common": "./src/webpack/common",
         "@webpack/patcher": "./src/webpack/patchWebpack",
         "@webpack": "./src/webpack/webpack",
-        "@WRATHCORDplugins": "./src/WRATHCORDplugins",
+        "@werathcordplugins": "./src/werathcordplugins",
         "@equicordplugins": "./src/plugins",
-        "@WRATHCORD/types/webpack/common": "./src/webpack/common",
-        "@WRATHCORD/types/webpack": "./src/webpack/webpack",
-        "@WRATHCORD/types/utils": "./src/utils",
-        "@WRATHCORD/types/components": "./src/components",
-        "@WRATHCORD/types/api": "./src/api",
-        "@WRATHCORD/types/plugins": "./src/plugins",
-        "@WRATHCORD/types": "./src",
+        "@werathcord/types/webpack/common": "./src/webpack/common",
+        "@werathcord/types/webpack": "./src/webpack/webpack",
+        "@werathcord/types/utils": "./src/utils",
+        "@werathcord/types/components": "./src/components",
+        "@werathcord/types/api": "./src/api",
+        "@werathcord/types/plugins": "./src/plugins",
+        "@werathcord/types": "./src",
         "@equicord/types/webpack/common": "./src/webpack/common",
         "@equicord/types/webpack": "./src/webpack/webpack",
         "@equicord/types/utils": "./src/utils",

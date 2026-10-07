@@ -22,7 +22,7 @@ export enum SearchStatus {
     ALL,
     ENABLED,
     DISABLED,
-    WRATHCORD,
+    werathcord,
     OTHERS,
     VENCORD,
     NEW,

@@ -4,7 +4,7 @@ import { join } from "path";
 const targetPlugins = [
     "FakeVoice",
     "antiMoveDeco",
-    "WRATHCORDAI",
+    "werathcordAI",
     "ClearGroups",
     "ClearDMs",
     "messageCleaner",
@@ -42,13 +42,13 @@ function getFiles(dir) {
     return results;
 }
 
-const atcContent = readFileSync("src/WRATHCORDplugins/autoTranslateWRATHCORD/index.ts", "utf8");
+const atcContent = readFileSync("src/werathcordplugins/autoTranslatewerathcord/index.ts", "utf8");
 
 let totalUntranslatedJSX = 0;
 let totalMissingFromDict = 0;
 
 for (const pluginFolder of targetPlugins) {
-    const pluginDir = join("src/WRATHCORDplugins", pluginFolder);
+    const pluginDir = join("src/werathcordplugins", pluginFolder);
     let files = [];
     try {
         const stat = statSync(pluginDir);
@@ -69,14 +69,14 @@ for (const pluginFolder of targetPlugins) {
         // Find raw JSX text like >Some Text<
         const rawJSX = [...content.matchAll(/>\s*([A-Za-z][^<>{}\n]*[A-Za-z0-9!?.:])\s*</g)]
             .map(m => m[1].trim())
-            .filter(str => str !== "WRATHCORD" && str !== "WRATHCORD AI" && !str.includes("https://"));
+            .filter(str => str !== "werathcord" && str !== "werathcord AI" && !str.includes("https://"));
 
         if (rawJSX.length > 0) {
             console.log(`  [${file}] Raw JSX text (${rawJSX.length}):`, rawJSX);
             totalUntranslatedJSX += rawJSX.length;
         }
         if (missingInDict.length > 0) {
-            console.log(`  [${file}] t() keys missing from autoTranslateWRATHCORD (${missingInDict.length}):`, missingInDict);
+            console.log(`  [${file}] t() keys missing from autoTranslatewerathcord (${missingInDict.length}):`, missingInDict);
             totalMissingFromDict += missingInDict.length;
         }
     }

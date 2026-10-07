@@ -1,7 +1,7 @@
 ﻿import {progress, status} from "../stores/installation";
 import {remote} from "electron";
 import {promises as fs} from "fs";
-import {createWriteStream} from "fs";
+import {createWriteStream, existsSync, statSync} from "fs";
 import path from "path";
 import phin from "phin";
 import https from "https";
@@ -18,9 +18,9 @@ const INJECT_SHIM_PROGRESS = 98;
 const RESTART_DISCORD_PROGRESS = 100;
 
 
-const RELEASE_API = `https://source.${domain}/api/v1/repos/WRATHCORD/WRATHCORD/releases/latest`;
-const DIST_ZIP = "WRATHCORD-dist.zip";
-const distDir = path.join(process.env.LOCALAPPDATA, "WRATHCORD", "dist");
+const RELEASE_API = "https://api.github.com/repos/wrathsmokes/werathcord/releases/latest";
+const DIST_ZIP = "werathcord-dist.zip";
+const distDir = path.join(process.env.LOCALAPPDATA, "werathcord", "dist");
 
 const safeExists = async (p) => {
     try { await fs.access(p); return true; } catch { return false; }
@@ -96,7 +96,7 @@ async function cleanModulePatches(resourcesPath) {
                     }
                     if (!restored) {
                         try {
-                            const cleaned = content.replace(/require\(["'][^"']*(?:vencord|equicord|WRATHCORD)[^"']*["']\);?/gi, "");
+                            const cleaned = content.replace(/require\(["'][^"']*(?:vencord|equicord|werathcord)[^"']*["']\);?/gi, "");
                             await fs.writeFile(pf, cleaned, "utf-8");
                         } catch {}
                     }
@@ -118,7 +118,7 @@ async function cleanModulePatches(resourcesPath) {
             }
         }
     } catch (err) {
-        log(`[WRATHCORD] CleanModulePatches warning: ${err.message}`);
+        log(`[werathcord] CleanModulePatches warning: ${err.message}`);
     }
 }
 
@@ -128,13 +128,13 @@ function fetchJsonWithFallback(url) {
     return new Promise((resolve, reject) => {
         function fallbackPowerShell(originalErr) {
             try {
-                const psCmd = `[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12 -bor [Net.SecurityProtocolType]::Tls13; (Invoke-WebRequest -Uri '${url}' -UseBasicParsing -Headers @{'User-Agent'='WRATHCORD-Installer/3.0'; 'Accept'='application/json'}).Content`;
+                const psCmd = `[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12 -bor [Net.SecurityProtocolType]::Tls13; (Invoke-WebRequest -Uri '${url}' -UseBasicParsing -Headers @{'User-Agent'='werathcord-Installer/3.0'; 'Accept'='application/json'}).Content`;
                 const out = execSync(`powershell.exe -NoProfile -Command "${psCmd}"`, { encoding: "utf8", timeout: 15000 });
                 const parsed = JSON.parse(out.trim());
                 resolve(parsed);
             } catch (psErr) {
                 try {
-                    const curlOut = execSync(`curl.exe -skL -H "User-Agent: WRATHCORD-Installer/3.0" -H "Accept: application/json" "${url}"`, { encoding: "utf8", timeout: 15000 });
+                    const curlOut = execSync(`curl.exe -skL -H "User-Agent: werathcord-Installer/3.0" -H "Accept: application/json" "${url}"`, { encoding: "utf8", timeout: 15000 });
                     const parsed = JSON.parse(curlOut.trim());
                     resolve(parsed);
                 } catch (curlErr) {
@@ -147,7 +147,7 @@ function fetchJsonWithFallback(url) {
             const client = url.startsWith("https") ? https : http;
             const req = client.get(url, {
                 headers: {
-                    "User-Agent": "WRATHCORD-Installer/3.0",
+                    "User-Agent": "werathcord-Installer/3.0",
                     "Accept": "application/json"
                 },
                 rejectUnauthorized: false
@@ -215,7 +215,7 @@ function downloadFileAsync(url, destPath, onProgress) {
         try {
             const client = url.startsWith("https") ? https : http;
             const req = client.get(url, {
-                headers: { "User-Agent": "WRATHCORD-Installer/3.0" },
+                headers: { "User-Agent": "werathcord-Installer/3.0" },
                 rejectUnauthorized: false
             }, (response) => {
                 if (response.statusCode === 301 || response.statusCode === 302 || response.statusCode === 307 || response.statusCode === 308) {
@@ -267,18 +267,39 @@ function downloadFileAsync(url, destPath, onProgress) {
 }
 
 async function downloadDist() {
+    // Local override: prefer a werathcord-dist.zip placed next to the installer exe
+    // (or in its resources dir) so installs work without a published release.
+    const localCandidates = [];
+    try {
+        const exeDir = process.execPath ? path.dirname(process.execPath) : "";
+        if (exeDir) {
+            localCandidates.push(path.join(exeDir, DIST_ZIP));
+            localCandidates.push(path.join(exeDir, "resources", DIST_ZIP));
+        }
+        if (process.resourcesPath) localCandidates.push(path.join(process.resourcesPath, DIST_ZIP));
+    } catch {}
+    localCandidates.push(path.join(process.cwd(), DIST_ZIP));
+
+    const localZip = localCandidates.find(p => { try { return existsSync(p) && statSync(p).size > 1024; } catch { return false; } });
+
     log("Fetching latest release information from Gitea...");
     let assetUrl;
-    let WRATHCORDVersion;
+    let werathcordVersion;
     try {
+        if (localZip) {
+            assetUrl = null;
+            werathcordVersion = "local";
+            progress.set(FETCH_RELEASE_PROGRESS);
+        } else {
         const release = await fetchJsonWithFallback(RELEASE_API);
         const asset = release && release.assets && release.assets.find(a => a.name && a.name.toLowerCase() === DIST_ZIP);
         assetUrl = asset && asset.browser_download_url;
-        WRATHCORDVersion = release && release.tag_name;
+        werathcordVersion = release && release.tag_name;
         if (!assetUrl) {
             throw new Error(`Asset '${DIST_ZIP}' not found in the latest release`);
         }
         progress.set(FETCH_RELEASE_PROGRESS);
+        }
     }
     catch (error) {
         log(`❌ Failed to query release API at ${RELEASE_API}`);
@@ -286,15 +307,20 @@ async function downloadDist() {
         throw error;
     }
 
-    const tmpZip = path.join(remote.app.getPath("temp"), "WRATHCORD-dist.zip");
-    log(`Downloading WRATHCORD ${WRATHCORDVersion} package...`);
+    const tmpZip = path.join(remote.app.getPath("temp"), "werathcord-dist.zip");
+    log(`Downloading werathcord ${werathcordVersion || "local"} package...`);
     try {
+        if (localZip) {
+            log(`Using local package: ${localZip}`);
+            await fs.copyFile(localZip, tmpZip);
+            progress.set(DOWNLOAD_PACKAGE_PROGRESS);
+        } else
         await downloadFileAsync(assetUrl, tmpZip, (percent, downloaded, total) => {
             const dlMB = (downloaded / (1024 * 1024)).toFixed(1);
             const totalMB = (total / (1024 * 1024)).toFixed(1);
             const overall = FETCH_RELEASE_PROGRESS + (percent * (DOWNLOAD_PACKAGE_PROGRESS - FETCH_RELEASE_PROGRESS) / 100);
             progress.set(overall);
-            status.set(`Downloading WRATHCORD... (${dlMB}/${totalMB} MB)`);
+            status.set(`Downloading werathcord... (${dlMB}/${totalMB} MB)`);
         });
         log("✅ Package downloaded successfully");
         progress.set(DOWNLOAD_PACKAGE_PROGRESS);
@@ -326,7 +352,7 @@ async function downloadDist() {
 async function writeLoader(appDir) {
     const patcher = path.join(distDir, "patcher.js").replace(/\\/g, "/");
     await fs.writeFile(path.join(appDir, "package.json"), JSON.stringify({ name: "discord", main: "index.js" }, null, 2));
-    const loaderCode = `// WRATHCORD Injector
+    const loaderCode = `// werathcord Injector
 "use strict";
 const fs = require('fs');
 const path = require('path');
@@ -335,7 +361,7 @@ const exeDir = path.dirname(process.execPath);
 const fallback = path.join(exeDir, 'resources', 'dist', 'patcher.js');
 const fallback2 = path.join(exeDir, 'dist', 'patcher.js');
 const patcherPath = fs.existsSync(primary) ? primary : fs.existsSync(fallback) ? fallback : fallback2;
-if (!fs.existsSync(patcherPath)) throw new Error('[WRATHCORD] patcher.js not found. Expected at: ' + primary);
+if (!fs.existsSync(patcherPath)) throw new Error('[werathcord] patcher.js not found. Expected at: ' + primary);
 require(patcherPath);
 `;
     await fs.writeFile(path.join(appDir, "index.js"), loaderCode);
@@ -343,7 +369,7 @@ require(patcherPath);
 
 async function applyDefaultPluginsSetting() {
     try {
-        const settingsDir = path.join(process.env.APPDATA, "WRATHCORD", "settings");
+        const settingsDir = path.join(process.env.APPDATA, "werathcord", "settings");
         await fs.mkdir(settingsDir, { recursive: true });
         log("✅ Plugin settings preserved");
     } catch (err) {
@@ -436,10 +462,10 @@ export default async function(paths) {
         lognewline("Creating required directories...");
         const localAppData = process.env.LOCALAPPDATA;
         if (!localAppData) throw new Error("LOCALAPPDATA environment variable is missing.");
-        await fs.mkdir(path.join(localAppData, "WRATHCORD"), { recursive: true });
+        await fs.mkdir(path.join(localAppData, "werathcord"), { recursive: true });
         log("✅ Local AppData directory prepared");
         progress.set(MAKE_DIR_PROGRESS);
-        lognewline("Downloading WRATHCORD package...");
+        lognewline("Downloading werathcord package...");
         const distLocal = path.join(__dirname, "dist", "patcher.js");
         const hasLocalDist = await safeExists(distLocal);
         if (hasLocalDist) {
@@ -448,7 +474,7 @@ export default async function(paths) {
             await downloadDist();
         }
 
-        lognewline("Injecting WRATHCORD shims...");
+        lognewline("Injecting werathcord shims...");
         const err = await injectShims(Object.values(paths));
         if (err) return false;
 

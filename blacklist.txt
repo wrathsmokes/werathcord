@@ -4,14 +4,14 @@ wordBomb
 multiInstance
 soundcloudPlayer
 youtubePlayer
-autoTranslateWRATHCORD
+autoTranslatewerathcord
 fixScreenshare
 mullvadDNS
 streamProof
 voiceDictation
-WRATHCORDUpdater
+werathcordUpdater
 stereoInstaller
 AutoCallRecorder
 PrivateBrowser
 Qxchat
-WRATHCORDnews
+werathcordnews

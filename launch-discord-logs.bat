@@ -1,10 +1,10 @@
 ﻿@echo off
 setlocal enabledelayedexpansion
-title WRATHCORD - Discord Log Viewer
+title werathcord - Discord Log Viewer
 color 0A
 
 echo ================================================
-echo  WRATHCORD - Discord Log Viewer
+echo  werathcord - Discord Log Viewer
 echo ================================================
 echo.
 

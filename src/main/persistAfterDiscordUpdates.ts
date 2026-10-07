@@ -1,5 +1,5 @@
 ﻿/*
- * WRATHCORD, a Discord client mod
+ * werathcord, a Discord client mod
  * Copyright (c) 2026 Vendicated and contributors
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
@@ -21,11 +21,11 @@ function patchLatest() {
     try {
         const stale = findStaleSibling(dirname(process.execPath));
         if (stale) {
-            console.log("[WRATHCORD] Detected newer Discord host version at:", stale, "— applying patch now");
+            console.log("[werathcord] Detected newer Discord host version at:", stale, "— applying patch now");
             patchResourcesDir(stale, join(__dirname, "patcher.js"));
         }
     } catch (err) {
-        console.error("[WRATHCORD] Failed to repatch latest host update:", err);
+        console.error("[werathcord] Failed to repatch latest host update:", err);
     }
 }
 
@@ -46,7 +46,7 @@ if (process.platform === "win32" || process.platform === "linux") {
             },
         });
     } catch (err) {
-        console.error("[WRATHCORD] Failed to proxy EventEmitter for host updates:", err);
+        console.error("[werathcord] Failed to proxy EventEmitter for host updates:", err);
     }
 
     // 3. Periodic check every 3 minutes for background-downloaded updates

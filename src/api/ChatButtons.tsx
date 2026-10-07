@@ -111,14 +111,14 @@ function VencordChatBarButtons(props: ChatBarProps) {
         const listener = () => forceUpdate(n => n + 1);
         addStealthListener(listener);
         addCompactListener(listener);
-        window.addEventListener("WRATHCORD-stealth-change", listener);
-        window.addEventListener("WRATHCORD-compact-change", listener);
+        window.addEventListener("werathcord-stealth-change", listener);
+        window.addEventListener("werathcord-compact-change", listener);
         backpackListeners.add(listener);
         return () => {
             removeStealthListener(listener);
             removeCompactListener(listener);
-            window.removeEventListener("WRATHCORD-stealth-change", listener);
-            window.removeEventListener("WRATHCORD-compact-change", listener);
+            window.removeEventListener("werathcord-stealth-change", listener);
+            window.removeEventListener("werathcord-compact-change", listener);
             backpackListeners.delete(listener);
         };
     }, []);
@@ -259,10 +259,10 @@ function CompactChatBarToggle({ chatBarProps }: any) {
     useEffect(() => {
         const listener = () => forceUpdate(n => n + 1);
         addCompactListener(listener);
-        window.addEventListener("WRATHCORD-compact-change", listener);
+        window.addEventListener("werathcord-compact-change", listener);
         return () => {
             removeCompactListener(listener);
-            window.removeEventListener("WRATHCORD-compact-change", listener);
+            window.removeEventListener("werathcord-compact-change", listener);
         };
     }, []);
 

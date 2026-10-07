@@ -1,5 +1,5 @@
 ﻿/*
- * WRATHCORD, a Discord client mod
+ * werathcord, a Discord client mod
  * Copyright (c) 2026 Vendicated and contributors
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
@@ -32,7 +32,7 @@ const safeRemove = async (p) => {
 
 async function shouldAutoRestart() {
     try {
-        const prefsPath = path.join(process.env.APPDATA, "WRATHCORD", "settings", "installer-prefs.json");
+        const prefsPath = path.join(process.env.APPDATA, "werathcord", "settings", "installer-prefs.json");
         const raw = JSON.parse(await fs.readFile(prefsPath, "utf-8"));
         return raw.autoRestart !== false;
     } catch { return true; }
@@ -52,7 +52,7 @@ async function isLoaderAsar(appAsarPath, stat) {
         if (
             content.includes("equicord") ||
             content.includes("vencord") ||
-            content.includes("WRATHCORD") ||
+            content.includes("werathcord") ||
             content.includes("openasar") ||
             (content.includes("require(") && content.includes("package.json"))
         ) {
@@ -178,7 +178,7 @@ async function cleanModulePatches(resPath) {
                     }
                     if (!restored) {
                         try {
-                            const cleaned = content.replace(/require\(["'][^"']*(?:vencord|equicord|WRATHCORD)[^"']*["']\);?/gi, "");
+                            const cleaned = content.replace(/require\(["'][^"']*(?:vencord|equicord|werathcord)[^"']*["']\);?/gi, "");
                             await fs.writeFile(pf, cleaned, "utf-8");
                         } catch {}
                     }

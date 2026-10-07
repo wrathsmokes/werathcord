@@ -1,7 +1,7 @@
 ﻿import { readdirSync, readFileSync, statSync, writeFileSync } from "fs";
 import { join } from "path";
 
-const targetDirs = ["src/WRATHCORDplugins", "src/components", "src/plugins", "src/api"];
+const targetDirs = ["src/werathcordplugins", "src/components", "src/plugins", "src/api"];
 
 function getFiles(dir) {
     let results = [];
@@ -26,7 +26,7 @@ function isRealText(str) {
     if (!str || typeof str !== "string") return false;
     str = str.trim();
     if (str.length < 2) return false;
-    if (str === "WRATHCORD" || str === "WRATHCORD AI") return false;
+    if (str === "werathcord" || str === "werathcord AI") return false;
     if (str.startsWith("http://") || str.startsWith("https://")) return false;
     if (/^[\d.,:\-_\/\\()=?>!#%&*+]+$/.test(str)) return false;
     if (str.includes("Promise") || str.includes("Promise<") || str.includes("=>") || str.includes("className")) return false;
@@ -40,7 +40,7 @@ const extractedStrings = new Set();
 for (const dir of targetDirs) {
     const files = getFiles(dir);
     for (const file of files) {
-        if (file.includes("autoTranslateWRATHCORD")) continue;
+        if (file.includes("autoTranslatewerathcord")) continue;
         const content = readFileSync(file, "utf8");
 
         // 1. t("...") and tPlugin("...")

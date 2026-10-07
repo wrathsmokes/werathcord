@@ -1,5 +1,5 @@
 ﻿/*
- * WRATHCORD, a Discord client mod
+ * werathcord, a Discord client mod
  * Copyright (c) 2026 Vendicated and contributors
  * SPDX-License-Identifier: GPL-3.0-or-later
  *
@@ -9,7 +9,7 @@
 
 /**
  * Maps a plugin's `name` to the basename (without extension) of its tutorial
- * video in https://source.WRATHCORD.st/WRATHCORD/WRATHCORD-tutorials/src/branch/main/videos
+ * video in https://github.com/wrathsmokes/werathcord-tutorials/src/branch/main/videos
  */
 export const TUTORIAL_VIDEOS: ReadonlyMap<string, string> = new Map([
     ["Abbreviation", "Abbreviation"],
@@ -73,7 +73,7 @@ export const TUTORIAL_VIDEOS: ReadonlyMap<string, string> = new Map([
     ["MessageLoggerEnhanced", "MessageLoggerEnhanced"],
     ["MultiInstance", "MultiInstance"],
     ["MuteAllServers", "MuteAllServers"],
-    ["WRATHCORDAI", "WRATHCORDai"],
+    ["werathcordAI", "werathcordai"],
     ["NoCaps", "NoCaps"],
     ["passcodeLock", "passcodeLock"],
     ["PlatformIndicators", "PlatformIndicators"],

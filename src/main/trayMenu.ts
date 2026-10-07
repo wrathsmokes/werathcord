@@ -91,21 +91,21 @@ function openAboutWindow() {
     });
 }
 
-function createWRATHCORDMenuItems(): MenuItemConstructorOptions[] {
+function createwerathcordMenuItems(): MenuItemConstructorOptions[] {
     return [
         {
-            label: "WRATHCORD",
+            label: "werathcord",
             submenu: [
                 {
-                    label: "About WRATHCORD",
+                    label: "About werathcord",
                     click: () => openAboutWindow()
                 },
                 {
-                    label: cachedUpdateAvailable ? "Update WRATHCORD" : "Check for Updates",
+                    label: cachedUpdateAvailable ? "Update werathcord" : "Check for Updates",
                     click: () => sendToRenderer(IpcEvents.TRAY_CHECK_UPDATES)
                 },
                 {
-                    label: "Repair WRATHCORD",
+                    label: "Repair werathcord",
                     click: () => sendToRenderer(IpcEvents.TRAY_REPAIR)
                 },
                 { type: "separator" },
@@ -124,5 +124,5 @@ function createWRATHCORDMenuItems(): MenuItemConstructorOptions[] {
 }
 
 export function patchTrayMenu(): void {
-    // No longer patching tray menu — WRATHCORD manages its own tray in patcher.ts
+    // No longer patching tray menu — werathcord manages its own tray in patcher.ts
 }

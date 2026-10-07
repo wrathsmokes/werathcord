@@ -1,5 +1,5 @@
 ﻿/*
- * WRATHCORD, a Discord client mod
+ * werathcord, a Discord client mod
  * Copyright (c) 2026 Vendicated and contributors
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
@@ -9,7 +9,7 @@ import { Plugin } from "@utils/types";
 import { React } from "@webpack/common";
 
 const PLUGIN_ICON_NAMES: Record<string, string[]> = {
-    // WRATHCORD & Core Plugins
+    // werathcord & Core Plugins
     AutoCallRecorder: ["PhoneCallIcon", "MicrophoneIcon", "VoiceIcon", "AudioIcon"],
     FakeNitro: ["NitroWheelIcon", "SparklesIcon", "GiftIcon", "NitroIcon"],
     ServerCloner: ["CopyIcon", "DuplicateIcon", "ServerIcon", "FolderIcon", "GuildIcon"],

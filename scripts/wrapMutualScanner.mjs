@@ -1,11 +1,11 @@
 ﻿import { readFileSync, writeFileSync } from "fs";
 
-const file = "src/WRATHCORDplugins/mutualScanner/MutualScannerTab.tsx";
+const file = "src/werathcordplugins/mutualScanner/MutualScannerTab.tsx";
 let content = readFileSync(file, "utf8");
 
 // Add import if not present
-if (!content.includes('from "../autoTranslateWRATHCORD"')) {
-    content = 'import { t } from "../autoTranslateWRATHCORD";\n' + content;
+if (!content.includes('from "../autoTranslatewerathcord"')) {
+    content = 'import { t } from "../autoTranslatewerathcord";\n' + content;
 }
 
 const stringsToWrap = [

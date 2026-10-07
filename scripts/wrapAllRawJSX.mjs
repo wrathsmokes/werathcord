@@ -2,7 +2,7 @@
 import { join, relative } from "path";
 
 const targetPlugins = [
-    "FakeVoice", "antiMoveDeco", "WRATHCORDAI", "ClearGroups", "ClearDMs", "messageCleaner",
+    "FakeVoice", "antiMoveDeco", "werathcordAI", "ClearGroups", "ClearDMs", "messageCleaner",
     "leaveAllServers", "muteAllServers", "serverCloner", "silentEdit.tsx", "silentDelete",
     "showHiddenThings", "previewMessage", "passcodeLock", "channelWallpaper", "DynamicIslande",
     "fakeFriends", "lastSeen", "pinDms", "reverseImageSearch", "mutualScanner",
@@ -36,7 +36,7 @@ function isRealText(str) {
     if (!str || typeof str !== "string") return false;
     str = str.trim();
     if (str.length < 2) return false;
-    if (str === "WRATHCORD" || str === "WRATHCORD AI") return false;
+    if (str === "werathcord" || str === "werathcord AI") return false;
     if (str.startsWith("http://") || str.startsWith("https://")) return false;
     if (/^[\d.,:\-_\/\\()=?>!#%&*+]+$/.test(str)) return false;
     if (str.includes("Promise") || str.includes("Promise<") || str.includes("=>") || str.includes("className")) return false;
@@ -48,7 +48,7 @@ function isRealText(str) {
 let modifiedFiles = 0;
 
 for (const pluginFolder of targetPlugins) {
-    const pluginPath = join("src/WRATHCORDplugins", pluginFolder);
+    const pluginPath = join("src/werathcordplugins", pluginFolder);
     const files = getFiles(pluginPath);
 
     for (const file of files) {
@@ -61,10 +61,10 @@ for (const pluginFolder of targetPlugins) {
 
         if (validRawJSX.length > 0) {
             // Check import
-            if (!content.includes('autoTranslateWRATHCORD')) {
-                // Find relative path to autoTranslateWRATHCORD
-                const depth = file.split(/[/\\]/).length - file.split(/[/\\]/).indexOf("WRATHCORDplugins") - 2;
-                const relPath = "../".repeat(Math.max(1, depth)) + "autoTranslateWRATHCORD";
+            if (!content.includes('autoTranslatewerathcord')) {
+                // Find relative path to autoTranslatewerathcord
+                const depth = file.split(/[/\\]/).length - file.split(/[/\\]/).indexOf("werathcordplugins") - 2;
+                const relPath = "../".repeat(Math.max(1, depth)) + "autoTranslatewerathcord";
                 content = `import { t } from "${relPath}";\n` + content;
             }
 

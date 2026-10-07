@@ -91,9 +91,9 @@ function UpdaterTab() {
 
     return (
         <SettingsTab>
-            <Heading className={Margins.top16}>{t("WRATHCORD Updater")}</Heading>
+            <Heading className={Margins.top16}>{t("werathcord Updater")}</Heading>
             <Paragraph className={Margins.bottom20}>
-                {t("Check for new versions of WRATHCORD. Updates can be installed automatically.")}
+                {t("Check for new versions of werathcord. Updates can be installed automatically.")}
             </Paragraph>
 
             {/* Version actuelle */}

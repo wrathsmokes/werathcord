@@ -37,8 +37,8 @@ const KNOWN_PLUGINS_KEY = "EquicordChangelog_KnownPlugins";
 const KNOWN_SETTINGS_KEY = "EquicordChangelog_KnownSettings";
 const LAST_REPO_CHECK_KEY = "EquicordChangelog_LastRepoCheck";
 const GITEA_API_BASE = `https://source.${domain}/api/v1/repos`;
-const WRATHCORD_RELEASES_REPO = "WRATHCORD/WRATHCORD";
-const WRATHCORD_REPO_URL = `https://source.${domain}/${WRATHCORD_RELEASES_REPO}`;
+const werathcord_RELEASES_REPO = "werathcord/werathcord";
+const werathcord_REPO_URL = `https://source.${domain}/${werathcord_RELEASES_REPO}`;
 
 type KnownPluginSettingsMap = Map<string, Set<string>>;
 
@@ -392,13 +392,13 @@ export async function getNewSettings(): Promise<Map<string, string[]>> {
     return newSettings;
 }
 
-export { WRATHCORD_REPO_URL };
+export { werathcord_REPO_URL };
 
 export async function getCommitsSinceLastSeen(
     repoUrl: string,
 ): Promise<ChangelogEntry[]> {
-    // Toujours utiliser le repo WRATHCORD, ignorer le repoUrl d'Equicord
-    return fetchCommitsBetween(WRATHCORD_RELEASES_REPO, "HEAD~10", "HEAD").catch(() => []);
+    // Toujours utiliser le repo werathcord, ignorer le repoUrl d'Equicord
+    return fetchCommitsBetween(werathcord_RELEASES_REPO, "HEAD~10", "HEAD").catch(() => []);
 }
 
 export async function updateKnownSettings(): Promise<void> {

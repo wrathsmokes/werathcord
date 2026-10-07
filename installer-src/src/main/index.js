@@ -6,13 +6,13 @@ import URL from "url";
 app.disableHardwareAcceleration();
 
 const isDevelopment = process.env.NODE_ENV !== "production";
-app.name = "WRATHCORD";
+app.name = "werathcord";
 
 let mainWindow;
 
 function createMainWindow() {
     const window = new BrowserWindow({
-        title: "WRATHCORD Installer",
+        title: "werathcord Installer",
         frame: false,
         width: 550,
         height: 350,

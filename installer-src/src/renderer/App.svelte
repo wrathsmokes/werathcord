@@ -6,11 +6,12 @@
     import Footer from "./common/Footer.svelte";
     import Router from "svelte-spa-router";
     import routes from "./routes";
+    import installerBg from "./background.jpg";
 </script>
 
 <div class="main-window platform-{process.platform || "win32"}">
     <Titlebar macButtons={process.platform === "darwin"} />
-    <main class="installer-body">
+    <main class="installer-body" style="background-image: url('{installerBg}'); background-size: cover; background-position: center;">
         <div class="sections">
             <Router {routes} />
         </div>

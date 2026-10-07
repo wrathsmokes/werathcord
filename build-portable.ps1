@@ -42,4 +42,4 @@ Write-Host "=== ETAPE 6 : Creation portable exe ===" -ForegroundColor Cyan
 npx electron-builder --config electron-builder.config.cjs --win portable --x64 --prepackaged release\win-unpacked
 
 Write-Host "=== DONE ===" -ForegroundColor Green
-Write-Host "Fichier : release\WRATHCORD-1.14.5-portable.exe" -ForegroundColor Green
+Write-Host "Fichier : release\werathcord-1.14.5-portable.exe" -ForegroundColor Green

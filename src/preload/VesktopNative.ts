@@ -57,11 +57,11 @@ export const VesktopNative = {
             ipcRenderer.on(IpcEvents.VESKTOP_RENDERER_CSS_UPDATE, (_e, newCss: string) => cb(newCss));
         }
     },
-    WRATHCORD: {
+    werathcord: {
         relaunch: () => invoke<void>(IpcEvents.RELAUNCH_APP),
         /** Fetch a URL via main process Electron net.fetch to bypass renderer CORS restrictions. Returns { ok, status, data } or null. */
         netFetch: (url: string, opts?: { method?: string; headers?: Record<string, string>; body?: string; noCache?: boolean; } | boolean) =>
-            invoke<{ ok: boolean; status: number; data: unknown; } | null>(IpcEvents.WRATHCORD_NET_FETCH, url, opts),
+            invoke<{ ok: boolean; status: number; data: unknown; } | null>(IpcEvents.werathcord_NET_FETCH, url, opts),
     },
     autostart: {
         isEnabled: () => sendSync<boolean>(IpcEvents.AUTOSTART_ENABLED),

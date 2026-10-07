@@ -1,7 +1,7 @@
 ﻿const fs = require("fs");
 const path = require("path");
 const os = require("os");
-const target = path.join(os.homedir(), "Documents", "WRATHCORD", "userplugins");
+const target = path.join(os.homedir(), "Documents", "werathcord", "userplugins");
 const link = path.join(__dirname, "..", "src", "userplugins");
 
 if (!fs.existsSync(target)) {

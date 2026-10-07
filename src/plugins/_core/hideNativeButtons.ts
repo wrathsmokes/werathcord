@@ -8,11 +8,11 @@ import { Devs } from "@utils/constants";
 import definePlugin from "@utils/types";
 import { Settings } from "@api/Settings";
 
-const ALWAYS_HIDE_STYLE_ID = "WRATHCORD-always-hide-native-buttons";
-const INBOX_HIDE_STYLE_ID = "WRATHCORD-hide-inbox-button";
+const ALWAYS_HIDE_STYLE_ID = "werathcord-always-hide-native-buttons";
+const INBOX_HIDE_STYLE_ID = "werathcord-hide-inbox-button";
 
 const ALWAYS_HIDE_CSS = `
-/* ── WRATHCORD : suppression permanente des boutons natifs superflus ── */
+/* ── werathcord : suppression permanente des boutons natifs superflus ── */
 [aria-label="Open Logs"],
 [aria-label="Help"],
 [aria-label="Aide"],
@@ -42,7 +42,7 @@ div[role="button"][aria-label="DevTools"] {
 `;
 
 const INBOX_HIDE_CSS = `
-/* ── WRATHCORD : masquage optionnel du bouton Boîte de réception / Inbox ── */
+/* ── werathcord : masquage optionnel du bouton Boîte de réception / Inbox ── */
 [aria-label="Inbox"],
 [aria-label="Boîte de réception"],
 [aria-label="Bandeja de entrada"],

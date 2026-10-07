@@ -1,5 +1,5 @@
 ﻿/*
- * WRATHCORD, a Discord client mod
+ * werathcord, a Discord client mod
  * Copyright (c) 2026 Vendicated and contributors
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
@@ -156,7 +156,7 @@ function runPowershellScript(psScript: string): Promise<void> {
     const { writeFileSync, unlinkSync, mkdtempSync, rmSync } = require("fs");
     const { join } = require("path");
     const { tmpdir } = require("os");
-    const tempDir = mkdtempSync(join(tmpdir(), "WRATHCORD-ps-"));
+    const tempDir = mkdtempSync(join(tmpdir(), "werathcord-ps-"));
     const tempFile = join(tempDir, "script.ps1");
     return new Promise<void>((resolve, reject) => {
         try {
@@ -327,7 +327,7 @@ ipcMain.handle(IpcEvents.WORLD_BOMB_SEQUENCE, async (
     lines.push("} catch { exit 1 }");
 
     const psScript = lines.join("\r\n");
-    const tempDir = mkdtempSync(join(tmpdir(), "WRATHCORD-wbs-"));
+    const tempDir = mkdtempSync(join(tmpdir(), "werathcord-wbs-"));
     const tempFile = join(tempDir, "sequence.ps1");
     try {
         writeFileSync(tempFile, "\uFEFF" + psScript, "utf8");
@@ -1293,7 +1293,7 @@ ipcMain.handle(IpcEvents.OPEN_MONACO_EDITOR, async (event) => {
 
     const monacoSession = session.fromPartition("monaco-editor");
     monacoWin = new BrowserWindow({
-        title: "WRATHCORD QuickCSS Editor",
+        title: "werathcord QuickCSS Editor",
         autoHideMenuBar: true,
         darkTheme: true,
         webPreferences: {
@@ -1447,8 +1447,8 @@ interface NetFetchOptions {
     body?: string;
     noCache?: boolean;
 }
-try { ipcMain.removeHandler(IpcEvents.WRATHCORD_NET_FETCH); } catch {}
-ipcMain.handle(IpcEvents.WRATHCORD_NET_FETCH, async (event, url: string, opts?: NetFetchOptions | boolean) => {
+try { ipcMain.removeHandler(IpcEvents.werathcord_NET_FETCH); } catch {}
+ipcMain.handle(IpcEvents.werathcord_NET_FETCH, async (event, url: string, opts?: NetFetchOptions | boolean) => {
     if (!validateSender(event)) throw new Error("Unauthorized IPC invocation");
     const { net } = await import("electron");
     // Support legacy boolean noCache arg as well as new options object
@@ -1486,9 +1486,9 @@ ipcMain.handle(IpcEvents.RELAUNCH_APP, async (event) => {
     app.exit(0);
 });
 
-const OFFICIAL_UPDATE_URL = `https://git.${domain}/WRATHCORD/WRATHCORD/releases/download/latest/WRATHCORD-Installer.exe`;
+const OFFICIAL_UPDATE_URL = `https://git.${domain}/werathcord/werathcord/releases/download/latest/werathcord-Installer.exe`;
 
-ipcMain.handle(IpcEvents.WRATHCORD_DOWNLOAD_AND_RUN, async (event, url: string) => {
+ipcMain.handle(IpcEvents.werathcord_DOWNLOAD_AND_RUN, async (event, url: string) => {
     if (!validateSender(event)) throw new Error("Unauthorized IPC invocation");
     if (url !== OFFICIAL_UPDATE_URL) {
         throw new Error("Unauthorized update URL");
@@ -1500,7 +1500,7 @@ ipcMain.handle(IpcEvents.WRATHCORD_DOWNLOAD_AND_RUN, async (event, url: string) 
     const fs = require("original-fs");
     const crypto = require("crypto");
 
-    const tmpPath = path.join(os.tmpdir(), "WRATHCORDUpdate-Setup.exe");
+    const tmpPath = path.join(os.tmpdir(), "werathcordUpdate-Setup.exe");
 
     await new Promise<void>((resolve, reject) => {
         const req = https.get(url, (res: any) => {
@@ -1534,8 +1534,8 @@ ipcMain.handle(IpcEvents.WRATHCORD_DOWNLOAD_AND_RUN, async (event, url: string) 
         type: "info",
         buttons: ["Install update", "Cancel"],
         defaultId: 0,
-        title: "WRATHCORD Update",
-        message: "A WRATHCORD update is available.",
+        title: "werathcord Update",
+        message: "A werathcord update is available.",
         detail: "Do you want to install the update now?"
     });
     if (response === 1) {
@@ -1573,7 +1573,7 @@ ipcMain.handle(IpcEvents.INSTALL_VB_CABLE, async (event) => {
     const fs = require("fs");
 
     const zipUrl = "https://download.vb-audio.com/Download_Html/VBCABLE_Setup.zip";
-    const tmpDir = path.join(os.tmpdir(), "WRATHCORD-VBCable");
+    const tmpDir = path.join(os.tmpdir(), "werathcord-VBCable");
     const tmpZip = path.join(os.tmpdir(), "VBCable_Setup.zip");
 
     try { if (fs.existsSync(tmpDir)) fs.rmSync(tmpDir, { recursive: true, force: true }); } catch { }
@@ -1629,7 +1629,7 @@ ipcMain.handle(IpcEvents.INSTALL_VB_CABLE, async (event) => {
 
         return { success: true };
     } catch (err: any) {
-        console.error("[WRATHCORD] VBCable install failed:", err);
+        console.error("[werathcord] VBCable install failed:", err);
         return { success: false, error: "Installation failed: " + (err.message || err) };
     } finally {
         try { fs.unlinkSync(tmpZip); } catch {}

@@ -3,7 +3,7 @@ import path from 'path';
 
 const equiPlugins = 'C:\\Users\\zzafi\\Desktop\\equi\\equicord\\src\\plugins';
 const equiEquiPlugins = 'C:\\Users\\zzafi\\Desktop\\equi\\equicord\\src\\equicordplugins';
-const targetPlugins = 'c:\\Users\\zzafi\\Documents\\GitHub\\WRATHCORD\\src\\plugins';
+const targetPlugins = 'c:\\Users\\zzafi\\Documents\\GitHub\\werathcord\\src\\plugins';
 
 const skipDirs = new Set([
     '_core',
@@ -11,8 +11,8 @@ const skipDirs = new Set([
     'messagePeek'
 ]);
 
-if (fs.existsSync('src/WRATHCORDplugins')) {
-    fs.readdirSync('src/WRATHCORDplugins').forEach(p => skipDirs.add(p));
+if (fs.existsSync('src/werathcordplugins')) {
+    fs.readdirSync('src/werathcordplugins').forEach(p => skipDirs.add(p));
 }
 
 function copyDirRecursive(src, dest) {

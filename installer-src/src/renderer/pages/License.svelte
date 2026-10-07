@@ -28,7 +28,7 @@
 
     function readLicenseFile() {
         fs.readFile(path.join(__static, "/license.txt"), (err, data) => {
-            if (err) return licenseText = "See license at https://source.WRATHCORD.st/WRATHCORD/WRATHCORD/src/branch/master/LICENSE";
+            if (err) return licenseText = "See license at https://github.com/wrathsmokes/werathcord/src/branch/master/LICENSE";
             licenseText = data;
         });
     }

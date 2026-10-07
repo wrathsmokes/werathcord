@@ -1,5 +1,5 @@
 ﻿/*
- * WRATHCORD, a Discord client mod
+ * werathcord, a Discord client mod
  * Copyright (c) 2026 Vendicated and contributors
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
@@ -15,7 +15,7 @@ import { patchTrayMenu } from "./trayMenu";
 import { applyPendingUpdateOnStartup } from "./updater/pendingUpdate";
 import { IS_VANILLA } from "./utils/constants";
 
-console.log("[WRATHCORD] Starting up...");
+console.log("[werathcord] Starting up...");
 
 // Our injector file inside app.asar / app/index.js
 const injectorPath = require.main!.filename;
@@ -41,7 +41,7 @@ if (IS_VESKTOP || IS_EQUIBOP) require.main!.filename = join(dirname(injectorPath
 // @ts-expect-error Untyped method
 app.setAppPath(asarPath);
 
-// Apply any staged WRATHCORD updates AFTER the asar path is resolved and set,
+// Apply any staged werathcord updates AFTER the asar path is resolved and set,
 // so that copying new files cannot corrupt the currently-loading module chain.
 applyPendingUpdateOnStartup();
 
@@ -58,7 +58,7 @@ if (!IS_VANILLA) {
         try {
             require("./hostUpdateHook").installHostUpdateHook();
         } catch (err) {
-            console.error("[WRATHCORD] Failed to install host update hook", err);
+            console.error("[werathcord] Failed to install host update hook", err);
         }
     }
 
@@ -166,7 +166,7 @@ if (!IS_VANILLA) {
         s.set("DANGEROUS_ENABLE_DEVTOOLS_ONLY_ENABLE_IF_YOU_KNOW_WHAT_YOURE_DOING", true);
     });
 
-    process.env.DATA_DIR = join(app.getPath("userData"), "..", "WRATHCORD");
+    process.env.DATA_DIR = join(app.getPath("userData"), "..", "werathcord");
 
     // Auto-recover session data if it was accidentally redirected to app/Data
     try {
@@ -187,14 +187,14 @@ if (!IS_VANILLA) {
             try {
                 rmSync(strayDataDir, { recursive: true, force: true });
             } catch { }
-            console.log("[WRATHCORD] Restored session data to official userData directory");
+            console.log("[werathcord] Restored session data to official userData directory");
         }
     } catch (e) {
-        console.error("[WRATHCORD] Session migration failed:", e);
+        console.error("[werathcord] Session migration failed:", e);
     }
 } else {
-    console.log("[WRATHCORD] Running in vanilla mode. Not loading WRATHCORD");
+    console.log("[werathcord] Running in vanilla mode. Not loading werathcord");
 }
 
-console.log("[WRATHCORD] Loading original Discord app.asar");
+console.log("[werathcord] Loading original Discord app.asar");
 require(require.main!.filename);

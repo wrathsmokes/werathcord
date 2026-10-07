@@ -284,17 +284,17 @@
       ],
       "format": "esm"
     },
-    "src/WRATHCORD/shared/IpcEvents.ts": {
+    "src/werathcord/shared/IpcEvents.ts": {
       "bytes": 3540,
       "imports": [],
       "format": "esm"
     },
-    "src/WRATHCORD/shared/utils/text.ts": {
+    "src/werathcord/shared/utils/text.ts": {
       "bytes": 528,
       "imports": [],
       "format": "esm"
     },
-    "src/WRATHCORD/shared/utils/SettingsStore.ts": {
+    "src/werathcord/shared/utils/SettingsStore.ts": {
       "bytes": 5325,
       "imports": [
         {
@@ -305,7 +305,7 @@
       ],
       "format": "esm"
     },
-    "src/WRATHCORD/main/settings.ts": {
+    "src/werathcord/main/settings.ts": {
       "bytes": 1498,
       "imports": [
         {
@@ -319,19 +319,19 @@
           "external": true
         },
         {
-          "path": "src/WRATHCORD/shared/utils/SettingsStore.ts",
+          "path": "src/werathcord/shared/utils/SettingsStore.ts",
           "kind": "import-statement",
           "original": "shared/utils/SettingsStore"
         },
         {
-          "path": "src/WRATHCORD/main/constants.ts",
+          "path": "src/werathcord/main/constants.ts",
           "kind": "import-statement",
           "original": "./constants"
         }
       ],
       "format": "esm"
     },
-    "src/WRATHCORD/main/vencordDir.ts": {
+    "src/werathcord/main/vencordDir.ts": {
       "bytes": 420,
       "imports": [
         {
@@ -347,7 +347,7 @@
       ],
       "format": "esm"
     },
-    "src/WRATHCORD/main/utils/http.ts": {
+    "src/werathcord/main/utils/http.ts": {
       "bytes": 1833,
       "imports": [
         {
@@ -378,7 +378,7 @@
       ],
       "format": "esm"
     },
-    "src/WRATHCORD/main/utils/vencordLoader.ts": {
+    "src/werathcord/main/utils/vencordLoader.ts": {
       "bytes": 1418,
       "imports": [
         {
@@ -392,17 +392,17 @@
           "external": true
         },
         {
-          "path": "src/WRATHCORD/main/constants.ts",
+          "path": "src/werathcord/main/constants.ts",
           "kind": "import-statement",
           "original": "../constants"
         },
         {
-          "path": "src/WRATHCORD/main/vencordDir.ts",
+          "path": "src/werathcord/main/vencordDir.ts",
           "kind": "import-statement",
           "original": "../vencordDir"
         },
         {
-          "path": "src/WRATHCORD/main/utils/http.ts",
+          "path": "src/werathcord/main/utils/http.ts",
           "kind": "import-statement",
           "original": "./http"
         },
@@ -414,11 +414,11 @@
       ],
       "format": "esm"
     },
-    "src/WRATHCORD/shared/paths.ts": {
+    "src/werathcord/shared/paths.ts": {
       "bytes": 429,
       "imports": [
         {
-          "path": "src/WRATHCORD/main/constants.ts",
+          "path": "src/werathcord/main/constants.ts",
           "kind": "import-statement",
           "original": "main/constants"
         },
@@ -430,17 +430,17 @@
       ],
       "format": "esm"
     },
-    "src/WRATHCORD/shared/utils/guards.ts": {
+    "src/werathcord/shared/utils/guards.ts": {
       "bytes": 367,
       "imports": [],
       "format": "esm"
     },
-    "src/WRATHCORD/shared/utils/once.ts": {
+    "src/werathcord/shared/utils/once.ts": {
       "bytes": 522,
       "imports": [],
       "format": "esm"
     },
-    "src/WRATHCORD/main/utils/isPathInDirectory.ts": {
+    "src/werathcord/main/utils/isPathInDirectory.ts": {
       "bytes": 551,
       "imports": [
         {
@@ -451,7 +451,7 @@
       ],
       "format": "esm"
     },
-    "src/WRATHCORD/main/vesktopStatic.ts": {
+    "src/werathcord/main/vesktopStatic.ts": {
       "bytes": 939,
       "imports": [
         {
@@ -470,14 +470,14 @@
           "external": true
         },
         {
-          "path": "src/WRATHCORD/main/utils/isPathInDirectory.ts",
+          "path": "src/werathcord/main/utils/isPathInDirectory.ts",
           "kind": "import-statement",
           "original": "./utils/isPathInDirectory"
         }
       ],
       "format": "esm"
     },
-    "src/WRATHCORD/main/about.ts": {
+    "src/werathcord/main/about.ts": {
       "bytes": 1009,
       "imports": [
         {
@@ -491,24 +491,24 @@
           "external": true
         },
         {
-          "path": "src/WRATHCORD/shared/paths.ts",
+          "path": "src/werathcord/shared/paths.ts",
           "kind": "import-statement",
           "original": "shared/paths"
         },
         {
-          "path": "src/WRATHCORD/main/utils/makeLinksOpenExternally.ts",
+          "path": "src/werathcord/main/utils/makeLinksOpenExternally.ts",
           "kind": "import-statement",
           "original": "./utils/makeLinksOpenExternally"
         },
         {
-          "path": "src/WRATHCORD/main/vesktopStatic.ts",
+          "path": "src/werathcord/main/vesktopStatic.ts",
           "kind": "import-statement",
           "original": "./vesktopStatic"
         }
       ],
       "format": "esm"
     },
-    "src/WRATHCORD/main/dbus.ts": {
+    "src/werathcord/main/dbus.ts": {
       "bytes": 1058,
       "imports": [
         {
@@ -522,14 +522,14 @@
           "external": true
         },
         {
-          "path": "src/WRATHCORD/shared/paths.ts",
+          "path": "src/werathcord/shared/paths.ts",
           "kind": "import-statement",
           "original": "shared/paths"
         }
       ],
       "format": "esm"
     },
-    "src/WRATHCORD/main/events.ts": {
+    "src/werathcord/main/events.ts": {
       "bytes": 797,
       "imports": [
         {
@@ -545,7 +545,7 @@
       ],
       "format": "esm"
     },
-    "src/WRATHCORD/main/appBadge.ts": {
+    "src/werathcord/main/appBadge.ts": {
       "bytes": 2294,
       "imports": [
         {
@@ -559,22 +559,22 @@
           "external": true
         },
         {
-          "path": "src/WRATHCORD/shared/paths.ts",
+          "path": "src/werathcord/shared/paths.ts",
           "kind": "import-statement",
           "original": "shared/paths"
         },
         {
-          "path": "src/WRATHCORD/main/dbus.ts",
+          "path": "src/werathcord/main/dbus.ts",
           "kind": "import-statement",
           "original": "./dbus"
         },
         {
-          "path": "src/WRATHCORD/main/events.ts",
+          "path": "src/werathcord/main/events.ts",
           "kind": "import-statement",
           "original": "./events"
         },
         {
-          "path": "src/WRATHCORD/main/mainWindow.ts",
+          "path": "src/werathcord/main/mainWindow.ts",
           "kind": "import-statement",
           "original": "./mainWindow"
         }
@@ -953,7 +953,7 @@
       ],
       "format": "esm"
     },
-    "src/WRATHCORD/main/arrpc/index.ts": {
+    "src/werathcord/main/arrpc/index.ts": {
       "bytes": 23278,
       "imports": [
         {
@@ -977,12 +977,12 @@
           "external": true
         },
         {
-          "path": "src/WRATHCORD/shared/IpcEvents.ts",
+          "path": "src/werathcord/shared/IpcEvents.ts",
           "kind": "import-statement",
           "original": "shared/IpcEvents"
         },
         {
-          "path": "src/WRATHCORD/shared/paths.ts",
+          "path": "src/werathcord/shared/paths.ts",
           "kind": "import-statement",
           "original": "shared/paths"
         },
@@ -992,19 +992,19 @@
           "original": "ws"
         },
         {
-          "path": "src/WRATHCORD/main/mainWindow.ts",
+          "path": "src/werathcord/main/mainWindow.ts",
           "kind": "import-statement",
           "original": "../mainWindow"
         },
         {
-          "path": "src/WRATHCORD/main/settings.ts",
+          "path": "src/werathcord/main/settings.ts",
           "kind": "import-statement",
           "original": "../settings"
         }
       ],
       "format": "esm"
     },
-    "src/WRATHCORD/main/gnuSpoofing.ts": {
+    "src/werathcord/main/gnuSpoofing.ts": {
       "bytes": 4606,
       "imports": [
         {
@@ -1015,7 +1015,7 @@
       ],
       "format": "esm"
     },
-    "src/WRATHCORD/main/ipcCommands.ts": {
+    "src/werathcord/main/ipcCommands.ts": {
       "bytes": 2227,
       "imports": [
         {
@@ -1029,19 +1029,19 @@
           "external": true
         },
         {
-          "path": "src/WRATHCORD/shared/IpcEvents.ts",
+          "path": "src/werathcord/shared/IpcEvents.ts",
           "kind": "import-statement",
           "original": "shared/IpcEvents"
         },
         {
-          "path": "src/WRATHCORD/main/mainWindow.ts",
+          "path": "src/werathcord/main/mainWindow.ts",
           "kind": "import-statement",
           "original": "./mainWindow"
         }
       ],
       "format": "esm"
     },
-    "src/WRATHCORD/main/keybinds.ts": {
+    "src/werathcord/main/keybinds.ts": {
       "bytes": 2034,
       "imports": [
         {
@@ -1065,24 +1065,24 @@
           "external": true
         },
         {
-          "path": "src/WRATHCORD/shared/IpcEvents.ts",
+          "path": "src/werathcord/shared/IpcEvents.ts",
           "kind": "import-statement",
           "original": "shared/IpcEvents"
         },
         {
-          "path": "src/WRATHCORD/main/mainWindow.ts",
+          "path": "src/werathcord/main/mainWindow.ts",
           "kind": "import-statement",
           "original": "./mainWindow"
         }
       ],
       "format": "esm"
     },
-    "src/WRATHCORD/shared/browserWinProperties.ts": {
+    "src/werathcord/shared/browserWinProperties.ts": {
       "bytes": 427,
       "imports": [],
       "format": "esm"
     },
-    "src/WRATHCORD/main/utils/fileExists.ts": {
+    "src/werathcord/main/utils/fileExists.ts": {
       "bytes": 343,
       "imports": [
         {
@@ -1093,7 +1093,7 @@
       ],
       "format": "esm"
     },
-    "src/WRATHCORD/main/splash.ts": {
+    "src/werathcord/main/splash.ts": {
       "bytes": 3778,
       "imports": [
         {
@@ -1107,32 +1107,32 @@
           "external": true
         },
         {
-          "path": "src/WRATHCORD/shared/browserWinProperties.ts",
+          "path": "src/werathcord/shared/browserWinProperties.ts",
           "kind": "import-statement",
           "original": "shared/browserWinProperties"
         },
         {
-          "path": "src/WRATHCORD/shared/paths.ts",
+          "path": "src/werathcord/shared/paths.ts",
           "kind": "import-statement",
           "original": "shared/paths"
         },
         {
-          "path": "src/WRATHCORD/main/constants.ts",
+          "path": "src/werathcord/main/constants.ts",
           "kind": "import-statement",
           "original": "./constants"
         },
         {
-          "path": "src/WRATHCORD/main/settings.ts",
+          "path": "src/werathcord/main/settings.ts",
           "kind": "import-statement",
           "original": "./settings"
         },
         {
-          "path": "src/WRATHCORD/main/utils/fileExists.ts",
+          "path": "src/werathcord/main/utils/fileExists.ts",
           "kind": "import-statement",
           "original": "./utils/fileExists"
         },
         {
-          "path": "src/WRATHCORD/main/vesktopStatic.ts",
+          "path": "src/werathcord/main/vesktopStatic.ts",
           "kind": "import-statement",
           "original": "./vesktopStatic"
         }
@@ -4523,12 +4523,12 @@
       ],
       "format": "cjs"
     },
-    "src/WRATHCORD/shared/utils/millis.ts": {
+    "src/werathcord/shared/utils/millis.ts": {
       "bytes": 254,
       "imports": [],
       "format": "esm"
     },
-    "src/WRATHCORD/main/utils/ipcWrappers.ts": {
+    "src/werathcord/main/utils/ipcWrappers.ts": {
       "bytes": 1391,
       "imports": [
         {
@@ -4537,7 +4537,7 @@
           "external": true
         },
         {
-          "path": "src/WRATHCORD/main/constants.ts",
+          "path": "src/werathcord/main/constants.ts",
           "kind": "import-statement",
           "original": "main/constants"
         },
@@ -4549,7 +4549,7 @@
       ],
       "format": "esm"
     },
-    "src/WRATHCORD/main/updater.ts": {
+    "src/werathcord/main/updater.ts": {
       "bytes": 4413,
       "imports": [
         {
@@ -4568,49 +4568,49 @@
           "original": "electron-updater"
         },
         {
-          "path": "src/WRATHCORD/shared/IpcEvents.ts",
+          "path": "src/werathcord/shared/IpcEvents.ts",
           "kind": "import-statement",
           "original": "shared/IpcEvents"
         },
         {
-          "path": "src/WRATHCORD/shared/paths.ts",
+          "path": "src/werathcord/shared/paths.ts",
           "kind": "import-statement",
           "original": "shared/paths"
         },
         {
-          "path": "src/WRATHCORD/shared/utils/millis.ts",
+          "path": "src/werathcord/shared/utils/millis.ts",
           "kind": "import-statement",
           "original": "shared/utils/millis"
         },
         {
-          "path": "src/WRATHCORD/main/settings.ts",
+          "path": "src/werathcord/main/settings.ts",
           "kind": "import-statement",
           "original": "./settings"
         },
         {
-          "path": "src/WRATHCORD/main/utils/ipcWrappers.ts",
+          "path": "src/werathcord/main/utils/ipcWrappers.ts",
           "kind": "import-statement",
           "original": "./utils/ipcWrappers"
         },
         {
-          "path": "src/WRATHCORD/main/utils/makeLinksOpenExternally.ts",
+          "path": "src/werathcord/main/utils/makeLinksOpenExternally.ts",
           "kind": "import-statement",
           "original": "./utils/makeLinksOpenExternally"
         },
         {
-          "path": "src/WRATHCORD/main/vesktopStatic.ts",
+          "path": "src/werathcord/main/vesktopStatic.ts",
           "kind": "import-statement",
           "original": "./vesktopStatic"
         }
       ],
       "format": "esm"
     },
-    "src/WRATHCORD/shared/utils/debounce.ts": {
+    "src/werathcord/shared/utils/debounce.ts": {
       "bytes": 622,
       "imports": [],
       "format": "esm"
     },
-    "src/WRATHCORD/main/arrpcWindow.ts": {
+    "src/werathcord/main/arrpcWindow.ts": {
       "bytes": 3775,
       "imports": [
         {
@@ -4624,39 +4624,39 @@
           "external": true
         },
         {
-          "path": "src/WRATHCORD/shared/paths.ts",
+          "path": "src/werathcord/shared/paths.ts",
           "kind": "import-statement",
           "original": "shared/paths"
         },
         {
-          "path": "src/WRATHCORD/main/arrpc/index.ts",
+          "path": "src/werathcord/main/arrpc/index.ts",
           "kind": "import-statement",
           "original": "./arrpc"
         },
         {
-          "path": "src/WRATHCORD/main/settings.ts",
+          "path": "src/werathcord/main/settings.ts",
           "kind": "import-statement",
           "original": "./settings"
         },
         {
-          "path": "src/WRATHCORD/main/utils/makeLinksOpenExternally.ts",
+          "path": "src/werathcord/main/utils/makeLinksOpenExternally.ts",
           "kind": "import-statement",
           "original": "./utils/makeLinksOpenExternally"
         },
         {
-          "path": "src/WRATHCORD/main/vesktopStatic.ts",
+          "path": "src/werathcord/main/vesktopStatic.ts",
           "kind": "import-statement",
           "original": "./vesktopStatic"
         }
       ],
       "format": "esm"
     },
-    "src/WRATHCORD/main/utils/desktopFileEscape.ts": {
+    "src/werathcord/main/utils/desktopFileEscape.ts": {
       "bytes": 1366,
       "imports": [],
       "format": "esm"
     },
-    "src/WRATHCORD/main/autoStart.ts": {
+    "src/werathcord/main/autoStart.ts": {
       "bytes": 3237,
       "imports": [
         {
@@ -4675,34 +4675,34 @@
           "external": true
         },
         {
-          "path": "src/WRATHCORD/shared/utils/text.ts",
+          "path": "src/werathcord/shared/utils/text.ts",
           "kind": "import-statement",
           "original": "shared/utils/text"
         },
         {
-          "path": "src/WRATHCORD/main/constants.ts",
+          "path": "src/werathcord/main/constants.ts",
           "kind": "import-statement",
           "original": "./constants"
         },
         {
-          "path": "src/WRATHCORD/main/dbus.ts",
+          "path": "src/werathcord/main/dbus.ts",
           "kind": "import-statement",
           "original": "./dbus"
         },
         {
-          "path": "src/WRATHCORD/main/settings.ts",
+          "path": "src/werathcord/main/settings.ts",
           "kind": "import-statement",
           "original": "./settings"
         },
         {
-          "path": "src/WRATHCORD/main/utils/desktopFileEscape.ts",
+          "path": "src/werathcord/main/utils/desktopFileEscape.ts",
           "kind": "import-statement",
           "original": "./utils/desktopFileEscape"
         }
       ],
       "format": "esm"
     },
-    "src/WRATHCORD/main/utils/popout.ts": {
+    "src/werathcord/main/utils/popout.ts": {
       "bytes": 3114,
       "imports": [
         {
@@ -4711,19 +4711,19 @@
           "external": true
         },
         {
-          "path": "src/WRATHCORD/main/settings.ts",
+          "path": "src/werathcord/main/settings.ts",
           "kind": "import-statement",
           "original": "main/settings"
         },
         {
-          "path": "src/WRATHCORD/main/utils/makeLinksOpenExternally.ts",
+          "path": "src/werathcord/main/utils/makeLinksOpenExternally.ts",
           "kind": "import-statement",
           "original": "./makeLinksOpenExternally"
         }
       ],
       "format": "esm"
     },
-    "src/WRATHCORD/main/utils/steamOS.ts": {
+    "src/werathcord/main/utils/steamOS.ts": {
       "bytes": 3599,
       "imports": [
         {
@@ -4742,19 +4742,19 @@
           "external": true
         },
         {
-          "path": "src/WRATHCORD/main/constants.ts",
+          "path": "src/werathcord/main/constants.ts",
           "kind": "import-statement",
           "original": "../constants"
         },
         {
-          "path": "src/WRATHCORD/main/settings.ts",
+          "path": "src/werathcord/main/settings.ts",
           "kind": "import-statement",
           "original": "../settings"
         }
       ],
       "format": "esm"
     },
-    "src/WRATHCORD/main/venmic.ts": {
+    "src/werathcord/main/venmic.ts": {
       "bytes": 3741,
       "imports": [
         {
@@ -4768,24 +4768,24 @@
           "external": true
         },
         {
-          "path": "src/WRATHCORD/shared/IpcEvents.ts",
+          "path": "src/werathcord/shared/IpcEvents.ts",
           "kind": "import-statement",
           "original": "shared/IpcEvents"
         },
         {
-          "path": "src/WRATHCORD/shared/paths.ts",
+          "path": "src/werathcord/shared/paths.ts",
           "kind": "import-statement",
           "original": "shared/paths"
         },
         {
-          "path": "src/WRATHCORD/main/settings.ts",
+          "path": "src/werathcord/main/settings.ts",
           "kind": "import-statement",
           "original": "./settings"
         }
       ],
       "format": "esm"
     },
-    "src/WRATHCORD/main/ipc.ts": {
+    "src/werathcord/main/ipc.ts": {
       "bytes": 9129,
       "imports": [
         {
@@ -4819,92 +4819,92 @@
           "external": true
         },
         {
-          "path": "src/WRATHCORD/shared/paths.ts",
+          "path": "src/werathcord/shared/paths.ts",
           "kind": "import-statement",
           "original": "shared/paths"
         },
         {
-          "path": "src/WRATHCORD/shared/utils/debounce.ts",
+          "path": "src/werathcord/shared/utils/debounce.ts",
           "kind": "import-statement",
           "original": "shared/utils/debounce"
         },
         {
-          "path": "src/WRATHCORD/shared/IpcEvents.ts",
+          "path": "src/werathcord/shared/IpcEvents.ts",
           "kind": "import-statement",
           "original": "../shared/IpcEvents"
         },
         {
-          "path": "src/WRATHCORD/main/appBadge.ts",
+          "path": "src/werathcord/main/appBadge.ts",
           "kind": "import-statement",
           "original": "./appBadge"
         },
         {
-          "path": "src/WRATHCORD/main/arrpcWindow.ts",
+          "path": "src/werathcord/main/arrpcWindow.ts",
           "kind": "import-statement",
           "original": "./arrpcWindow"
         },
         {
-          "path": "src/WRATHCORD/main/autoStart.ts",
+          "path": "src/werathcord/main/autoStart.ts",
           "kind": "import-statement",
           "original": "./autoStart"
         },
         {
-          "path": "src/WRATHCORD/main/constants.ts",
+          "path": "src/werathcord/main/constants.ts",
           "kind": "import-statement",
           "original": "./constants"
         },
         {
-          "path": "src/WRATHCORD/main/events.ts",
+          "path": "src/werathcord/main/events.ts",
           "kind": "import-statement",
           "original": "./events"
         },
         {
-          "path": "src/WRATHCORD/main/gnuSpoofing.ts",
+          "path": "src/werathcord/main/gnuSpoofing.ts",
           "kind": "import-statement",
           "original": "./gnuSpoofing"
         },
         {
-          "path": "src/WRATHCORD/main/mainWindow.ts",
+          "path": "src/werathcord/main/mainWindow.ts",
           "kind": "import-statement",
           "original": "./mainWindow"
         },
         {
-          "path": "src/WRATHCORD/main/settings.ts",
+          "path": "src/werathcord/main/settings.ts",
           "kind": "import-statement",
           "original": "./settings"
         },
         {
-          "path": "src/WRATHCORD/main/startup.ts",
+          "path": "src/werathcord/main/startup.ts",
           "kind": "import-statement",
           "original": "./startup"
         },
         {
-          "path": "src/WRATHCORD/main/utils/ipcWrappers.ts",
+          "path": "src/werathcord/main/utils/ipcWrappers.ts",
           "kind": "import-statement",
           "original": "./utils/ipcWrappers"
         },
         {
-          "path": "src/WRATHCORD/main/utils/popout.ts",
+          "path": "src/werathcord/main/utils/popout.ts",
           "kind": "import-statement",
           "original": "./utils/popout"
         },
         {
-          "path": "src/WRATHCORD/main/utils/steamOS.ts",
+          "path": "src/werathcord/main/utils/steamOS.ts",
           "kind": "import-statement",
           "original": "./utils/steamOS"
         },
         {
-          "path": "src/WRATHCORD/main/utils/vencordLoader.ts",
+          "path": "src/werathcord/main/utils/vencordLoader.ts",
           "kind": "import-statement",
           "original": "./utils/vencordLoader"
         },
         {
-          "path": "src/WRATHCORD/main/vencordDir.ts",
+          "path": "src/werathcord/main/vencordDir.ts",
           "kind": "import-statement",
           "original": "./vencordDir"
         },
         {
-          "path": "src/WRATHCORD/main/venmic.ts",
+          "path": "src/werathcord/main/venmic.ts",
           "kind": "dynamic-import",
           "original": "./venmic"
         },
@@ -4916,7 +4916,7 @@
       ],
       "format": "esm"
     },
-    "src/WRATHCORD/main/userAssets.ts": {
+    "src/werathcord/main/userAssets.ts": {
       "bytes": 3406,
       "imports": [
         {
@@ -4935,12 +4935,12 @@
           "external": true
         },
         {
-          "path": "src/WRATHCORD/shared/IpcEvents.ts",
+          "path": "src/werathcord/shared/IpcEvents.ts",
           "kind": "import-statement",
           "original": "shared/IpcEvents"
         },
         {
-          "path": "src/WRATHCORD/shared/paths.ts",
+          "path": "src/werathcord/shared/paths.ts",
           "kind": "import-statement",
           "original": "shared/paths"
         },
@@ -4950,34 +4950,34 @@
           "external": true
         },
         {
-          "path": "src/WRATHCORD/main/constants.ts",
+          "path": "src/werathcord/main/constants.ts",
           "kind": "import-statement",
           "original": "./constants"
         },
         {
-          "path": "src/WRATHCORD/main/events.ts",
+          "path": "src/werathcord/main/events.ts",
           "kind": "import-statement",
           "original": "./events"
         },
         {
-          "path": "src/WRATHCORD/main/mainWindow.ts",
+          "path": "src/werathcord/main/mainWindow.ts",
           "kind": "import-statement",
           "original": "./mainWindow"
         },
         {
-          "path": "src/WRATHCORD/main/utils/fileExists.ts",
+          "path": "src/werathcord/main/utils/fileExists.ts",
           "kind": "import-statement",
           "original": "./utils/fileExists"
         },
         {
-          "path": "src/WRATHCORD/main/utils/ipcWrappers.ts",
+          "path": "src/werathcord/main/utils/ipcWrappers.ts",
           "kind": "import-statement",
           "original": "./utils/ipcWrappers"
         }
       ],
       "format": "esm"
     },
-    "src/WRATHCORD/main/vesktopProtocol.ts": {
+    "src/werathcord/main/vesktopProtocol.ts": {
       "bytes": 750,
       "imports": [
         {
@@ -4986,19 +4986,19 @@
           "external": true
         },
         {
-          "path": "src/WRATHCORD/main/userAssets.ts",
+          "path": "src/werathcord/main/userAssets.ts",
           "kind": "import-statement",
           "original": "./userAssets"
         },
         {
-          "path": "src/WRATHCORD/main/vesktopStatic.ts",
+          "path": "src/werathcord/main/vesktopStatic.ts",
           "kind": "import-statement",
           "original": "./vesktopStatic"
         }
       ],
       "format": "esm"
     },
-    "src/WRATHCORD/main/firstLaunch.ts": {
+    "src/werathcord/main/firstLaunch.ts": {
       "bytes": 2675,
       "imports": [
         {
@@ -5022,49 +5022,49 @@
           "external": true
         },
         {
-          "path": "src/WRATHCORD/shared/browserWinProperties.ts",
+          "path": "src/werathcord/shared/browserWinProperties.ts",
           "kind": "import-statement",
           "original": "shared/browserWinProperties"
         },
         {
-          "path": "src/WRATHCORD/shared/paths.ts",
+          "path": "src/werathcord/shared/paths.ts",
           "kind": "import-statement",
           "original": "shared/paths"
         },
         {
-          "path": "src/WRATHCORD/main/autoStart.ts",
+          "path": "src/werathcord/main/autoStart.ts",
           "kind": "import-statement",
           "original": "./autoStart"
         },
         {
-          "path": "src/WRATHCORD/main/constants.ts",
+          "path": "src/werathcord/main/constants.ts",
           "kind": "import-statement",
           "original": "./constants"
         },
         {
-          "path": "src/WRATHCORD/main/mainWindow.ts",
+          "path": "src/werathcord/main/mainWindow.ts",
           "kind": "import-statement",
           "original": "./mainWindow"
         },
         {
-          "path": "src/WRATHCORD/main/settings.ts",
+          "path": "src/werathcord/main/settings.ts",
           "kind": "import-statement",
           "original": "./settings"
         },
         {
-          "path": "src/WRATHCORD/main/utils/makeLinksOpenExternally.ts",
+          "path": "src/werathcord/main/utils/makeLinksOpenExternally.ts",
           "kind": "import-statement",
           "original": "./utils/makeLinksOpenExternally"
         },
         {
-          "path": "src/WRATHCORD/main/vesktopStatic.ts",
+          "path": "src/werathcord/main/vesktopStatic.ts",
           "kind": "import-statement",
           "original": "./vesktopStatic"
         }
       ],
       "format": "esm"
     },
-    "src/WRATHCORD/main/mediaPermissions.ts": {
+    "src/werathcord/main/mediaPermissions.ts": {
       "bytes": 1253,
       "imports": [
         {
@@ -5075,7 +5075,7 @@
       ],
       "format": "esm"
     },
-    "src/WRATHCORD/main/screenShare.ts": {
+    "src/werathcord/main/screenShare.ts": {
       "bytes": 4097,
       "imports": [
         {
@@ -5084,34 +5084,34 @@
           "external": true
         },
         {
-          "path": "src/WRATHCORD/shared/IpcEvents.ts",
+          "path": "src/werathcord/shared/IpcEvents.ts",
           "kind": "import-statement",
           "original": "shared/IpcEvents"
         },
         {
-          "path": "src/WRATHCORD/main/constants.ts",
+          "path": "src/werathcord/main/constants.ts",
           "kind": "import-statement",
           "original": "./constants"
         },
         {
-          "path": "src/WRATHCORD/main/gnuSpoofing.ts",
+          "path": "src/werathcord/main/gnuSpoofing.ts",
           "kind": "import-statement",
           "original": "./gnuSpoofing"
         },
         {
-          "path": "src/WRATHCORD/main/ipcCommands.ts",
+          "path": "src/werathcord/main/ipcCommands.ts",
           "kind": "import-statement",
           "original": "./ipcCommands"
         },
         {
-          "path": "src/WRATHCORD/main/utils/ipcWrappers.ts",
+          "path": "src/werathcord/main/utils/ipcWrappers.ts",
           "kind": "import-statement",
           "original": "./utils/ipcWrappers"
         }
       ],
       "format": "esm"
     },
-    "src/WRATHCORD/main/utils/setAsDefaultProtocolClient.ts": {
+    "src/werathcord/main/utils/setAsDefaultProtocolClient.ts": {
       "bytes": 1124,
       "imports": [
         {
@@ -5127,26 +5127,26 @@
       ],
       "format": "esm"
     },
-    "src/WRATHCORD/main/startup.ts": {
+    "src/werathcord/main/startup.ts": {
       "bytes": 5672,
       "imports": [
         {
-          "path": "src/WRATHCORD/main/updater.ts",
+          "path": "src/werathcord/main/updater.ts",
           "kind": "import-statement",
           "original": "./updater"
         },
         {
-          "path": "src/WRATHCORD/main/ipc.ts",
+          "path": "src/werathcord/main/ipc.ts",
           "kind": "import-statement",
           "original": "./ipc"
         },
         {
-          "path": "src/WRATHCORD/main/userAssets.ts",
+          "path": "src/werathcord/main/userAssets.ts",
           "kind": "import-statement",
           "original": "./userAssets"
         },
         {
-          "path": "src/WRATHCORD/main/vesktopProtocol.ts",
+          "path": "src/werathcord/main/vesktopProtocol.ts",
           "kind": "import-statement",
           "original": "./vesktopProtocol"
         },
@@ -5156,49 +5156,49 @@
           "external": true
         },
         {
-          "path": "src/WRATHCORD/main/constants.ts",
+          "path": "src/werathcord/main/constants.ts",
           "kind": "import-statement",
           "original": "./constants"
         },
         {
-          "path": "src/WRATHCORD/main/firstLaunch.ts",
+          "path": "src/werathcord/main/firstLaunch.ts",
           "kind": "import-statement",
           "original": "./firstLaunch"
         },
         {
-          "path": "src/WRATHCORD/main/mainWindow.ts",
+          "path": "src/werathcord/main/mainWindow.ts",
           "kind": "import-statement",
           "original": "./mainWindow"
         },
         {
-          "path": "src/WRATHCORD/main/mediaPermissions.ts",
+          "path": "src/werathcord/main/mediaPermissions.ts",
           "kind": "import-statement",
           "original": "./mediaPermissions"
         },
         {
-          "path": "src/WRATHCORD/main/screenShare.ts",
+          "path": "src/werathcord/main/screenShare.ts",
           "kind": "import-statement",
           "original": "./screenShare"
         },
         {
-          "path": "src/WRATHCORD/main/settings.ts",
+          "path": "src/werathcord/main/settings.ts",
           "kind": "import-statement",
           "original": "./settings"
         },
         {
-          "path": "src/WRATHCORD/main/utils/setAsDefaultProtocolClient.ts",
+          "path": "src/werathcord/main/utils/setAsDefaultProtocolClient.ts",
           "kind": "import-statement",
           "original": "./utils/setAsDefaultProtocolClient"
         },
         {
-          "path": "src/WRATHCORD/main/utils/steamOS.ts",
+          "path": "src/werathcord/main/utils/steamOS.ts",
           "kind": "import-statement",
           "original": "./utils/steamOS"
         }
       ],
       "format": "esm"
     },
-    "src/WRATHCORD/main/arguments.ts": {
+    "src/werathcord/main/arguments.ts": {
       "bytes": 1700,
       "imports": [
         {
@@ -5212,29 +5212,29 @@
           "external": true
         },
         {
-          "path": "src/WRATHCORD/shared/paths.ts",
+          "path": "src/werathcord/shared/paths.ts",
           "kind": "import-statement",
           "original": "shared/paths"
         },
         {
-          "path": "src/WRATHCORD/main/settings.ts",
+          "path": "src/werathcord/main/settings.ts",
           "kind": "import-statement",
           "original": "./settings"
         },
         {
-          "path": "src/WRATHCORD/main/utils/makeLinksOpenExternally.ts",
+          "path": "src/werathcord/main/utils/makeLinksOpenExternally.ts",
           "kind": "import-statement",
           "original": "./utils/makeLinksOpenExternally"
         },
         {
-          "path": "src/WRATHCORD/main/vesktopStatic.ts",
+          "path": "src/werathcord/main/vesktopStatic.ts",
           "kind": "import-statement",
           "original": "./vesktopStatic"
         }
       ],
       "format": "esm"
     },
-    "src/WRATHCORD/main/utils/clearData.ts": {
+    "src/werathcord/main/utils/clearData.ts": {
       "bytes": 1089,
       "imports": [
         {
@@ -5248,14 +5248,14 @@
           "external": true
         },
         {
-          "path": "src/WRATHCORD/main/constants.ts",
+          "path": "src/werathcord/main/constants.ts",
           "kind": "import-statement",
           "original": "main/constants"
         }
       ],
       "format": "esm"
     },
-    "src/WRATHCORD/main/tray.ts": {
+    "src/werathcord/main/tray.ts": {
       "bytes": 12887,
       "imports": [
         {
@@ -5269,54 +5269,54 @@
           "external": true
         },
         {
-          "path": "src/WRATHCORD/shared/paths.ts",
+          "path": "src/werathcord/shared/paths.ts",
           "kind": "import-statement",
           "original": "shared/paths"
         },
         {
-          "path": "src/WRATHCORD/main/about.ts",
+          "path": "src/werathcord/main/about.ts",
           "kind": "import-statement",
           "original": "./about"
         },
         {
-          "path": "src/WRATHCORD/main/arguments.ts",
+          "path": "src/werathcord/main/arguments.ts",
           "kind": "import-statement",
           "original": "./arguments"
         },
         {
-          "path": "src/WRATHCORD/main/arrpc/index.ts",
+          "path": "src/werathcord/main/arrpc/index.ts",
           "kind": "import-statement",
           "original": "./arrpc"
         },
         {
-          "path": "src/WRATHCORD/main/events.ts",
+          "path": "src/werathcord/main/events.ts",
           "kind": "import-statement",
           "original": "./events"
         },
         {
-          "path": "src/WRATHCORD/main/settings.ts",
+          "path": "src/werathcord/main/settings.ts",
           "kind": "import-statement",
           "original": "./settings"
         },
         {
-          "path": "src/WRATHCORD/main/userAssets.ts",
+          "path": "src/werathcord/main/userAssets.ts",
           "kind": "import-statement",
           "original": "./userAssets"
         },
         {
-          "path": "src/WRATHCORD/main/utils/clearData.ts",
+          "path": "src/werathcord/main/utils/clearData.ts",
           "kind": "import-statement",
           "original": "./utils/clearData"
         },
         {
-          "path": "src/WRATHCORD/main/utils/vencordLoader.ts",
+          "path": "src/werathcord/main/utils/vencordLoader.ts",
           "kind": "import-statement",
           "original": "./utils/vencordLoader"
         }
       ],
       "format": "esm"
     },
-    "src/WRATHCORD/main/mainWindow.ts": {
+    "src/werathcord/main/mainWindow.ts": {
       "bytes": 19406,
       "imports": [
         {
@@ -5330,119 +5330,119 @@
           "external": true
         },
         {
-          "path": "src/WRATHCORD/shared/IpcEvents.ts",
+          "path": "src/werathcord/shared/IpcEvents.ts",
           "kind": "import-statement",
           "original": "shared/IpcEvents"
         },
         {
-          "path": "src/WRATHCORD/shared/paths.ts",
+          "path": "src/werathcord/shared/paths.ts",
           "kind": "import-statement",
           "original": "shared/paths"
         },
         {
-          "path": "src/WRATHCORD/shared/utils/guards.ts",
+          "path": "src/werathcord/shared/utils/guards.ts",
           "kind": "import-statement",
           "original": "shared/utils/guards"
         },
         {
-          "path": "src/WRATHCORD/shared/utils/once.ts",
+          "path": "src/werathcord/shared/utils/once.ts",
           "kind": "import-statement",
           "original": "shared/utils/once"
         },
         {
-          "path": "src/WRATHCORD/main/about.ts",
+          "path": "src/werathcord/main/about.ts",
           "kind": "import-statement",
           "original": "./about"
         },
         {
-          "path": "src/WRATHCORD/main/appBadge.ts",
+          "path": "src/werathcord/main/appBadge.ts",
           "kind": "import-statement",
           "original": "./appBadge"
         },
         {
-          "path": "src/WRATHCORD/main/arrpc/index.ts",
+          "path": "src/werathcord/main/arrpc/index.ts",
           "kind": "import-statement",
           "original": "./arrpc"
         },
         {
-          "path": "src/WRATHCORD/main/cli.ts",
+          "path": "src/werathcord/main/cli.ts",
           "kind": "import-statement",
           "original": "./cli"
         },
         {
-          "path": "src/WRATHCORD/main/constants.ts",
+          "path": "src/werathcord/main/constants.ts",
           "kind": "import-statement",
           "original": "./constants"
         },
         {
-          "path": "src/WRATHCORD/main/events.ts",
+          "path": "src/werathcord/main/events.ts",
           "kind": "import-statement",
           "original": "./events"
         },
         {
-          "path": "src/WRATHCORD/main/gnuSpoofing.ts",
+          "path": "src/werathcord/main/gnuSpoofing.ts",
           "kind": "import-statement",
           "original": "./gnuSpoofing"
         },
         {
-          "path": "src/WRATHCORD/main/ipcCommands.ts",
+          "path": "src/werathcord/main/ipcCommands.ts",
           "kind": "import-statement",
           "original": "./ipcCommands"
         },
         {
-          "path": "src/WRATHCORD/main/keybinds.ts",
+          "path": "src/werathcord/main/keybinds.ts",
           "kind": "import-statement",
           "original": "./keybinds"
         },
         {
-          "path": "src/WRATHCORD/main/settings.ts",
+          "path": "src/werathcord/main/settings.ts",
           "kind": "import-statement",
           "original": "./settings"
         },
         {
-          "path": "src/WRATHCORD/main/splash.ts",
+          "path": "src/werathcord/main/splash.ts",
           "kind": "import-statement",
           "original": "./splash"
         },
         {
-          "path": "src/WRATHCORD/main/startup.ts",
+          "path": "src/werathcord/main/startup.ts",
           "kind": "import-statement",
           "original": "./startup"
         },
         {
-          "path": "src/WRATHCORD/main/tray.ts",
+          "path": "src/werathcord/main/tray.ts",
           "kind": "import-statement",
           "original": "./tray"
         },
         {
-          "path": "src/WRATHCORD/main/utils/clearData.ts",
+          "path": "src/werathcord/main/utils/clearData.ts",
           "kind": "import-statement",
           "original": "./utils/clearData"
         },
         {
-          "path": "src/WRATHCORD/main/utils/makeLinksOpenExternally.ts",
+          "path": "src/werathcord/main/utils/makeLinksOpenExternally.ts",
           "kind": "import-statement",
           "original": "./utils/makeLinksOpenExternally"
         },
         {
-          "path": "src/WRATHCORD/main/utils/steamOS.ts",
+          "path": "src/werathcord/main/utils/steamOS.ts",
           "kind": "import-statement",
           "original": "./utils/steamOS"
         },
         {
-          "path": "src/WRATHCORD/main/utils/vencordLoader.ts",
+          "path": "src/werathcord/main/utils/vencordLoader.ts",
           "kind": "import-statement",
           "original": "./utils/vencordLoader"
         },
         {
-          "path": "src/WRATHCORD/main/vencordDir.ts",
+          "path": "src/werathcord/main/vencordDir.ts",
           "kind": "import-statement",
           "original": "./vencordDir"
         }
       ],
       "format": "esm"
     },
-    "src/WRATHCORD/main/cli.ts": {
+    "src/werathcord/main/cli.ts": {
       "bytes": 7647,
       "imports": [
         {
@@ -5456,12 +5456,12 @@
           "external": true
         },
         {
-          "path": "src/WRATHCORD/shared/IpcEvents.ts",
+          "path": "src/werathcord/shared/IpcEvents.ts",
           "kind": "import-statement",
           "original": "shared/IpcEvents"
         },
         {
-          "path": "src/WRATHCORD/shared/utils/text.ts",
+          "path": "src/werathcord/shared/utils/text.ts",
           "kind": "import-statement",
           "original": "shared/utils/text"
         },
@@ -5471,29 +5471,29 @@
           "external": true
         },
         {
-          "path": "src/WRATHCORD/main/settings.ts",
+          "path": "src/werathcord/main/settings.ts",
           "kind": "dynamic-import",
           "original": "./settings"
         },
         {
-          "path": "src/WRATHCORD/main/utils/vencordLoader.ts",
+          "path": "src/werathcord/main/utils/vencordLoader.ts",
           "kind": "dynamic-import",
           "original": "./utils/vencordLoader"
         },
         {
-          "path": "src/WRATHCORD/main/mainWindow.ts",
+          "path": "src/werathcord/main/mainWindow.ts",
           "kind": "dynamic-import",
           "original": "./mainWindow"
         },
         {
-          "path": "src/WRATHCORD/main/mainWindow.ts",
+          "path": "src/werathcord/main/mainWindow.ts",
           "kind": "dynamic-import",
           "original": "./mainWindow"
         }
       ],
       "format": "esm"
     },
-    "src/WRATHCORD/main/constants.ts": {
+    "src/werathcord/main/constants.ts": {
       "bytes": 2487,
       "imports": [
         {
@@ -5512,7 +5512,7 @@
           "external": true
         },
         {
-          "path": "src/WRATHCORD/main/cli.ts",
+          "path": "src/werathcord/main/cli.ts",
           "kind": "import-statement",
           "original": "./cli"
         },
@@ -5524,7 +5524,7 @@
       ],
       "format": "esm"
     },
-    "src/WRATHCORD/main/utils/makeLinksOpenExternally.ts": {
+    "src/werathcord/main/utils/makeLinksOpenExternally.ts": {
       "bytes": 9192,
       "imports": [
         {
@@ -5533,22 +5533,22 @@
           "external": true
         },
         {
-          "path": "src/WRATHCORD/main/constants.ts",
+          "path": "src/werathcord/main/constants.ts",
           "kind": "import-statement",
           "original": "main/constants"
         },
         {
-          "path": "src/WRATHCORD/main/settings.ts",
+          "path": "src/werathcord/main/settings.ts",
           "kind": "import-statement",
           "original": "../settings"
         },
         {
-          "path": "src/WRATHCORD/main/utils/popout.ts",
+          "path": "src/werathcord/main/utils/popout.ts",
           "kind": "import-statement",
           "original": "./popout"
         },
         {
-          "path": "src/WRATHCORD/main/utils/steamOS.ts",
+          "path": "src/werathcord/main/utils/steamOS.ts",
           "kind": "import-statement",
           "original": "./steamOS"
         }
@@ -5624,9 +5624,9 @@
           "original": "./utils/constants"
         },
         {
-          "path": "src/WRATHCORD/main/utils/makeLinksOpenExternally.ts",
+          "path": "src/werathcord/main/utils/makeLinksOpenExternally.ts",
           "kind": "import-statement",
-          "original": "../WRATHCORD/main/utils/makeLinksOpenExternally"
+          "original": "../werathcord/main/utils/makeLinksOpenExternally"
         },
         {
           "path": "child_process",
@@ -5950,9 +5950,9 @@
           "external": true
         },
         {
-          "path": "src/WRATHCORD/main/mediaPermissions.ts",
+          "path": "src/werathcord/main/mediaPermissions.ts",
           "kind": "import-statement",
-          "original": "../WRATHCORD/main/mediaPermissions"
+          "original": "../werathcord/main/mediaPermissions"
         },
         {
           "path": "src/main/settings.ts",
@@ -7344,37 +7344,37 @@
         "src/main/updater/http.ts": {
           "bytesInOutput": 4258
         },
-        "src/WRATHCORD/shared/IpcEvents.ts": {
+        "src/werathcord/shared/IpcEvents.ts": {
           "bytesInOutput": 3743
         },
-        "src/WRATHCORD/shared/utils/text.ts": {
+        "src/werathcord/shared/utils/text.ts": {
           "bytesInOutput": 437
         },
-        "src/WRATHCORD/shared/paths.ts": {
+        "src/werathcord/shared/paths.ts": {
           "bytesInOutput": 357
         },
-        "src/WRATHCORD/shared/utils/guards.ts": {
+        "src/werathcord/shared/utils/guards.ts": {
           "bytesInOutput": 149
         },
-        "src/WRATHCORD/shared/utils/once.ts": {
+        "src/werathcord/shared/utils/once.ts": {
           "bytesInOutput": 249
         },
-        "src/WRATHCORD/main/utils/isPathInDirectory.ts": {
+        "src/werathcord/main/utils/isPathInDirectory.ts": {
           "bytesInOutput": 577
         },
-        "src/WRATHCORD/main/vesktopStatic.ts": {
+        "src/werathcord/main/vesktopStatic.ts": {
           "bytesInOutput": 902
         },
-        "src/WRATHCORD/main/about.ts": {
+        "src/werathcord/main/about.ts": {
           "bytesInOutput": 878
         },
-        "src/WRATHCORD/main/dbus.ts": {
+        "src/werathcord/main/dbus.ts": {
           "bytesInOutput": 876
         },
-        "src/WRATHCORD/main/events.ts": {
+        "src/werathcord/main/events.ts": {
           "bytesInOutput": 243
         },
-        "src/WRATHCORD/main/appBadge.ts": {
+        "src/werathcord/main/appBadge.ts": {
           "bytesInOutput": 1991
         },
         "node_modules/.pnpm/ws@8.20.0/node_modules/ws/lib/constants.js": {
@@ -7419,31 +7419,31 @@
         "node_modules/.pnpm/ws@8.20.0/node_modules/ws/wrapper.mjs": {
           "bytesInOutput": 729
         },
-        "src/WRATHCORD/shared/utils/SettingsStore.ts": {
+        "src/werathcord/shared/utils/SettingsStore.ts": {
           "bytesInOutput": 4113
         },
-        "src/WRATHCORD/main/settings.ts": {
+        "src/werathcord/main/settings.ts": {
           "bytesInOutput": 1303
         },
-        "src/WRATHCORD/main/arrpc/index.ts": {
+        "src/werathcord/main/arrpc/index.ts": {
           "bytesInOutput": 20642
         },
-        "src/WRATHCORD/main/gnuSpoofing.ts": {
+        "src/werathcord/main/gnuSpoofing.ts": {
           "bytesInOutput": 2880
         },
-        "src/WRATHCORD/main/ipcCommands.ts": {
+        "src/werathcord/main/ipcCommands.ts": {
           "bytesInOutput": 1599
         },
-        "src/WRATHCORD/main/keybinds.ts": {
+        "src/werathcord/main/keybinds.ts": {
           "bytesInOutput": 2086
         },
-        "src/WRATHCORD/shared/browserWinProperties.ts": {
+        "src/werathcord/shared/browserWinProperties.ts": {
           "bytesInOutput": 339
         },
-        "src/WRATHCORD/main/utils/fileExists.ts": {
+        "src/werathcord/main/utils/fileExists.ts": {
           "bytesInOutput": 329
         },
-        "src/WRATHCORD/main/splash.ts": {
+        "src/werathcord/main/splash.ts": {
           "bytesInOutput": 3325
         },
         "node_modules/.pnpm/universalify@2.0.1/node_modules/universalify/index.js": {
@@ -7923,88 +7923,88 @@
         "node_modules/.pnpm/electron-updater@6.8.3/node_modules/electron-updater/out/main.js": {
           "bytesInOutput": 4651
         },
-        "src/WRATHCORD/shared/utils/millis.ts": {
+        "src/werathcord/shared/utils/millis.ts": {
           "bytesInOutput": 97
         },
-        "src/WRATHCORD/main/utils/ipcWrappers.ts": {
+        "src/werathcord/main/utils/ipcWrappers.ts": {
           "bytesInOutput": 1050
         },
-        "src/WRATHCORD/main/updater.ts": {
+        "src/werathcord/main/updater.ts": {
           "bytesInOutput": 4744
         },
-        "src/WRATHCORD/shared/utils/debounce.ts": {
+        "src/werathcord/shared/utils/debounce.ts": {
           "bytesInOutput": 291
         },
-        "src/WRATHCORD/main/arrpcWindow.ts": {
+        "src/werathcord/main/arrpcWindow.ts": {
           "bytesInOutput": 3238
         },
-        "src/WRATHCORD/main/utils/desktopFileEscape.ts": {
+        "src/werathcord/main/utils/desktopFileEscape.ts": {
           "bytesInOutput": 824
         },
-        "src/WRATHCORD/main/autoStart.ts": {
+        "src/werathcord/main/autoStart.ts": {
           "bytesInOutput": 2645
         },
-        "src/WRATHCORD/main/utils/popout.ts": {
+        "src/werathcord/main/utils/popout.ts": {
           "bytesInOutput": 2673
         },
-        "src/WRATHCORD/main/utils/steamOS.ts": {
+        "src/werathcord/main/utils/steamOS.ts": {
           "bytesInOutput": 2772
         },
-        "src/WRATHCORD/main/vencordDir.ts": {
+        "src/werathcord/main/vencordDir.ts": {
           "bytesInOutput": 430
         },
-        "src/WRATHCORD/main/utils/http.ts": {
+        "src/werathcord/main/utils/http.ts": {
           "bytesInOutput": 1723
         },
-        "src/WRATHCORD/main/utils/vencordLoader.ts": {
+        "src/werathcord/main/utils/vencordLoader.ts": {
           "bytesInOutput": 860
         },
-        "src/WRATHCORD/main/venmic.ts": {
+        "src/werathcord/main/venmic.ts": {
           "bytesInOutput": 3591
         },
-        "src/WRATHCORD/main/ipc.ts": {
+        "src/werathcord/main/ipc.ts": {
           "bytesInOutput": 9747
         },
-        "src/WRATHCORD/main/userAssets.ts": {
+        "src/werathcord/main/userAssets.ts": {
           "bytesInOutput": 3383
         },
-        "src/WRATHCORD/main/vesktopProtocol.ts": {
+        "src/werathcord/main/vesktopProtocol.ts": {
           "bytesInOutput": 702
         },
-        "src/WRATHCORD/main/firstLaunch.ts": {
+        "src/werathcord/main/firstLaunch.ts": {
           "bytesInOutput": 2259
         },
-        "src/WRATHCORD/main/mediaPermissions.ts": {
+        "src/werathcord/main/mediaPermissions.ts": {
           "bytesInOutput": 1140
         },
-        "src/WRATHCORD/main/screenShare.ts": {
+        "src/werathcord/main/screenShare.ts": {
           "bytesInOutput": 2880
         },
-        "src/WRATHCORD/main/utils/setAsDefaultProtocolClient.ts": {
+        "src/werathcord/main/utils/setAsDefaultProtocolClient.ts": {
           "bytesInOutput": 737
         },
-        "src/WRATHCORD/main/startup.ts": {
+        "src/werathcord/main/startup.ts": {
           "bytesInOutput": 5203
         },
-        "src/WRATHCORD/main/arguments.ts": {
+        "src/werathcord/main/arguments.ts": {
           "bytesInOutput": 1486
         },
-        "src/WRATHCORD/main/utils/clearData.ts": {
+        "src/werathcord/main/utils/clearData.ts": {
           "bytesInOutput": 1039
         },
-        "src/WRATHCORD/main/tray.ts": {
+        "src/werathcord/main/tray.ts": {
           "bytesInOutput": 10742
         },
-        "src/WRATHCORD/main/mainWindow.ts": {
+        "src/werathcord/main/mainWindow.ts": {
           "bytesInOutput": 13848
         },
-        "src/WRATHCORD/main/cli.ts": {
+        "src/werathcord/main/cli.ts": {
           "bytesInOutput": 6724
         },
-        "src/WRATHCORD/main/constants.ts": {
+        "src/werathcord/main/constants.ts": {
           "bytesInOutput": 2728
         },
-        "src/WRATHCORD/main/utils/makeLinksOpenExternally.ts": {
+        "src/werathcord/main/utils/makeLinksOpenExternally.ts": {
           "bytesInOutput": 6129
         },
         "src/shared/onceDefined.ts": {

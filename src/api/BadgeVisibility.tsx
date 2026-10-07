@@ -7,7 +7,7 @@
 import { getPublicPluginConfig, saveOwnPluginConfig } from "./PluginSync";
 import { beginDiscordOAuth, getStoredToken, storeToken } from "./OAuth2";
 
-export type BadgeSource = "vencord" | "equicord" | "WRATHCORD" | "globalbadges" | "illegalcord";
+export type BadgeSource = "vencord" | "equicord" | "werathcord" | "globalbadges" | "illegalcord";
 
 const PLUGIN_KEY = "badge-visibility";
 
@@ -76,7 +76,7 @@ export async function loadOwnHiddenBadgeSources(userId: string) {
     
     // 1. Charge la sauvegarde locale en premier pour éviter que ça clignote ou disparaisse sans compte
     try {
-        const localData = localStorage.getItem("WRATHCORD_hidden_badges");
+        const localData = localStorage.getItem("werathcord_hidden_badges");
         if (localData) {
             const parsed = JSON.parse(localData);
             if (Array.isArray(parsed)) {
@@ -98,7 +98,7 @@ export async function loadOwnHiddenBadgeSources(userId: string) {
         // La version cloud a priorité si elle existe (et on met à jour le local)
         if (result?.config?.settings?.hidden !== undefined) {
             myHiddenSources = hidden;
-            localStorage.setItem("WRATHCORD_hidden_badges", JSON.stringify(hidden));
+            localStorage.setItem("werathcord_hidden_badges", JSON.stringify(hidden));
         }
     } catch (e) {
         // no-op — keep defaults or local version
@@ -117,7 +117,7 @@ export async function setOwnHiddenBadgeSources(hidden: BadgeSource[]) {
     
     // Sauvegarde locale immédiate
     try {
-        localStorage.setItem("WRATHCORD_hidden_badges", JSON.stringify(hidden));
+        localStorage.setItem("werathcord_hidden_badges", JSON.stringify(hidden));
     } catch { }
 
     emitBadgeVisibilityChange();

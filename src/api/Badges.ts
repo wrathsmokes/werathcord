@@ -126,7 +126,7 @@ export function _getBadges(args: any) {
 
     const donorBadges = BadgeAPIPlugin.getDonorBadges(userId);
     const equicordDonorBadges = BadgeAPIPlugin.getEquicordDonorBadges(userId);
-    const WRATHCORDBadges = (BadgeAPIPlugin as any).getWRATHCORDBadges?.(userId);
+    const werathcordBadges = (BadgeAPIPlugin as any).getwerathcordBadges?.(userId);
     const illegalcordBadges = (BadgeAPIPlugin as any).getIllegalcordBadges?.(userId);
 
     if (donorBadges && !isHidden("vencord")) {
@@ -137,8 +137,8 @@ export function _getBadges(args: any) {
         badges.unshift(...equicordDonorBadges.map(shieldBadge));
     }
 
-    if (WRATHCORDBadges && !isHidden("WRATHCORD")) {
-        badges.unshift(...WRATHCORDBadges.map(shieldBadge));
+    if (werathcordBadges && !isHidden("werathcord")) {
+        badges.unshift(...werathcordBadges.map(shieldBadge));
     }
 
     if (illegalcordBadges && !isHidden("illegalcord")) {

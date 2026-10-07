@@ -5,7 +5,7 @@ globalThis.btoa = (str) => Buffer.from(str, 'binary').toString('base64');
 globalThis.atob = (b64) => Buffer.from(b64, 'base64').toString('binary');
 
 // Import crypto functions
-const { encryptVault, decryptVault } = await import("../src/WRATHCORDplugins/totpManager/crypto.ts");
+const { encryptVault, decryptVault } = await import("../src/werathcordplugins/totpManager/crypto.ts");
 
 console.log("=== Testing Encrypt -> Cloud Payload Shape -> Restore Decrypt ===");
 

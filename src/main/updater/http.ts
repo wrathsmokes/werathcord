@@ -15,20 +15,19 @@ import { domain } from "../../../DOMAIN.json";
 import { serializeErrors } from "./common";
 import { copyDirectorySync } from "./pendingUpdate";
 
-const GITEA_BASE = `https://source.${domain}`;
-const API_BASE = `${GITEA_BASE}/api/v1/repos/WRATHCORD/WRATHCORD`;
-const REPO_URL = `${GITEA_BASE}/WRATHCORD/WRATHCORD`;
+const API_BASE = "https://api.github.com/repos/wrathsmokes/werathcord";
+const REPO_URL = "https://github.com/wrathsmokes/werathcord";
 declare const VERSION: string;
 const CURRENT_VERSION = `v${VERSION}`;
-const ZIP_FILE = "WRATHCORD-dist.zip";
+const ZIP_FILE = "werathcord-dist.zip";
 
 /**
  * Marker file written into __dirname when an update has been staged.
- * WRATHCORD-index.js reads this on next startup (before any file is locked)
+ * werathcord-index.js reads this on next startup (before any file is locked)
  * and performs the actual file-swap then.
  */
-export const PENDING_UPDATE_MARKER = join(__dirname, "WRATHCORD-pending-update.json");
-const STAGING_DIR = join(app.getPath("temp"), "WRATHCORD-pending-update");
+export const PENDING_UPDATE_MARKER = join(__dirname, "werathcord-pending-update.json");
+const STAGING_DIR = join(app.getPath("temp"), "werathcord-pending-update");
 
 let pendingDownloadUrl: string | null = null;
 let pendingVersion: string | null = null;
@@ -74,7 +73,7 @@ async function getUpdates() {
     if (!outdated) return [];
     return [{
         hash: pendingVersion ?? "new",
-        author: "WRATHCORD",
+        author: "werathcord",
         message: `Nouvelle version disponible : ${pendingVersion}`
     }];
 }
@@ -90,7 +89,7 @@ async function stageUpdate(): Promise<boolean> {
             const marker = JSON.parse(readFileSync(PENDING_UPDATE_MARKER, "utf-8"));
             if (marker.stagingDir && existsSync(marker.stagingDir)) {
                 if (!pendingVersion || marker.version === pendingVersion) {
-                    console.log(`[WRATHCORDUpdater] Update ${marker.version} is already staged on disk. Skipping download.`);
+                    console.log(`[werathcordUpdater] Update ${marker.version} is already staged on disk. Skipping download.`);
                     pendingDownloadUrl = null;
                     pendingVersion = null;
                     return true;
@@ -107,7 +106,7 @@ async function stageUpdate(): Promise<boolean> {
         const data = await fetchBuffer(pendingDownloadUrl);
 
         // Save zip to temp
-        const zipPath = join(app.getPath("temp"), `WRATHCORD-update-${Date.now()}.zip`);
+        const zipPath = join(app.getPath("temp"), `werathcord-update-${Date.now()}.zip`);
         await fsp.writeFile(zipPath, data);
 
         // Clean any stale staging dir first
@@ -155,5 +154,5 @@ async function stageUpdate(): Promise<boolean> {
 ipcMain.handle(IpcEvents.GET_REPO, serializeErrors(() => REPO_URL));
 ipcMain.handle(IpcEvents.GET_UPDATES, serializeErrors(getUpdates));
 ipcMain.handle(IpcEvents.UPDATE, serializeErrors(fetchUpdates));
-// BUILD is now "stage update" — actual file swap happens on next startup via WRATHCORD-index.js
+// BUILD is now "stage update" — actual file swap happens on next startup via werathcord-index.js
 ipcMain.handle(IpcEvents.BUILD, serializeErrors(stageUpdate));

@@ -1,8 +1,8 @@
 ﻿{
-  "name": "WRATHCORD-installer",
-  "productName": "WRATHCORD Installer",
-  "description": "A simple standalone program which automates the installation, removal and maintenance of WRATHCORD.",
-  "author": "WRATHCORD",
+  "name": "werathcord-installer",
+  "productName": "werathcord Installer",
+  "description": "A simple standalone program which automates the installation, removal and maintenance of werathcord.",
+  "author": "werathcord",
   "version": "1.3.0",
   "license": "MIT",
   "scripts": {
@@ -34,14 +34,20 @@
     "webpack-bundle-analyzer": "^4.4.0"
   },
   "build": {
-    "appId": "app.WRATHCORD.installer",
-    "productName": "WRATHCORD",
-    "copyright": "Copyright © 2026 WRATHCORD",
+    "appId": "app.werathcord.installer",
+    "productName": "werathcord",
+    "copyright": "Copyright © 2026 werathcord",
     "directories": {
       "output": "../release/installer"
     },
+    "extraResources": [
+      {
+        "from": "../release/installer/werathcord-dist.zip",
+        "to": "werathcord-dist.zip"
+      }
+    ],
     "win": {
-      "artifactName": "WRATHCORD-Installer.${ext}",
+      "artifactName": "werathcord-Installer.${ext}",
       "icon": "assets/icon.ico",
       "target": {
         "target": "portable",

@@ -20,7 +20,7 @@ function getFiles(dir) {
     return results;
 }
 
-const files = getFiles("src/WRATHCORDplugins");
+const files = getFiles("src/werathcordplugins");
 const tooltipsFound = [];
 
 for (const file of files) {
@@ -32,13 +32,13 @@ for (const file of files) {
     for (const m of tooltipMatches) {
         const attr = m[1];
         const val = m[2].trim();
-        if (val && val !== "WRATHCORD" && val !== "WRATHCORD AI" && !val.startsWith("http") && !/^\d+$/.test(val)) {
+        if (val && val !== "werathcord" && val !== "werathcord AI" && !val.startsWith("http") && !/^\d+$/.test(val)) {
             tooltipsFound.push({ file, attr, val });
             
             // Check if file has t imported
-            if (!content.includes('autoTranslateWRATHCORD') && !content.includes('import { t }') && !content.includes('import { tPlugin as t }')) {
-                const depth = file.split(/[/\\]/).length - file.split(/[/\\]/).indexOf("WRATHCORDplugins") - 2;
-                const relPath = "../".repeat(Math.max(1, depth)) + "autoTranslateWRATHCORD";
+            if (!content.includes('autoTranslatewerathcord') && !content.includes('import { t }') && !content.includes('import { tPlugin as t }')) {
+                const depth = file.split(/[/\\]/).length - file.split(/[/\\]/).indexOf("werathcordplugins") - 2;
+                const relPath = "../".repeat(Math.max(1, depth)) + "autoTranslatewerathcord";
                 content = `import { t } from "${relPath}";\n` + content;
             }
 

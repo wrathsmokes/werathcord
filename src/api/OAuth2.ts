@@ -1,20 +1,20 @@
 ﻿/*
- * WRATHCORD, a Discord client mod
+ * werathcord, a Discord client mod
  * Copyright (c) 2026 Vendicated and contributors
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
-export const API_BASE = "https://api.WRATHCORD.st";
+export const API_BASE = "https://api.werathcord.st";
 
 import { openModal } from "@utils/modal";
 import { OAuth2AuthorizeModal, React } from "@webpack/common";
 import * as DataStore from "./DataStore";
 
-export const OAUTH_TOKEN_KEY = "WRATHCORD_oauth_token";
+export const OAUTH_TOKEN_KEY = "werathcord_oauth_token";
 
 /** Route a GET request through Electron main process to bypass CORS. */
 async function netGet(url: string): Promise<any> {
-    const nf = (window as any).VencordNative?.WRATHCORD?.netFetch;
+    const nf = (window as any).VencordNative?.werathcord?.netFetch;
     if (typeof nf === "function") {
         const res = await nf(url);
         if (!res?.ok) throw new Error(`HTTP ${res?.status ?? "error"}`);

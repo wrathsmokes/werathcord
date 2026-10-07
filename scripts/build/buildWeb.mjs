@@ -31,9 +31,9 @@ import { BUILD_TIMESTAMP, commonOpts, globPlugins, IS_DEV, IS_REPORTER, IS_COMPA
  * tiny stubs for the Firefox / Chromium extension build.
  *
  * Modules stubbed and why:
- *  - autoTranslateWRATHCORD (~1.9 MB)  – huge translation table; extension
+ *  - autoTranslatewerathcord (~1.9 MB)  – huge translation table; extension
  *    users already have the browser's own language, so we just echo the key.
- *  - WRATHCORDNews/icon.ts (~256 KB)   – base64-encoded SVG; a simple inline
+ *  - werathcordNews/icon.ts (~256 KB)   – base64-encoded SVG; a simple inline
  *    SVG or empty string is fine in extension context.
  *  - sekaiStickers/characters.json.ts (~110 KB) – sticker character list.
  *    Replaced with an empty array; the plugin gracefully handles no data.
@@ -43,8 +43,8 @@ import { BUILD_TIMESTAMP, commonOpts, globPlugins, IS_DEV, IS_REPORTER, IS_COMPA
 const extensionStubPlugin = {
     name: "extension-heavy-module-stubs",
     setup(build) {
-        // ── autoTranslateWRATHCORD ──────────────────────────────────────────
-        build.onResolve({ filter: /autoTranslateWRATHCORD/ }, args => ({
+        // ── autoTranslatewerathcord ──────────────────────────────────────────
+        build.onResolve({ filter: /autoTranslatewerathcord/ }, args => ({
             path: args.path,
             namespace: "ext-stub-autoTranslate"
         }));
@@ -60,17 +60,17 @@ export default {};
 `
         }));
 
-        // ── WRATHCORDNews/icon.ts ───────────────────────────────────────────
+        // ── werathcordNews/icon.ts ───────────────────────────────────────────
         // The import is `from "../icon"` so args.path = "../icon" — we must
-        // also check args.importer to confirm it's coming from WRATHCORDNews.
+        // also check args.importer to confirm it's coming from werathcordNews.
         build.onResolve({ filter: /icon/ }, args => {
-            if (/WRATHCORDNews/.test(args.importer) && /[/\\]?icon$/.test(args.path)) {
+            if (/werathcordNews/.test(args.importer) && /[/\\]?icon$/.test(args.path)) {
                 return { path: args.path, namespace: "ext-stub-ncNewsIcon" };
             }
         });
         build.onLoad({ filter: /.*/, namespace: "ext-stub-ncNewsIcon" }, () => ({
             loader: "js",
-            // Empty string — WRATHCORDNewsButton falls back gracefully
+            // Empty string — werathcordNewsButton falls back gracefully
             contents: `export const newsIconBase64 = "";`
         }));
 

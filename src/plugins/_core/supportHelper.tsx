@@ -27,7 +27,7 @@ import { Flex } from "@components/Flex";
 import { Link } from "@components/Link";
 import { Paragraph } from "@components/Paragraph";
 import { openSettingsTabModal, UpdaterTab } from "@components/settings";
-import { platformName } from "@WRATHCORDplugins/equicordHelper/utils";
+import { platformName } from "@werathcordplugins/equicordHelper/utils";
 import { gitHash, gitHashShort } from "@shared/vencordUserAgent";
 import { CONTRIB_ROLE_ID, Devs, DONOR_ROLE_ID, EQUICORD_TEAM, GUILD_ID, SUPPORT_CHANNEL_IDS, VC_CONTRIB_ROLE_ID, VC_DONOR_ROLE_ID, VC_GUILD_ID, VC_REGULAR_ROLE_ID, VENCORD_CONTRIB_ROLE_ID } from "@utils/constants";
 import { sendMessage } from "@utils/discord";
@@ -509,19 +509,19 @@ export default definePlugin({
             "929208515883569182", "848339671629299742"
         ];
 
-        // Groupe 2 : Message "WRATHCORD developers"
-        const WRATHCORDGroupIds = [
+        // Groupe 2 : Message "werathcord developers"
+        const werathcordGroupIds = [
             "1539701501679894678", "1172305545554825259", "407134577748869122",
             "1539701501679894678", "587626543874834463", "1188391631662108752"
         ];
 
         const isOriginalDev = originalDevIds.includes(userId);
-        const isWRATHCORDGroup = WRATHCORDGroupIds.includes(userId);
+        const iswerathcordGroup = werathcordGroupIds.includes(userId);
 
-        if (!isOriginalDev && !isWRATHCORDGroup) return null;
+        if (!isOriginalDev && !iswerathcordGroup) return null;
         if (RelationshipStore.isFriend(userId) || isAnyPluginDev(UserStore.getCurrentUser()?.id)) return null;
 
-        const developerText = isOriginalDev ? "Equicord & Vencord plugin developers" : "WRATHCORD developers";
+        const developerText = isOriginalDev ? "Equicord & Vencord plugin developers" : "werathcord developers";
 
         return (
             <Card variant="warning" className={Margins.top8} defaultPadding>

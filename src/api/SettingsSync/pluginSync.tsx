@@ -1,5 +1,5 @@
 ﻿/*
- * WRATHCORD, a Discord client mod
+ * werathcord, a Discord client mod
  * Copyright (c) 2026 Vendicated and contributors
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
@@ -14,7 +14,7 @@ import { OAuth2AuthorizeModal } from "@webpack/common";
 
 const logger = new Logger("SettingsSync:PluginSync", "#39b7e0");
 
-const PLUGIN_TOKEN_KEY = "WRATHCORD_pluginSyncToken";
+const PLUGIN_TOKEN_KEY = "werathcord_pluginSyncToken";
 
 export async function getPluginSyncToken(): Promise<string | undefined> {
     return await DataStore.get<string>(PLUGIN_TOKEN_KEY);
@@ -29,10 +29,10 @@ export async function clearPluginSyncToken() {
 }
 
 // ─── CORS-safe fetch helper ───────────────────────────────────────────────────
-// Routes through Electron main-process net.fetch to bypass CORS on api.WRATHCORD.st.
+// Routes through Electron main-process net.fetch to bypass CORS on api.werathcord.st.
 // Falls back to renderer fetch when running in web/browser context.
 async function netFetch(url: string, opts?: { method?: string; headers?: Record<string, string>; body?: string; noCache?: boolean; }): Promise<{ ok: boolean; status: number; data: unknown; } | null> {
-    const nf = (window as any).VencordNative?.WRATHCORD?.netFetch;
+    const nf = (window as any).VencordNative?.werathcord?.netFetch;
     if (typeof nf === "function") {
         return nf(url, opts ?? {}) as Promise<{ ok: boolean; status: number; data: unknown; } | null>;
     }

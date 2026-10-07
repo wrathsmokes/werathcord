@@ -1,5 +1,5 @@
 ﻿/*
- * WRATHCORD, a Discord client mod
+ * werathcord, a Discord client mod
  * Copyright (c) 2026 Vendicated and contributors
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
@@ -31,7 +31,7 @@ const safeDelete = async (p) => {
 
 async function shouldAutoRestart() {
     try {
-        const prefsPath = path.join(process.env.APPDATA, "WRATHCORD", "settings", "installer-prefs.json");
+        const prefsPath = path.join(process.env.APPDATA, "werathcord", "settings", "installer-prefs.json");
         const raw = JSON.parse(await fs.readFile(prefsPath, "utf-8"));
         return raw.autoRestart !== false;
     } catch { return true; }
@@ -59,7 +59,7 @@ async function deleteShims(paths) {
     process.noAsar = true;
     const progressPerLoop = (DELETE_SHIM_PROGRESS - progress.value) / paths.length;
     for (const resPath of paths) {
-        log(`Removing WRATHCORD from: ${resPath}`);
+        log(`Removing werathcord from: ${resPath}`);
         try {
             const appDir = path.join(resPath, "app");
             const backup = path.join(resPath, "_app.asar");
@@ -118,7 +118,7 @@ async function deleteShims(paths) {
             log("[Success] Uninstallation successful!");
             progress.set(progress.value + progressPerLoop);
         } catch (err) {
-            log(`[Error] Could not remove WRATHCORD from ${resPath}`);
+            log(`[Error] Could not remove werathcord from ${resPath}`);
             log(`[Error] ${err.message}`);
             return err;
         }
@@ -128,7 +128,7 @@ async function deleteShims(paths) {
 export default async function(paths) {
     try {
         log("Starting Uninstall...");
-        lognewline("Deleting WRATHCORD loader and restoring files...");
+        lognewline("Deleting werathcord loader and restoring files...");
         
         const err = await deleteShims(Object.values(paths));
         if (err) return false;

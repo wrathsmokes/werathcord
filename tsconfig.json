@@ -38,7 +38,7 @@
             ],
             "@plugins/*": [
                 "./plugins/*",
-                "./WRATHCORDplugins/*"
+                "./werathcordplugins/*"
             ],
             "@shared/*": [
                 "./shared/*"
@@ -58,26 +58,26 @@
             "@webpack/wreq.d": [
                 "./webpack/wreq.d"
             ],
-            "@WRATHCORDplugins/*": [
-                "./WRATHCORDplugins/*",
+            "@werathcordplugins/*": [
+                "./werathcordplugins/*",
                 "./plugins/*"
             ],
             "@equicordplugins/*": [
                 "./plugins/*",
-                "./WRATHCORDplugins/*"
+                "./werathcordplugins/*"
             ],
             "@illegalcordplugins/*": [
                 "./illegalcordplugins/*"
             ],
             "main/*": [
-                "./WRATHCORD/main/*"
+                "./werathcord/main/*"
             ],
             "shared/*": [
-                "./WRATHCORD/shared/*",
+                "./werathcord/shared/*",
                 "./shared/*"
             ],
             "renderer/*": [
-                "./WRATHCORD/renderer/*"
+                "./werathcord/renderer/*"
             ]
         },
         "plugins": [

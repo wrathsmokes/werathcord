@@ -1,11 +1,11 @@
 ﻿/*
- * WRATHCORD, a Discord client mod
+ * werathcord, a Discord client mod
  * Copyright (c) 2026 Vendicated and contributors
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
 /**
- * re-applies the WRATHCORD patch to a freshly installed discord host
+ * re-applies the werathcord patch to a freshly installed discord host
  * version at the moment the native updater finishes writing it.
  *
  * hooks `discord_desktop_core.startup({ updater })` to capture the live
@@ -52,7 +52,7 @@ interface DiscordHostUpdater {
 interface DiscordUpdaterModule {
     getUpdater?(): DiscordHostUpdater | null | undefined;
     tryInitUpdater?(buildInfo: DiscordBuildInfo, repositoryUrl: string, useRustBspatch: boolean): boolean;
-    __WRATHCORDTryInitWrapped?: boolean;
+    __werathcordTryInitWrapped?: boolean;
 }
 
 interface DiscordDesktopCoreStartupOpts {
@@ -62,10 +62,10 @@ interface DiscordDesktopCoreStartupOpts {
 
 interface DiscordDesktopCore {
     startup?(opts: DiscordDesktopCoreStartupOpts): void;
-    __WRATHCORDStartupWrapped?: boolean;
+    __werathcordStartupWrapped?: boolean;
 }
 
-const error = (...args: unknown[]) => console.error("[WRATHCORD:HostUpdate]", ...args);
+const error = (...args: unknown[]) => console.error("[werathcord:HostUpdate]", ...args);
 
 const hookedUpdaters = new WeakSet<DiscordHostUpdater>();
 let hooked = false;
@@ -123,7 +123,7 @@ const resolveCommittedVersion = (updater: DiscordHostUpdater): number[] | undefi
     return undefined;
 };
 
-const retainWRATHCORD = (updater: DiscordHostUpdater, reason: string) => {
+const retainwerathcord = (updater: DiscordHostUpdater, reason: string) => {
     try {
         const committed = resolveCommittedVersion(updater);
         const { rootPath } = updater;
@@ -158,7 +158,7 @@ const attachToUpdater = (updater: DiscordHostUpdater | null | undefined) => {
         return;
     }
 
-    updater.on?.("host-updated", () => retainWRATHCORD(updater, "host-updated"));
+    updater.on?.("host-updated", () => retainwerathcord(updater, "host-updated"));
 
     /*
      * wrap the post-update relaunch entrypoints. retain runs after the
@@ -172,7 +172,7 @@ const attachToUpdater = (updater: DiscordHostUpdater | null | undefined) => {
         const bound = sync.bind(updater);
         updater.startCurrentVersionSync = (options?: StartCurrentVersionOptions) => {
             bound(options);
-            try { retainWRATHCORD(updater, "startCurrentVersionSync"); } catch (e) { error(e); }
+            try { retainwerathcord(updater, "startCurrentVersionSync"); } catch (e) { error(e); }
         };
     }
     const async_ = updater.startCurrentVersion;
@@ -180,14 +180,14 @@ const attachToUpdater = (updater: DiscordHostUpdater | null | undefined) => {
         const bound = async_.bind(updater);
         updater.startCurrentVersion = async (queryOptions?: object, options?: StartCurrentVersionOptions) => {
             await bound(queryOptions, options);
-            try { retainWRATHCORD(updater, "startCurrentVersion"); } catch (e) { error(e); }
+            try { retainwerathcord(updater, "startCurrentVersion"); } catch (e) { error(e); }
         };
     }
 };
 
 const wrapStartup = (coreExports: DiscordDesktopCore | null | undefined) => {
-    if (!coreExports?.startup || coreExports.__WRATHCORDStartupWrapped) return;
-    coreExports.__WRATHCORDStartupWrapped = true;
+    if (!coreExports?.startup || coreExports.__werathcordStartupWrapped) return;
+    coreExports.__werathcordStartupWrapped = true;
 
     const origStartup = coreExports.startup;
     coreExports.startup = function (opts, ...rest) {
@@ -196,12 +196,12 @@ const wrapStartup = (coreExports: DiscordDesktopCore | null | undefined) => {
             const inst = updaterModule?.getUpdater?.();
             if (inst) {
                 attachToUpdater(inst);
-            } else if (typeof updaterModule?.tryInitUpdater === "function" && !updaterModule.__WRATHCORDTryInitWrapped) {
+            } else if (typeof updaterModule?.tryInitUpdater === "function" && !updaterModule.__werathcordTryInitWrapped) {
                 /*
                  * updater not yet constructed at startup time. wrap the
                  * factory so we attach once vanilla creates it.
                  */
-                updaterModule.__WRATHCORDTryInitWrapped = true;
+                updaterModule.__werathcordTryInitWrapped = true;
                 const origTry = updaterModule.tryInitUpdater.bind(updaterModule);
                 updaterModule.tryInitUpdater = (buildInfo, repositoryUrl, useRustBspatch) => {
                     const ok = origTry(buildInfo, repositoryUrl, useRustBspatch);

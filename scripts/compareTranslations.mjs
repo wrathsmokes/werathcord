@@ -1,7 +1,7 @@
 ﻿import { readFileSync } from "fs";
 
-// Get all keys from autoTranslateWRATHCORD
-const atc = readFileSync("src/WRATHCORDplugins/autoTranslateWRATHCORD/index.ts", "utf8");
+// Get all keys from autoTranslatewerathcord
+const atc = readFileSync("src/werathcordplugins/autoTranslatewerathcord/index.ts", "utf8");
 const atcKeys = new Set();
 const regex1 = /^\s*"([^"]+)":\s*\{/gm;
 let m;

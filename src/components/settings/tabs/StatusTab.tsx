@@ -1,5 +1,5 @@
 ﻿/*
- * WRATHCORD, a Discord client mod
+ * werathcord, a Discord client mod
  * Copyright (c) 2026 Vendicated and contributors
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
@@ -30,7 +30,7 @@ export interface ServiceStatusItem {
 const DEFAULT_SERVICES: ServiceStatusItem[] = [
     {
         id: "api",
-        name: "WRATHCORD API",
+        name: "werathcord API",
         description: "Plugin registry, theme metadata, releases, and telemetry-free repository endpoints",
         status: "operational",
         uptimePercent: 100.0,
@@ -41,7 +41,7 @@ const DEFAULT_SERVICES: ServiceStatusItem[] = [
     },
     {
         id: "website",
-        name: "WRATHCORD Website & Web Portal",
+        name: "werathcord Website & Web Portal",
         description: "Official portal, documentation hub, download distributor, and privacy guides",
         status: "operational",
         uptimePercent: 100.0,
@@ -49,7 +49,7 @@ const DEFAULT_SERVICES: ServiceStatusItem[] = [
     },
     {
         id: "docs",
-        name: "WRATHCORD Docs & Guides",
+        name: "werathcord Docs & Guides",
         description: "Developer documentation, plugin SDK references, and user installation guides",
         status: "operational",
         uptimePercent: 100.0,
@@ -57,7 +57,7 @@ const DEFAULT_SERVICES: ServiceStatusItem[] = [
     },
     {
         id: "social",
-        name: "WRATHCORD Social Network",
+        name: "werathcord Social Network",
         description: "Public Fediverse & Mastodon community instance for announcements and federated chat",
         status: "degraded",
         uptimePercent: 100.0,
@@ -67,7 +67,7 @@ const DEFAULT_SERVICES: ServiceStatusItem[] = [
     },
     {
         id: "desktop_app",
-        name: "WRATHCORD Client & Desktop App",
+        name: "werathcord Client & Desktop App",
         description: "Desktop client injector, auto-updater system, native Discord mod runtime, and sandbox",
         status: "operational",
         uptimePercent: 99.99,
@@ -77,7 +77,7 @@ const DEFAULT_SERVICES: ServiceStatusItem[] = [
     },
     {
         id: "cloud_sync",
-        name: "WRATHCORD Cloud Sync",
+        name: "werathcord Cloud Sync",
         description: "Cross-device synchronization, secure settings backup, and encrypted tokens repository",
         status: "operational",
         uptimePercent: 100.0,
@@ -276,7 +276,7 @@ function StatusTab() {
     const fetchStatus = async () => {
         setLoading(true);
         try {
-            const res = await fetch("https://WRATHCORD.st/api/uptime", {
+            const res = await fetch("https://werathcord.st/api/uptime", {
                 headers: { Accept: "application/json" }
             });
             if (res.ok) {

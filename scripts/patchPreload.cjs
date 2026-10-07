@@ -1,6 +1,6 @@
 ﻿#!/usr/bin/env node
 /**
- * Script de patch post-build pour WRATHCORD
+ * Script de patch post-build pour werathcord
  * Patche le preload.js pour fonctionner sans contextIsolation
  */
 

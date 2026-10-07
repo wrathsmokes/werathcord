@@ -1,5 +1,5 @@
 ﻿/*
- * WRATHCORD, a Discord client mod
+ * werathcord, a Discord client mod
  * Copyright (c) 2026 Vendicated and contributors
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
@@ -13,7 +13,7 @@ import { classNameFactory } from "@utils/css";
 import { Margins } from "@utils/margins";
 import { findByCodeLazy, findStoreLazy } from "@webpack";
 import { Button, React, TextInput, ThemeStore, useEffect, useState, useStateFromStores } from "@webpack/common";
-import { t } from "../../../../WRATHCORDplugins/autoTranslateWRATHCORD";
+import { t } from "../../../../werathcordplugins/autoTranslatewerathcord";
 
 function relativeLuminance(hex: string): number {
     const toLinear = (c: number) => c <= 0.03928 ? c / 12.92 : Math.pow((c + 0.055) / 1.055, 2.4);

@@ -646,7 +646,7 @@ function DynamicIslandPlayer() {
 
 // ÔöÇÔöÇÔöÇ Rich Presence ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇ
 
-const RPC_APP_ID = "1108588077900898414"; // Shared WRATHCORD music/media app ID
+const RPC_APP_ID = "1108588077900898414"; // Shared werathcord music/media app ID
 const RPC_SOCKET_ID = "youtube_in_discord";
 let _rpcLastTitle = "";
 let _rpcLastPlaying = false;
@@ -710,7 +710,7 @@ async function _doRpc() {
             socketId: RPC_SOCKET_ID,
             activity: {
                 application_id: RPC_APP_ID,
-                name: "Watch Youtube in WRATHCORD",
+                name: "Watch Youtube in werathcord",
                 details: p.video.title || "Unknown video",
                 state: p.video.author || undefined,
                 type: 2, // LISTENING (avoids "Regarde" prefix in French)
@@ -721,8 +721,8 @@ async function _doRpc() {
                 buttons: ["Watch Together", "Download"],
                 metadata: {
                     button_urls: [
-                        `https://WRATHCORD.st/watch?v=${p.video.id}`,
-                        "https://WRATHCORD.st",
+                        `https://werathcord.st/watch?v=${p.video.id}`,
+                        "https://werathcord.st",
                     ],
                 },
                 flags: 1,

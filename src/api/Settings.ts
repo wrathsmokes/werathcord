@@ -171,7 +171,7 @@ const DefaultSettings: Settings = {
 
     cloud: {
         authenticated: false,
-        url: "https://api.WRATHCORD.st/",
+        url: "https://api.werathcord.st/",
         settingsSync: false,
         settingsSyncVersion: 0
     },
@@ -185,13 +185,13 @@ if ((settings.plugins as any)?.EventLogs?.persistentLogs) {
     delete (settings.plugins as any).EventLogs.persistentLogs;
 }
 
-// Force migrate cloud URL to WRATHCORD if it's still Equicord
+// Force migrate cloud URL to werathcord if it's still Equicord
 if (settings.cloud && settings.cloud.url && settings.cloud.url.includes("equicord.org")) {
-    settings.cloud.url = "https://api.WRATHCORD.st/";
+    settings.cloud.url = "https://api.werathcord.st/";
 }
 
-// WRATHCORD native defaults — defaultPlugins is always enabled, no external prefs file
-const WRATHCORD_PREFS = { defaultPlugins: true, autoUpdate: true } as const;
+// werathcord native defaults — defaultPlugins is always enabled, no external prefs file
+const werathcord_PREFS = { defaultPlugins: true, autoUpdate: true } as const;
 
 // Ensure plugins have defaults set if missing, while preserving explicit user choices.
 if (!IS_REPORTER && settings.plugins && plugins) {

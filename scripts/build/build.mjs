@@ -76,7 +76,7 @@ const globNativesPlugin = {
         });
 
         build.onLoad({ filter, namespace: "import-natives" }, async () => {
-            const pluginDirs = ["plugins", "userplugins", "WRATHCORDplugins"];
+            const pluginDirs = ["plugins", "userplugins", "werathcordplugins"];
             let code = "";
             let natives = "\n";
             let i = 0;
@@ -177,7 +177,7 @@ const buildConfigs = ([
     {
         ...nodeCommonOpts,
         entryPoints: [join(dirname(fileURLToPath(import.meta.url)), "../../src/main/index.ts")],
-        outfile: "dist/WRATHCORD/main.js",
+        outfile: "dist/werathcord/main.js",
         footer: { js: "//# sourceURL=file:///VencordDesktopMain\n" + sourceMapFooter("main") },
         sourcemap,
         plugins: [
@@ -194,7 +194,7 @@ const buildConfigs = ([
     {
         ...commonOpts,
         entryPoints: [join(dirname(fileURLToPath(import.meta.url)), "../../src/Vencord.ts")],
-        outfile: "dist/WRATHCORD/renderer.js",
+        outfile: "dist/werathcord/renderer.js",
         format: "iife",
         target: ["esnext"],
         footer: { js: "//# sourceURL=file:///VencordDesktopRenderer\n" + sourceMapFooter("renderer") },
@@ -214,7 +214,7 @@ const buildConfigs = ([
     {
         ...nodeCommonOpts,
         entryPoints: [join(dirname(fileURLToPath(import.meta.url)), "../../src/preload.ts")],
-        outfile: "dist/WRATHCORD/preload.js",
+        outfile: "dist/werathcord/preload.js",
         footer: { js: "//# sourceURL=file:///VencordPreload\n" + sourceMapFooter("preload") },
         sourcemap,
         define: {
@@ -230,25 +230,25 @@ await buildOrWatchAll(buildConfigs);
 
 await Promise.all([
     writeFile("dist/desktop/package.json", JSON.stringify({
-        name: "WRATHCORD",
+        name: "werathcord",
         main: "patcher.js"
     })),
-    writeFile("dist/WRATHCORD/package.json", JSON.stringify({
-        name: "WRATHCORD",
+    writeFile("dist/werathcord/package.json", JSON.stringify({
+        name: "werathcord",
         main: "main.js"
     }))
 ]);
 
 await Promise.all([
     createPackage("dist/desktop", "dist/desktop.asar"),
-    createPackage("dist/WRATHCORD", "dist/WRATHCORD.asar"),
+    createPackage("dist/werathcord", "dist/werathcord.asar"),
 ]);
 
-// Automatically mirror dist/desktop to LocalAppData/WRATHCORD/dist if it exists
+// Automatically mirror dist/desktop to LocalAppData/werathcord/dist if it exists
 try {
     const localAppData = process.env.LOCALAPPDATA;
     if (localAppData) {
-        const targetDir = join(localAppData, "WRATHCORD", "dist");
+        const targetDir = join(localAppData, "werathcord", "dist");
         if (await exists(targetDir)) {
             const { copyFile } = await import("fs/promises");
             const files = ["patcher.js", "preload.js", "renderer.js", "renderer.css", "package.json"];

@@ -1,5 +1,5 @@
-/*
- * WRATHCORD, a Discord client mod
+﻿/*
+ * werathcord, a Discord client mod
  * Copyright (c) 2026 Vendicated and contributors
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
@@ -17,8 +17,8 @@ async function main() {
     const tag = `v${version}`;
     const notes = process.argv[4] || tag;
 
-    const giteaUrl = "https://source.WRATHCORD.st";
-    const repo = "WRATHCORD/WRATHCORD";
+    const giteaUrl = "https://source.werathcord.st";
+    const repo = "werathcord/werathcord";
 
     // Read token from project root or user home directory
     let tokenFile = path.join(process.cwd(), ".gitea_token");
@@ -146,13 +146,13 @@ async function main() {
 
     // 2. Assets to upload
     const filesToUpload = [
-        { name: "WRATHCORD-Installer.exe", path: path.join("release", "installer", "WRATHCORD-Installer.exe"), type: "application/octet-stream" },
+        { name: "werathcord-Installer.exe", path: path.join("release", "installer", "werathcord-Installer.exe"), type: "application/octet-stream" },
         { name: "desktop.asar", path: path.join("dist", "desktop.asar"), type: "application/octet-stream" },
-        { name: "WRATHCORDDesktop.asar", path: path.join("dist", "desktop.asar"), type: "application/octet-stream" },
+        { name: "werathcordDesktop.asar", path: path.join("dist", "desktop.asar"), type: "application/octet-stream" },
         { name: "install.ps1", path: path.join("install.ps1"), type: "text/plain" },
         { name: "extension-chrome.zip", path: path.join("dist", "extension-chrome.zip"), type: "application/zip" },
         { name: "extension-firefox.zip", path: path.join("dist", "extension-firefox.zip"), type: "application/zip" },
-        { name: "WRATHCORD-dist.zip", path: path.join("release", "installer", "WRATHCORD-dist.zip"), type: "application/zip" },
+        { name: "werathcord-dist.zip", path: path.join("release", "installer", "werathcord-dist.zip"), type: "application/zip" },
         { name: "version.json", path: path.join("release", "installer", "version.json"), type: "application/json" }
     ];
 

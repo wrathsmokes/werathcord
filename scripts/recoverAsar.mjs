@@ -48,11 +48,11 @@ export function recoverOriginalAsar(resourcesDir) {
                     copyFileSync(extracted, discordAppPath);
                     copyFileSync(extracted, backupPath);
                     rmSync(tempExtractDir, { recursive: true, force: true });
-                    console.log(`[WRATHCORD] discord_app.asar extrait avec succès depuis ${pkg} (Taille : ${statSync(discordAppPath).size} octets)`);
+                    console.log(`[werathcord] discord_app.asar extrait avec succès depuis ${pkg} (Taille : ${statSync(discordAppPath).size} octets)`);
                     return true;
                 }
             } catch (err) {
-                console.warn(`[WRATHCORD] Erreur extraction nupkg:`, err.message);
+                console.warn(`[werathcord] Erreur extraction nupkg:`, err.message);
             }
         }
     }

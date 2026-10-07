@@ -1,7 +1,7 @@
 ﻿import {log} from "./log";
 import {action, status} from "../../stores/installation";
 
-const discordURL = "https://discord.gg/WRATHCORD";
+const discordURL = "https://discord.gg/werathcord";
 
 export default function fail() {
     log("");

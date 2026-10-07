@@ -22,10 +22,10 @@ import { join } from "path";
 
 const suffix = IS_DEV ? "dev" : "";
 
-export const DATA_DIR = process.env.WRATHCORD_USER_DATA_DIR ?? (
+export const DATA_DIR = process.env.werathcord_USER_DATA_DIR ?? (
     process.env.DISCORD_USER_DATA_DIR
-        ? join(process.env.DISCORD_USER_DATA_DIR, "..", "WRATHCORD")
-        : join(app.getPath("userData"), "..", "WRATHCORD")
+        ? join(process.env.DISCORD_USER_DATA_DIR, "..", "werathcord")
+        : join(app.getPath("userData"), "..", "werathcord")
 );
 
 export const SETTINGS_DIR = join(DATA_DIR, "settings");
@@ -66,7 +66,7 @@ if (IS_DEV) {
                 app.relaunch();
                 app.exit(0);
             } catch (err) {
-                console.error("[WRATHCORD] Failed to copy prod data:", err);
+                console.error("[werathcord] Failed to copy prod data:", err);
             }
         }, 5000);
     }

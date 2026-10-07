@@ -1,5 +1,5 @@
 ﻿/*
- * WRATHCORD, a Discord client mod
+ * werathcord, a Discord client mod
  * Copyright (c) 2026 Vendicated and contributors
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
@@ -24,7 +24,7 @@ let networkBlocked = false;
 
 /** Route a request through Electron main process to bypass CORS. */
 async function netFetch(url: string, opts?: { method?: string; headers?: Record<string, string>; body?: string; }) {
-    const nf = (window as any).VencordNative?.WRATHCORD?.netFetch;
+    const nf = (window as any).VencordNative?.werathcord?.netFetch;
     if (typeof nf === "function") {
         return nf(url, { method: opts?.method, headers: opts?.headers, body: opts?.body });
     }

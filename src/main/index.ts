@@ -99,8 +99,8 @@ if (!IS_VANILLA && !IS_EXTENSION) {
         try {
             if (RendererSettings.store.enableReactDevtools)
                 installExt("fmkadmapgofadopljbjfkapdkoienihi")
-                    .then(() => console.info("[WRATHCORD] Installed React Developer Tools"))
-                    .catch(err => console.error("[WRATHCORD] Failed to install React Developer Tools", err));
+                    .then(() => console.info("[werathcord] Installed React Developer Tools"))
+                    .catch(err => console.error("[werathcord] Failed to install React Developer Tools", err));
         } catch { }
 
         initCsp();

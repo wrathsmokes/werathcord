@@ -42,7 +42,7 @@ function ApiKeyWarningModal({ pluginName, onClose }: { pluginName: string; onClo
 
                     <p style={{ fontSize: 14, color: "#b5bac1", lineHeight: 1.55, margin: 0 }}>
                         You only need to configure it once in the{" "}
-                        <strong style={{ color: "#dbdee1" }}>WRATHCORDAI</strong>
+                        <strong style={{ color: "#dbdee1" }}>werathcordAI</strong>
                         {" "}plugin settings. The key is shared across all plugins that use it.
                     </p>
                 </div>
@@ -62,11 +62,11 @@ function ApiKeyWarningModal({ pluginName, onClose }: { pluginName: string; onClo
                         color={Button.Colors.BRAND}
                         onClick={() => {
                             onClose();
-                            const plugin = Plugins.WRATHCORDAI;
+                            const plugin = Plugins.werathcordAI;
                             if (plugin) openPluginModal(plugin);
                         }}
                     >
-                        Open WRATHCORDAI Settings
+                        Open werathcordAI Settings
                     </Button>
                 </div>
             </ModalFooter>

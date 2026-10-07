@@ -1,5 +1,5 @@
 ﻿/*
- * WRATHCORD — Local un-injector for Discord Desktop
+ * werathcord — Local un-injector for Discord Desktop
  * Annule l'injection en :
  * 1. Supprimant le dossier app/ et le loader app.asar
  * 2. Restaurant _app.asar → app.asar officiel
@@ -115,9 +115,9 @@ function uninject(resourcesDir) {
     if (existsSync(appDirPath)) {
         try {
             rmSync(appDirPath, { recursive: true, force: true });
-            console.log(`[WRATHCORD] Dossier app/ supprimé dans : ${resourcesDir}`);
+            console.log(`[werathcord] Dossier app/ supprimé dans : ${resourcesDir}`);
         } catch (e) {
-            console.warn(`[WRATHCORD] Erreur suppression app/ : ${e.message}`);
+            console.warn(`[werathcord] Erreur suppression app/ : ${e.message}`);
         }
     }
 
@@ -127,14 +127,14 @@ function uninject(resourcesDir) {
             if (existsSync(appAsarPath)) {
                 rmSync(appAsarPath, { recursive: true, force: true });
             }
-            console.log("[WRATHCORD] Restauration _app.asar → app.asar...");
+            console.log("[werathcord] Restauration _app.asar → app.asar...");
             renameSync(backupPath, appAsarPath);
         } catch (e) {
-            console.warn(`[WRATHCORD] Erreur restauration asar : ${e.message}`);
+            console.warn(`[werathcord] Erreur restauration asar : ${e.message}`);
         }
     }
 
-    console.log(`\x1b[32m[WRATHCORD] Désinjection réussie depuis : ${resourcesDir}\x1b[0m`);
+    console.log(`\x1b[32m[werathcord] Désinjection réussie depuis : ${resourcesDir}\x1b[0m`);
     return true;
 }
 
@@ -142,15 +142,15 @@ function uninject(resourcesDir) {
 const allResources = findAllDiscordResources();
 
 if (allResources.length === 0) {
-    console.log("\x1b[33m[WRATHCORD] Aucune injection active à désinjecter.\x1b[0m");
+    console.log("\x1b[33m[werathcord] Aucune injection active à désinjecter.\x1b[0m");
     process.exit(0);
 }
 
 let uninjectCount = 0;
 for (const res of allResources) {
-    console.log(`\n[WRATHCORD] Traitement : ${res}`);
+    console.log(`\n[werathcord] Traitement : ${res}`);
     if (uninject(res)) uninjectCount++;
 }
 
-console.log(`\n\x1b[32m[WRATHCORD] ${uninjectCount}/${allResources.length} installation(s) désinjectée(s) avec succès.\x1b[0m`);
-console.log("\x1b[36m[WRATHCORD] Redémarrez Discord pour appliquer les changements.\x1b[0m");
+console.log(`\n\x1b[32m[werathcord] ${uninjectCount}/${allResources.length} installation(s) désinjectée(s) avec succès.\x1b[0m`);
+console.log("\x1b[36m[werathcord] Redémarrez Discord pour appliquer les changements.\x1b[0m");

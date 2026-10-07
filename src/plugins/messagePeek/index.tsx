@@ -157,10 +157,10 @@ function MessagePreviewContent({ channel, user }: { channel: Channel; user: User
     );
 
     if (channel.isSystemDM()) {
-        const isWRATHCORD = channel.id === "999999999999999990" ||
-            channel.name?.toLowerCase().includes("WRATHCORD") ||
+        const iswerathcord = channel.id === "999999999999999990" ||
+            channel.name?.toLowerCase().includes("werathcord") ||
             (channel.recipients && channel.recipients.includes("999999999999999999"));
-        return isWRATHCORD ? <>Official WRATHCORD Message</> : <>Official Discord Message</>;
+        return iswerathcord ? <>Official werathcord Message</> : <>Official Discord Message</>;
     }
 
     const smynName = isPluginEnabled(showMeYourName.name) ? showMeYourName.getTypingMemberListProfilesReactionsVoiceNameText({ user: user ?? lastMessage?.author, type: "membersList" }) : null;

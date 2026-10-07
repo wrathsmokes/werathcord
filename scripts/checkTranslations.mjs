@@ -1,7 +1,7 @@
 ﻿#!/usr/bin/env node
 import { readFileSync } from "fs";
 
-const content = readFileSync("src/WRATHCORDplugins/autoTranslateWRATHCORD/index.ts", "utf8");
+const content = readFileSync("src/werathcordplugins/autoTranslatewerathcord/index.ts", "utf8");
 
 // Count ? chars in ru/zh values
 const lines = content.split("\n");

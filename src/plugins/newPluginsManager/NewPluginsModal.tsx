@@ -1,5 +1,5 @@
 ﻿/*
- * WRATHCORD, a Discord client mod
+ * werathcord, a Discord client mod
  * Copyright (c) 2026 Vendicated and contributors
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
@@ -82,7 +82,7 @@ function NewPluginsModal({ modalProps, newPlugins, newSettings }: ModalComponent
 
         if (isRequired) {
             const tooltipText = p.required
-                ? "This plugin is required for WRATHCORD to function."
+                ? "This plugin is required for werathcord to function."
                 : <PluginDependencyList deps={depMap[p.name]?.filter(d => settings.plugins[d]?.enabled)} />;
 
             requiredPluginCards.push(
@@ -140,7 +140,7 @@ function NewPluginsModal({ modalProps, newPlugins, newSettings }: ModalComponent
                         </span>
                     </div>
                     <Text variant="text-sm/normal" className={cl("description")}>
-                        Discover the latest plugins added to WRATHCORD. Enable and configure any you would like to use.
+                        Discover the latest plugins added to werathcord. Enable and configure any you would like to use.
                     </Text>
                 </div>
                 <ModalCloseButton onClick={modalProps.onClose} />

@@ -1,5 +1,5 @@
 ﻿/*
- * WRATHCORD, a Discord client mod
+ * werathcord, a Discord client mod
  * Copyright (c) 2026 Vendicated and contributors
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
@@ -19,7 +19,7 @@ export function getUserPluginsDir(): string {
     } catch {
         docs = process.env.USERPROFILE || process.env.HOME || "";
     }
-    const standardDir = join(docs, "WRATHCORD", "userplugins");
+    const standardDir = join(docs, "werathcord", "userplugins");
     return standardDir;
 }
 

@@ -1,6 +1,6 @@
 ﻿import { readFileSync } from "fs";
 
-const c = readFileSync("src/WRATHCORDplugins/autoTranslateWRATHCORD/index.ts", "utf8");
+const c = readFileSync("src/werathcordplugins/autoTranslatewerathcord/index.ts", "utf8");
 const lines = c.split("\n");
 
 let corruptRu = 0, corruptZh = 0;

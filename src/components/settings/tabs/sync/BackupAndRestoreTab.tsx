@@ -33,7 +33,7 @@ function BackupAndRestoreTab() {
         <SettingsTab>
             <Heading className={Margins.top16}>{t("Backup & Restore")}</Heading>
             <Paragraph className={Margins.bottom20}>
-                {t("Import and export your WRATHCORD settings as a JSON file. This allows you to easily transfer your settings to another device, or recover them after reinstalling WRATHCORD or Discord.")}
+                {t("Import and export your werathcord settings as a JSON file. This allows you to easily transfer your settings to another device, or recover them after reinstalling werathcord or Discord.")}
             </Paragraph>
 
             <Notice.Warning className={Margins.bottom20}>

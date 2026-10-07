@@ -1,23 +1,23 @@
 ﻿# ==============================================================================
-#  WRATHCORD — Universal Windows PowerShell Installer
-#  Usage: irm https://source.WRATHCORD.st/WRATHCORD/WRATHCORD/raw/branch/master/install.ps1 | iex
+#  werathcord — Universal Windows PowerShell Installer
+#  Usage: irm https://source.werathcord.st/werathcord/werathcord/raw/branch/master/install.ps1 | iex
 # ==============================================================================
 
 $ErrorActionPreference = "Stop"
 $ProgressPreference    = "SilentlyContinue"
 
-$GiteaUrl     = "https://source.WRATHCORD.st"
-$GiteaRepo    = "WRATHCORD/WRATHCORD"
-$InstallDir   = Join-Path $env:LOCALAPPDATA "WRATHCORD"
+$GiteaUrl     = "https://source.werathcord.st"
+$GiteaRepo    = "werathcord/werathcord"
+$InstallDir   = Join-Path $env:LOCALAPPDATA "werathcord"
 $DistDir      = Join-Path $InstallDir "dist"
 $InstallerDir = Join-Path $InstallDir "installer"
-$InstallerExe = Join-Path $InstallerDir "WRATHCORD-Installer.exe"
+$InstallerExe = Join-Path $InstallerDir "werathcord-Installer.exe"
 
 function Write-Banner {
     Clear-Host
     Write-Host ""
     Write-Host "  =======================================================" -ForegroundColor Cyan
-    Write-Host "             WRATHCORD - WINDOWS INSTALLER               " -ForegroundColor White
+    Write-Host "             werathcord - WINDOWS INSTALLER               " -ForegroundColor White
     Write-Host "         Quick & Clean Discord Client Mod Setup          " -ForegroundColor DarkCyan
     Write-Host "  =======================================================" -ForegroundColor Cyan
     Write-Host ""
@@ -54,7 +54,7 @@ Write-Step 1 3 "Récupération des informations de la dernière version..."
 
 $apiUrl = "$GiteaUrl/api/v1/repos/$GiteaRepo/releases/latest"
 try {
-    $release = Invoke-RestMethod -Uri $apiUrl -UseBasicParsing -Headers @{ "User-Agent" = "WRATHCORD-Installer/2.0" }
+    $release = Invoke-RestMethod -Uri $apiUrl -UseBasicParsing -Headers @{ "User-Agent" = "werathcord-Installer/2.0" }
     $version = $release.tag_name
     Write-OK "Dernière version trouvée : $version"
 } catch {
@@ -62,30 +62,30 @@ try {
     Write-OK "Utilisation de la version : $version"
 }
 
-# ── [2/3] Télécharger WRATHCORD-Installer ou WRATHCORD-Dist ────────────────────
-Write-Step 2 3 "Téléchargement de l'installeur WRATHCORD..."
+# ── [2/3] Télécharger werathcord-Installer ou werathcord-Dist ────────────────────
+Write-Step 2 3 "Téléchargement de l'installeur werathcord..."
 
-$installerAsset = $release.assets | Where-Object { $_.name -eq "WRATHCORD-Installer.exe" } | Select-Object -First 1
-$distAsset      = $release.assets | Where-Object { $_.name -eq "WRATHCORD-dist.zip" } | Select-Object -First 1
+$installerAsset = $release.assets | Where-Object { $_.name -eq "werathcord-Installer.exe" } | Select-Object -First 1
+$distAsset      = $release.assets | Where-Object { $_.name -eq "werathcord-dist.zip" } | Select-Object -First 1
 
 if ($installerAsset) {
     try {
         Invoke-WebRequest -Uri $installerAsset.browser_download_url -OutFile $InstallerExe -UseBasicParsing `
-            -Headers @{ "User-Agent" = "WRATHCORD-Installer/2.0" }
-        Write-OK "WRATHCORD-Installer.exe téléchargé avec succès."
+            -Headers @{ "User-Agent" = "werathcord-Installer/2.0" }
+        Write-OK "werathcord-Installer.exe téléchargé avec succès."
     } catch {
-        Write-Fail "Impossible de télécharger WRATHCORD-Installer.exe : $_"
+        Write-Fail "Impossible de télécharger werathcord-Installer.exe : $_"
     }
 } elseif ($distAsset) {
     try {
-        $zipPath = Join-Path $InstallDir "WRATHCORD-dist.zip"
+        $zipPath = Join-Path $InstallDir "werathcord-dist.zip"
         Invoke-WebRequest -Uri $distAsset.browser_download_url -OutFile $zipPath -UseBasicParsing `
-            -Headers @{ "User-Agent" = "WRATHCORD-Installer/2.0" }
+            -Headers @{ "User-Agent" = "werathcord-Installer/2.0" }
         Expand-Archive -Path $zipPath -DestinationPath $DistDir -Force
         Remove-Item $zipPath -Force
-        Write-OK "Bundle WRATHCORD extrait avec succès."
+        Write-OK "Bundle werathcord extrait avec succès."
     } catch {
-        Write-Fail "Impossible de télécharger le bundle WRATHCORD : $_"
+        Write-Fail "Impossible de télécharger le bundle werathcord : $_"
     }
 } else {
     Write-Fail "Aucun asset d'installation trouvé pour la release $version."
@@ -120,7 +120,7 @@ if (Test-Path $InstallerExe) {
 
 Write-Host ""
 Write-Host "  =======================================================" -ForegroundColor Green
-Write-Host "     Installation de WRATHCORD terminée avec succès !    " -ForegroundColor Green
+Write-Host "     Installation de werathcord terminée avec succès !    " -ForegroundColor Green
 Write-Host "  =======================================================" -ForegroundColor Green
 Write-Host ""
 Start-Sleep -Seconds 3

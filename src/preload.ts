@@ -24,7 +24,7 @@ import VencordNative, { invoke, sendSync } from "./VencordNative";
 
 contextBridge.exposeInMainWorld("VencordNative", VencordNative);
 contextBridge.exposeInMainWorld("EquicordNative", VencordNative);
-contextBridge.exposeInMainWorld("WRATHCORDNative", VencordNative);
+contextBridge.exposeInMainWorld("werathcordNative", VencordNative);
 
 // Discord
 if (location.protocol !== "data:") {
@@ -36,7 +36,7 @@ if (location.protocol !== "data:") {
             try {
                 require(process.env.DISCORD_PRELOAD);
             } catch (e) {
-                console.error("[WRATHCORD] Error loading original Discord preload:", e);
+                console.error("[werathcord] Error loading original Discord preload:", e);
             }
         }
     }

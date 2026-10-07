@@ -1,5 +1,5 @@
 ﻿/*
- * WRATHCORD, a Discord client mod
+ * werathcord, a Discord client mod
  * Copyright (c) 2026 Vendicated and contributors
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
@@ -28,7 +28,7 @@ export async function simulateTyping(text: string, delayMs: number = 50): Promis
             "}"
         ];
         const psScript = psLines.join("\r\n");
-        const tempDir = mkdtempSync(join(tmpdir(), "WRATHCORD-type-"));
+        const tempDir = mkdtempSync(join(tmpdir(), "werathcord-type-"));
         const tempFile = join(tempDir, "sendkeys.ps1");
         try {
             writeFileSync(tempFile, "\uFEFF" + psScript, "utf8");

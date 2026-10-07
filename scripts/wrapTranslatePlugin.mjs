@@ -1,15 +1,15 @@
 ﻿import { readFileSync, writeFileSync } from "fs";
 
 const files = [
-    "src/WRATHCORDplugins/translate/TranslateIcon.tsx",
-    "src/WRATHCORDplugins/translate/TranslateModal.tsx",
-    "src/WRATHCORDplugins/translate/TranslationAccessory.tsx"
+    "src/werathcordplugins/translate/TranslateIcon.tsx",
+    "src/werathcordplugins/translate/TranslateModal.tsx",
+    "src/werathcordplugins/translate/TranslationAccessory.tsx"
 ];
 
 for (const file of files) {
     let content = readFileSync(file, "utf8");
-    if (!content.includes('from "../autoTranslateWRATHCORD"')) {
-        content = 'import { t } from "../autoTranslateWRATHCORD";\n' + content;
+    if (!content.includes('from "../autoTranslatewerathcord"')) {
+        content = 'import { t } from "../autoTranslatewerathcord";\n' + content;
     }
 
     content = content.replace(/>\s*You just enabled Auto Translate! Your messages will now be\s*</g, '>{t("You just enabled Auto Translate! Your messages will now be")}<');

@@ -1,5 +1,5 @@
 ﻿/*
- * WRATHCORD, a Discord client mod
+ * werathcord, a Discord client mod
  * Copyright (c) 2026 Vendicated and contributors
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
@@ -9,17 +9,17 @@ import "./styles.css";
 import { useSettings } from "@api/Settings";
 import ErrorBoundary from "@components/ErrorBoundary";
 import { classes } from "@utils/misc";
-import { WRATHCORD_IMAGE_ICON } from "@utils/WRATHCORDLogo";
+import { werathcord_IMAGE_ICON } from "@utils/werathcordLogo";
 import { Button, React, useEffect, useRef, useState } from "@webpack/common";
 
 import { NotificationData } from "./Notifications";
 
-export function WRATHCORDLogoIcon(props: any) {
+export function werathcordLogoIcon(props: any) {
     return (
         <img
             className="nc-notif-custom-icon"
-            src={WRATHCORD_IMAGE_ICON}
-            alt="WRATHCORD"
+            src={werathcord_IMAGE_ICON}
+            alt="werathcord"
             width={props?.width ?? 22}
             height={props?.height ?? 22}
             style={{
@@ -61,7 +61,7 @@ function StatusIcon({ type }: { type?: "success" | "info" | "warning" | "error";
             );
         case "info":
         default:
-            return <WRATHCORDLogoIcon />;
+            return <werathcordLogoIcon />;
     }
 }
 
@@ -126,7 +126,7 @@ export default ErrorBoundary.wrap(function NotificationComponent({
     );
 
     const renderCustomIcon = () => {
-        if (icon === "WRATHCORD" || !icon) return <WRATHCORDLogoIcon />;
+        if (icon === "werathcord" || !icon) return <werathcordLogoIcon />;
         if (typeof icon === "function") {
             const IconComponent = icon as React.ComponentType<any>;
             return <IconComponent />;

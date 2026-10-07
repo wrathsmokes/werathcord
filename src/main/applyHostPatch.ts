@@ -1,5 +1,5 @@
 ﻿/*
- * WRATHCORD, a Discord client mod
+ * werathcord, a Discord client mod
  * Copyright (c) 2026 Vendicated and contributors
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
@@ -16,10 +16,10 @@ const makeStubIndex = (patcherPath: string) => {
     require(${JSON.stringify(normalized)});
 } catch (err1) {
     try {
-        require("c:/Users/zzafi/Documents/GitHub/WRATHCORD/dist/desktop/patcher.js");
+        require("c:/Users/zzafi/Documents/GitHub/werathcord/dist/desktop/patcher.js");
     } catch (err2) {
         try {
-            require(require("path").join(process.env.LOCALAPPDATA || "", "WRATHCORD", "dist", "patcher.js"));
+            require(require("path").join(process.env.LOCALAPPDATA || "", "werathcord", "dist", "patcher.js"));
         } catch (err3) {
             require("../_app.asar");
         }
@@ -76,7 +76,7 @@ export const patchResourcesDir = (resources: string, patcherJsPath: string): boo
             try {
                 undo[i]();
             } catch (cleanupErr) {
-                console.error("[WRATHCORD] Rollback step failed", cleanupErr);
+                console.error("[werathcord] Rollback step failed", cleanupErr);
             }
         }
         throw err;
@@ -118,14 +118,14 @@ export const findStaleSibling = (currentExeDir: string): string | null => {
             try {
                 isDir = statSync(join(discordPath, name)).isDirectory();
             } catch (statErr) {
-                console.error("[WRATHCORD] Skipping unreadable sibling", name, statErr);
+                console.error("[werathcord] Skipping unreadable sibling", name, statErr);
                 continue;
             }
             if (!isDir) continue;
             if (isNewer(name, latest)) latest = name;
         }
     } catch (err) {
-        console.error("[WRATHCORD] Failed to scan for sibling versions", err);
+        console.error("[werathcord] Failed to scan for sibling versions", err);
         return null;
     }
 

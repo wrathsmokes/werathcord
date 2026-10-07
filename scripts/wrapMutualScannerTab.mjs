@@ -1,10 +1,10 @@
 ﻿import { readFileSync, writeFileSync } from "fs";
 
-let content = readFileSync("src/WRATHCORDplugins/mutualScanner/MutualScannerTab.tsx", "utf8");
+let content = readFileSync("src/werathcordplugins/mutualScanner/MutualScannerTab.tsx", "utf8");
 
 // Ensure t import
-if (!content.includes('import { t } from "../autoTranslateWRATHCORD";')) {
-    content = 'import { t } from "../autoTranslateWRATHCORD";\n' + content;
+if (!content.includes('import { t } from "../autoTranslatewerathcord";')) {
+    content = 'import { t } from "../autoTranslatewerathcord";\n' + content;
 }
 
 // 1. Wrap raw JSX text >Text<
@@ -12,7 +12,7 @@ content = content.replace(/>\s*([A-Za-z0-9!?.:,;\-' shadow\(\)]{2,})\s*</g, (mat
     const trimmed = p1.trim();
     if (!trimmed) return match;
     if (trimmed.startsWith("{") || trimmed.endsWith("}")) return match;
-    if (trimmed === "WRATHCORD" || trimmed === "WRATHCORD AI") return match;
+    if (trimmed === "werathcord" || trimmed === "werathcord AI") return match;
     if (/^[0-9]+$/.test(trimmed)) return match;
     return `>{t("${trimmed}")}<`;
 });
@@ -24,9 +24,9 @@ content = content.replace(/showToast\(\s*["']([^"']+)["']/g, (match, p1) => {
 
 // 3. Wrap title="...", placeholder="...", description="..."
 content = content.replace(/(placeholder|title|label)\s*=\s*["']([^"']+)["']/g, (match, attr, p1) => {
-    if (p1 === "WRATHCORD" || p1.startsWith("http")) return match;
+    if (p1 === "werathcord" || p1.startsWith("http")) return match;
     return `${attr}={t("${p1}")}`;
 });
 
-writeFileSync("src/WRATHCORDplugins/mutualScanner/MutualScannerTab.tsx", content, "utf8");
+writeFileSync("src/werathcordplugins/mutualScanner/MutualScannerTab.tsx", content, "utf8");
 console.log("Wrapped MutualScannerTab.tsx!");

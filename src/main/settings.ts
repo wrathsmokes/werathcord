@@ -21,10 +21,10 @@ function readSettings<T = object>(name: string, file: string): Partial<T> {
         if (!existsSync(file)) {
             // Auto-migrate from legacy paths if primary settings file does not exist
             const legacyCandidates = [
-                join(DATA_DIR, "..", "WRATHCORDData", "settings", "settings.json"),
-                join(DATA_DIR, "..", "WRATHCORDData", "settings.json"),
+                join(DATA_DIR, "..", "werathcordData", "settings", "settings.json"),
+                join(DATA_DIR, "..", "werathcordData", "settings.json"),
                 join(DATA_DIR, "dev", "settings", "settings.json"),
-                join(DATA_DIR, "..", "WRATHCORD", "dev", "settings", "settings.json"),
+                join(DATA_DIR, "..", "werathcord", "dev", "settings", "settings.json"),
                 join(DATA_DIR, "..", "Equicord", "settings", "settings.json"),
                 join(DATA_DIR, "..", "Vencord", "settings", "settings.json"),
                 join(DATA_DIR, "settings.json")
@@ -35,7 +35,7 @@ function readSettings<T = object>(name: string, file: string): Partial<T> {
                         mkdirSync(dirname(file), { recursive: true });
                         copyFileSync(cand, file);
                         const data = JSON.parse(readFileSync(file, "utf-8"));
-                        console.log(`[WRATHCORD] Successfully migrated ${name} settings from ${cand}`);
+                        console.log(`[werathcord] Successfully migrated ${name} settings from ${cand}`);
                         return data;
                     } catch {}
                 }

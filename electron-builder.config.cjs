@@ -3,10 +3,10 @@ const { readFileSync, writeFileSync, existsSync, readdirSync, statSync, mkdirSyn
 const { createHash } = require("crypto");
 const { join } = require("path");
 
-// ─── Configuration de Build WRATHCORD ─────────────────────────────────────────
+// ─── Configuration de Build werathcord ─────────────────────────────────────────
 
-function killWRATHCORD() {
-    const releaseDir = join(__dirname, "release", "WRATHCORD-dist");
+function killwerathcord() {
+    const releaseDir = join(__dirname, "release", "werathcord-dist");
     const releaseExe = join(releaseDir, "Discord.exe");
 
     try {
@@ -40,19 +40,19 @@ function findDiscordApp() {
 }
 
 function buildEquicord() {
-    console.log("[build] Compilation de WRATHCORD...");
+    console.log("[build] Compilation de werathcord...");
     execSync("node --require=./scripts/suppressExperimentalWarnings.js scripts/build/build.mjs --standalone", { stdio: "inherit" });
 }
 
-function buildWRATHCORDFromDiscord(discordApp) {
+function buildwerathcordFromDiscord(discordApp) {
     const discordRes = join(discordApp, "resources");
-    const outDir = join(__dirname, "release", "WRATHCORD-dist");
+    const outDir = join(__dirname, "release", "werathcord-dist");
 
     if (existsSync(outDir)) {
         try { rmSync(outDir, { recursive: true, force: true }); } catch (e) { }
     }
 
-    console.log("[WRATHCORD] Copie des binaires Discord...");
+    console.log("[werathcord] Copie des binaires Discord...");
     mkdirSync(outDir, { recursive: true });
 
     for (const f of readdirSync(discordApp)) {
@@ -92,7 +92,7 @@ function buildWRATHCORDFromDiscord(discordApp) {
         cpSync(bootstrapSrc, bootstrapDst, { recursive: true });
     }
 
-    console.log("[WRATHCORD] Préparation de _app.asar...");
+    console.log("[werathcord] Préparation de _app.asar...");
     let appAsarSrc = join(discordRes, "_app.asar");
     if (!existsSync(appAsarSrc)) appAsarSrc = join(discordRes, "app.asar");
     
@@ -136,9 +136,9 @@ require(path.join(__dirname, "dist", "desktop", "patcher.js"));
         if (existsSync(join(equicordDist, f))) cpSync(join(equicordDist, f), join(outDist, f));
     }
 
-    const WRATHCORDPreload = join(__dirname, "WRATHCORD-preload.js");
-    if (existsSync(WRATHCORDPreload)) {
-        cpSync(WRATHCORDPreload, join(outDist, "preload.js"));
+    const werathcordPreload = join(__dirname, "werathcord-preload.js");
+    if (existsSync(werathcordPreload)) {
+        cpSync(werathcordPreload, join(outDist, "preload.js"));
     }
 
     // FFmpeg et YT-DLP (cherche dans le dossier local ou PATH)
@@ -152,19 +152,19 @@ require(path.join(__dirname, "dist", "desktop", "patcher.js"));
     const injectScript = join(__dirname, "inject-discord.ps1");
     if (existsSync(injectScript)) cpSync(injectScript, join(outDir, "inject-discord.ps1"));
 
-    const iconSrc = join(__dirname, "assets", "WRATHCORD.ico");
+    const iconSrc = join(__dirname, "assets", "werathcord.ico");
     if (existsSync(iconSrc)) {
         cpSync(iconSrc, join(outDir, "app.ico"));
         // Rcedit pour le branding
         try {
             const rcedit = join(__dirname, "node_modules", ".bin", "rcedit.cmd");
             if (existsSync(rcedit)) {
-                execSync(`"${rcedit}" "${discordExe}" --set-icon "${iconSrc}" --set-version-string "ProductName" "WRATHCORD" --set-version-string "FileDescription" "WRATHCORD"`, { stdio: "ignore" });
+                execSync(`"${rcedit}" "${discordExe}" --set-icon "${iconSrc}" --set-version-string "ProductName" "werathcord" --set-version-string "FileDescription" "werathcord"`, { stdio: "ignore" });
             }
         } catch (e) { }
     }
 
-    console.log(`[WRATHCORD] Build terminé -> ${outDir}`);
+    console.log(`[werathcord] Build terminé -> ${outDir}`);
 }
 
 function obfuscateDesktop() {
@@ -180,23 +180,24 @@ function obfuscateDesktop() {
 
 // ─── Execution du build ───────────────────────────────────────────────────────
 
-killWRATHCORD();
+killwerathcord();
 const discord = findDiscordApp();
 buildEquicord();
 // obfuscateDesktop(); // Optionnel pour l'open source
-buildWRATHCORDFromDiscord(discord);
+buildwerathcordFromDiscord(discord);
 
 module.exports = {
-    appId: "com.WRATHCORD.app",
-    productName: "WRATHCORD",
-    copyright: "Copyright 2026 WRATHCORD",
+    appId: "com.werathcord.app",
+    productName: "werathcord",
+    copyright: "Copyright 2026 werathcord",
     extraMetadata: { main: "index.js" },
     asar: false,
+    npmRebuild: false,
     files: ["index.js", "dist/desktop/**/*", "!**/*.map", "!**/*.ts"],
     directories: { output: "release", buildResources: "desktop/assets" },
     win: {
         target: [{ target: "dir", arch: ["x64"] }],
-        icon: "assets/WRATHCORD.ico",
+        icon: "assets/werathcord.ico",
         requestedExecutionLevel: "asInvoker"
     }
 };

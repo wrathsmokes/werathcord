@@ -1,4 +1,4 @@
-﻿# WRATHCORD Development Guidelines & Agent Instructions
+﻿# werathcord Development Guidelines & Agent Instructions
 
 ## 1. UI & Visual Aesthetics
 - **Strict Zero-Emoji Policy**: NEVER use any emojis in any user-facing text, buttons, modals, toasts, badge labels, or UI cards. Always use clean, minimalist SVG vector icons and crisp typography.
@@ -11,7 +11,7 @@
 - **Mandatory Copyright & License Header**: Every new or modified source code file MUST begin with the exact copyright header:
 ```ts
 /*
- * WRATHCORD, a Discord client mod
+ * werathcord, a Discord client mod
  * Copyright (c) 2026 Vendicated and contributors
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
@@ -30,7 +30,7 @@
 - **State Reactivity**: Always return immutable copies (e.g. `[...array]`) in store getters so React states immediately re-render on updates without requiring app reloads.
 
 ## 5. Zero Side-Effects & Edge Case Handling
-- **Scoped Targeting**: Never alter global Discord elements when modifying WRATHCORD-specific features (e.g., the official Discord system DM must retain "Official Discord Message", while only the WRATHCORD DM shows "Official WRATHCORD Message").
+- **Scoped Targeting**: Never alter global Discord elements when modifying werathcord-specific features (e.g., the official Discord system DM must retain "Official Discord Message", while only the werathcord DM shows "Official werathcord Message").
 - **Clean Teardown**: Always unpatch stores, disconnect MutationObservers, remove DOM listeners, and clear intervals/timeouts in plugin `stop()` methods.
 
 ## 6. Build & Injection Workflow
@@ -42,5 +42,5 @@
 - **Local Commits Only (Never Run Git Push)**: ONLY execute local commits (`git add` + `git commit`). NEVER run `git push` in background commands, as it hangs indefinitely waiting for VPN/SSH network connections and blocks queued user messages in the chat interface. The user manages and executes `git push` manually when their VPN is active.
 
 ## 8. Internationalization & Translation System
-- **Mandatory Translation Coverage**: Every newly introduced feature, UI string, plugin setting description, button label, modal title, error message, or toast MUST be registered in WRATHCORD's translation system (`src/WRATHCORDplugins/autoTranslateWRATHCORD/index.ts`).
+- **Mandatory Translation Coverage**: Every newly introduced feature, UI string, plugin setting description, button label, modal title, error message, or toast MUST be registered in werathcord's translation system (`src/werathcordplugins/autoTranslatewerathcord/index.ts`).
 - **Multi-Language Support**: Ensure translation mappings (`en`, `fr`, `ar`, `es`, `ru`, `zh`) are provided using the `t()` / `tPlugin()` helper functions so the entire interface remains fully translated across all supported client languages.

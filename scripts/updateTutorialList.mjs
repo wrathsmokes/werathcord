@@ -3,7 +3,7 @@ import path from "path";
 
 async function main() {
     console.log("Fetching video list from repository API...");
-    const res = await fetch("https://source.WRATHCORD.st/api/v1/repos/WRATHCORD/WRATHCORD-tutorials/contents/videos");
+    const res = await fetch("https://source.werathcord.st/api/v1/repos/werathcord/werathcord-tutorials/contents/videos");
     if (!res.ok) {
         throw new Error(`Failed to fetch videos: ${res.status} ${res.statusText}`);
     }
@@ -16,11 +16,11 @@ async function main() {
 
     // Find all plugin names in the codebase
     const pluginsDir = path.resolve("src/plugins");
-    const WRATHCORDPluginsDir = path.resolve("src/WRATHCORDplugins");
+    const werathcordPluginsDir = path.resolve("src/werathcordplugins");
 
     const pluginDirs = [
         ...fs.readdirSync(pluginsDir).map(p => ({ dir: pluginsDir, name: p })),
-        ...fs.readdirSync(WRATHCORDPluginsDir).map(p => ({ dir: WRATHCORDPluginsDir, name: p }))
+        ...fs.readdirSync(werathcordPluginsDir).map(p => ({ dir: werathcordPluginsDir, name: p }))
     ];
 
     const pluginNames = new Set();
@@ -80,7 +80,7 @@ async function main() {
 
     const lines = [
         "/*",
-        " * WRATHCORD, a Discord client mod",
+        " * werathcord, a Discord client mod",
         " * Copyright (c) 2026 Vendicated and contributors",
         " * SPDX-License-Identifier: GPL-3.0-or-later",
         " *",
@@ -90,7 +90,7 @@ async function main() {
         "",
         "/**",
         " * Maps a plugin's `name` to the basename (without extension) of its tutorial",
-        " * video in https://source.WRATHCORD.st/WRATHCORD/WRATHCORD-tutorials/src/branch/main/videos",
+        " * video in https://source.werathcord.st/werathcord/werathcord-tutorials/src/branch/main/videos",
         " */",
         "export const TUTORIAL_VIDEOS: ReadonlyMap<string, string> = new Map([",
         ...sortedEntries.map(([k, v]) => `    [${JSON.stringify(k)}, ${JSON.stringify(v)}],`),

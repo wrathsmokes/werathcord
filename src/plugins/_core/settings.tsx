@@ -39,7 +39,7 @@ function CodeIcon(props: IconProps) {
         </svg>
     );
 }
-import IconsTab from "@WRATHCORDplugins/iconViewer/components/IconsTab";
+import IconsTab from "@werathcordplugins/iconViewer/components/IconsTab";
 import { gitHashShort } from "@shared/vencordUserAgent";
 import { Devs } from "@utils/constants";
 import { isTruthy } from "@utils/guards";
@@ -123,7 +123,7 @@ interface SettingsLayoutBuilder {
 const settings = definePluginSettings({
     settingsLocation: {
         type: OptionType.SELECT,
-        description: "Where to put the WRATHCORD settings section",
+        description: "Where to put the werathcord settings section",
         options: [
             { label: "At the very top", value: "top" },
             { label: "Above the Nitro section", value: "aboveNitro", default: true },
@@ -253,8 +253,8 @@ export default definePlugin({
 
         const mainEntry = buildEntry({
             key: "equicord_main",
-            title: "WRATHCORD",
-            panelTitle: "WRATHCORD Settings",
+            title: "werathcord",
+            panelTitle: "werathcord Settings",
             Component: VencordTab,
             Icon: MainSettingsIcon
         });
@@ -275,9 +275,9 @@ export default definePlugin({
                 Icon: PaintbrushIcon
             }),
             settings.store.showStatus && buildEntry({
-                key: "WRATHCORD_status",
+                key: "werathcord_status",
                 title: "Status",
-                panelTitle: "WRATHCORD Status",
+                panelTitle: "werathcord Status",
                 Component: StatusTab,
                 Icon: StatusPulseIcon
             }),
@@ -292,7 +292,7 @@ export default definePlugin({
             !IS_UPDATER_DISABLED && UpdaterTab && buildEntry({
                 key: "equicord_updater",
                 title: "Updater",
-                panelTitle: "WRATHCORD Updater",
+                panelTitle: "werathcord Updater",
                 Component: UpdaterTab,
                 Icon: UpdaterIcon
             }),
@@ -309,14 +309,14 @@ export default definePlugin({
                 Icon: BackupRestoreIcon
             }),
             buildEntry({
-                key: "WRATHCORD_sync",
+                key: "werathcord_sync",
                 title: "Synchronization",
-                panelTitle: "WRATHCORD Sync",
+                panelTitle: "werathcord Sync",
                 Component: SyncTab,
                 Icon: CloudIcon
             }),
             buildEntry({
-                key: "WRATHCORD_language",
+                key: "werathcord_language",
                 title: "Language",
                 Component: LanguageTab,
                 Icon: LangIcon
@@ -328,7 +328,7 @@ export default definePlugin({
                 Icon: PatchHelperIcon
             }),
             buildEntry({
-                key: "WRATHCORD_icon_finder",
+                key: "werathcord_icon_finder",
                 title: "Icon Finder",
                 Component: IconsTab,
                 Icon: MagnifyingGlassIcon
@@ -337,7 +337,7 @@ export default definePlugin({
         ].filter(isTruthy);
 
         try {
-            if (localStorage.getItem("WRATHCORD_stealthMode") === "1") {
+            if (localStorage.getItem("werathcord_stealthMode") === "1") {
                 return layout;
             }
         } catch { }
@@ -345,7 +345,7 @@ export default definePlugin({
         const equicordSection: SettingsLayoutNode = {
             key: "equicord_section",
             type: LayoutTypes.SECTION,
-            useTitle: () => t("WRATHCORD Settings"),
+            useTitle: () => t("werathcord Settings"),
             buildLayout: () => fullEntries
         };
 
@@ -411,7 +411,7 @@ export default definePlugin({
     getInfoRows() {
         const { electronVersion, chromiumVersion, getVersionInfo } = this;
 
-        const rows = [`WRATHCORD ${gitHashShort}${getVersionInfo()}`];
+        const rows = [`werathcord ${gitHashShort}${getVersionInfo()}`];
 
         if (electronVersion) rows.push(`Electron ${electronVersion}`);
         if (chromiumVersion) rows.push(`Chromium ${chromiumVersion}`);

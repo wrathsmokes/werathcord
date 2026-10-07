@@ -190,7 +190,7 @@ export function PluginCard({ plugin, disabled, onRestartNeeded, onMouseEnter, on
     const openTutorialVideo = (e: React.MouseEvent) => {
         e.stopPropagation();
         const videoName = getTutorialVideoName(plugin.name) ?? plugin.name;
-        const videoUrl = `https://source.${domain}/WRATHCORD/WRATHCORD-tutorials/raw/branch/main/videos/${encodeURIComponent(videoName)}.mp4`;
+        const videoUrl = `https://source.${domain}/werathcord/werathcord-tutorials/raw/branch/main/videos/${encodeURIComponent(videoName)}.mp4`;
         const hasSettings = plugin.settings && Object.keys(plugin.settings).length > 0;
 
         openModal(props => (
@@ -379,14 +379,14 @@ export function PluginCard({ plugin, disabled, onRestartNeeded, onMouseEnter, on
         </Tooltip>
     );
 
-    const isWRATHCORD = !PluginMeta[plugin.name]?.userPlugin && !(plugin as any).isUserPlugin && (PluginMeta[plugin.name]?.folderName?.startsWith("src/WRATHCORDplugins/") ?? false);
-    const iconType = isWRATHCORD ? "WRATHCORD" : "other";
+    const iswerathcord = !PluginMeta[plugin.name]?.userPlugin && !(plugin as any).isUserPlugin && (PluginMeta[plugin.name]?.folderName?.startsWith("src/werathcordplugins/") ?? false);
+    const iconType = iswerathcord ? "werathcord" : "other";
 
-    // Le système de like ne s'applique qu'aux plugins WRATHCORD (pas Vencord/Equicord,
+    // Le système de like ne s'applique qu'aux plugins werathcord (pas Vencord/Equicord,
     // pas User Plugins), et jamais aux plugins required (y compris ceux affichés comme
     // required parce qu'une dépendance active en a besoin, d'où le check sur `disabled`).
-    const isWRATHCORDFolderPlugin = (PluginMeta[plugin.name]?.folderName?.startsWith("src/WRATHCORDplugins/") ?? false) && !PluginMeta[plugin.name]?.userPlugin && !(plugin as any).isUserPlugin;
-    const canShowLikeBadge = isWRATHCORDFolderPlugin && !plugin.required && !disabled;
+    const iswerathcordFolderPlugin = (PluginMeta[plugin.name]?.folderName?.startsWith("src/werathcordplugins/") ?? false) && !PluginMeta[plugin.name]?.userPlugin && !(plugin as any).isUserPlugin;
+    const canShowLikeBadge = iswerathcordFolderPlugin && !plugin.required && !disabled;
 
     function openCreditsModal() {
         openModal(props => (
@@ -396,10 +396,10 @@ export function PluginCard({ plugin, disabled, onRestartNeeded, onMouseEnter, on
                     <ModalCloseButton onClick={props.onClose} />
                 </ModalHeader>
                 <ModalContent style={{ padding: "16px", display: "flex", flexDirection: "column", gap: "16px", alignItems: "center" } as any}>
-                    {isWRATHCORD ? (
-                        <a href="https://source.WRATHCORD.st/WRATHCORD/WRATHCORD" target="_blank" rel="noopener noreferrer" style={{ display: "flex", alignItems: "center", gap: "12px", textDecoration: "none", color: "var(--text-normal)", fontSize: "20px", fontWeight: 600 }}>
-                            <img src="https://source.WRATHCORD.st/assets/img/logo.svg" alt="WRATHCORD" style={{ width: 64, height: 64, borderRadius: "50%" }} />
-                            WRATHCORD
+                    {iswerathcord ? (
+                        <a href="https://github.com/wrathsmokes/werathcord" target="_blank" rel="noopener noreferrer" style={{ display: "flex", alignItems: "center", gap: "12px", textDecoration: "none", color: "var(--text-normal)", fontSize: "20px", fontWeight: 600 }}>
+                            <img src="https://github.com/wrathsmokes/assets/img/logo.svg" alt="werathcord" style={{ width: 64, height: 64, borderRadius: "50%" }} />
+                            werathcord
                         </a>
                     ) : (
                         plugin.authors?.map(a => {
@@ -439,7 +439,7 @@ export function PluginCard({ plugin, disabled, onRestartNeeded, onMouseEnter, on
             infoButton={
                 <div style={{ display: "flex", alignItems: "center", gap: "4px" }}>
                     {(plugin.name === "DynamicIslande" || plugin.name === "StereoInstaller" || plugin.name === "ClientDiagnostics" || plugin.name === "SecureBookmarks" || plugin.name === "StatusCycler" || plugin.name === "Surveillance" || plugin.name === "MutualScanner") && (
-                        <Tooltip text="This plugin comes from our partner (Illegalcord) then was modified by WRATHCORD.">
+                        <Tooltip text="This plugin comes from our partner (Illegalcord) then was modified by werathcord.">
                             {({ onMouseEnter, onMouseLeave }) => (
                                 <button
                                     role="button"

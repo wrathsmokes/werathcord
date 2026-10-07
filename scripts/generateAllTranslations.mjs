@@ -4,10 +4,10 @@
 const strings = JSON.parse(readFileSync("scripts/extractedStrings.json", "utf8"));
 console.log(`Loaded ${strings.length} strings to translate.`);
 
-// Read current autoTranslateWRATHCORD index.ts
-const atcContent = readFileSync("src/WRATHCORDplugins/autoTranslateWRATHCORD/index.ts", "utf8");
+// Read current autoTranslatewerathcord index.ts
+const atcContent = readFileSync("src/werathcordplugins/autoTranslatewerathcord/index.ts", "utf8");
 
-// Parse existing entries in autoTranslateWRATHCORD
+// Parse existing entries in autoTranslatewerathcord
 const existingEntries = {};
 const entryRegex = /"((?:[^"\\]|\\.)*)":\s*\{\s*en:\s*"((?:[^"\\]|\\.)*)",\s*es:\s*"((?:[^"\\]|\\.)*)",\s*ru:\s*"((?:[^"\\]|\\.)*)",\s*zh:\s*"((?:[^"\\]|\\.)*)"\s*\}/g;
 let match;
@@ -20,11 +20,11 @@ while ((match = entryRegex.exec(atcContent)) !== null) {
     };
 }
 
-console.log(`Existing entries in autoTranslateWRATHCORD: ${Object.keys(existingEntries).length}`);
+console.log(`Existing entries in autoTranslatewerathcord: ${Object.keys(existingEntries).length}`);
 
 // Find strings that are not in existingEntries or have missing/corrupt translations
 const missingStrings = strings.filter(s => {
-    if (s === "WRATHCORD" || s === "WRATHCORD AI") return false;
+    if (s === "werathcord" || s === "werathcord AI") return false;
     const existing = existingEntries[s];
     if (!existing) return true;
     if (!existing.es || !existing.ru || !existing.zh) return true;
@@ -78,9 +78,9 @@ async function main() {
 
     console.log(`Total translated entries ready: ${Object.keys(newTranslations).length}`);
 
-    // Format new autoTranslateWRATHCORD index.ts
+    // Format new autoTranslatewerathcord index.ts
     let newContent = `/*
- * WRATHCORD, a Discord client mod
+ * werathcord, a Discord client mod
  * Copyright (c) 2026 Vendicated and contributors
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
@@ -103,10 +103,10 @@ export const translations: TranslationMap = {\n`;
     newContent += `};
 
 export default definePlugin({
-    name: "AutoTranslateWRATHCORD",
+    name: "AutoTranslatewerathcord",
     enabledByDefault: true,
     required: true,
-    description: "Automatic translation for WRATHCORD.",
+    description: "Automatic translation for werathcord.",
     authors: [{ name: "Trigger", id: 0n }],
     options: {
         autoTranslate: {
@@ -140,8 +140,8 @@ export function useTranslation() {
 }
 `;
 
-    writeFileSync("src/WRATHCORDplugins/autoTranslateWRATHCORD/index.ts", newContent, "utf8");
-    console.log("Successfully updated autoTranslateWRATHCORD/index.ts!");
+    writeFileSync("src/werathcordplugins/autoTranslatewerathcord/index.ts", newContent, "utf8");
+    console.log("Successfully updated autoTranslatewerathcord/index.ts!");
 }
 
 main();

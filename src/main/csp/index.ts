@@ -1,5 +1,5 @@
 ﻿/*
- * WRATHCORD, a Discord client mod
+ * werathcord, a Discord client mod
  * Copyright (c) 2026 Vendicated and contributors
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
@@ -22,10 +22,10 @@ export const CspPolicies: PolicyMap = {
     "localhost:*": ImageAndCssSrc,
     "127.0.0.1:*": ImageAndCssSrc,
 
-    "api.WRATHCORD.st": ConnectSrc,
-    "https://api.WRATHCORD.st": ConnectSrc,
-    "WRATHCORD.st": ConnectSrc,
-    "*.WRATHCORD.st": ConnectSrc,
+    "api.werathcord.st": ConnectSrc,
+    "https://api.werathcord.st": ConnectSrc,
+    "werathcord.st": ConnectSrc,
+    "*.werathcord.st": ConnectSrc,
 
     "*.github.io": ImageAndCssSrc,
     "github.com": ImageAndCssSrc,
@@ -218,7 +218,7 @@ export function initCsp() {
             const featurePolicyHeader = findHeader(responseHeaders, "feature-policy");
             if (featurePolicyHeader) delete responseHeaders[featurePolicyHeader];
 
-            if (url.includes("WRATHCORD.st") || url.includes("vencord.dev") || url.includes("equicord.org")) {
+            if (url.includes("werathcord.st") || url.includes("vencord.dev") || url.includes("equicord.org")) {
                 responseHeaders["access-control-allow-origin"] = ["*"];
                 responseHeaders["access-control-allow-methods"] = ["GET, POST, PUT, DELETE, OPTIONS"];
                 responseHeaders["access-control-allow-headers"] = ["*"];

@@ -4,4 +4,4 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
-// Intentionnellement vide — WRATHCORD ne supporte pas le mode git updater.
+// Intentionnellement vide — werathcord ne supporte pas le mode git updater.

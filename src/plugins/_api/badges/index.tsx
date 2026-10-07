@@ -1,5 +1,5 @@
 ﻿/*
- * WRATHCORD, a Discord client mod
+ * werathcord, a Discord client mod
  * Copyright (c) 2026 Vendicated and contributors
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
@@ -72,7 +72,7 @@ const UserPluginContributorBadge: ProfileBadge = {
 
 let DonorBadges = {} as Record<string, Array<Record<"tooltip" | "badge", string>>>;
 let EquicordDonorBadges = {} as Record<string, Array<Record<"tooltip" | "badge", string>>>;
-let WRATHCORDBadges = {} as Record<string, Array<{ icon: string; placeholder: string; uuid: string; }>>;
+let werathcordBadges = {} as Record<string, Array<{ icon: string; placeholder: string; uuid: string; }>>;
 let IllegalcordBadges = {} as Record<string, Array<Record<"tooltip" | "badge", string>>>;
 
 async function loadBadges(url: string, noCache = false) {
@@ -92,14 +92,14 @@ async function loadBadges(url: string, noCache = false) {
     }
 }
 
-async function loadWRATHCORDBadges(noCache = false): Promise<Record<string, any>> {
-    // Use main-process net.fetch to bypass CORS restrictions on the WRATHCORD API.
+async function loadwerathcordBadges(noCache = false): Promise<Record<string, any>> {
+    // Use main-process net.fetch to bypass CORS restrictions on the werathcord API.
     // Only available in desktop (Electron) context.
-    if (IS_WEB || typeof VencordNative?.WRATHCORD?.netFetch !== "function") {
+    if (IS_WEB || typeof VencordNative?.werathcord?.netFetch !== "function") {
         return loadBadges(`https://api.${domain}/badges`, noCache);
     }
     try {
-        const res = await VencordNative.WRATHCORD.netFetch(`https://api.${domain}/badges`, { noCache });
+        const res = await VencordNative.werathcord.netFetch(`https://api.${domain}/badges`, { noCache });
         if (!res?.ok || !res.data || typeof res.data !== "object") return {};
         return res.data as Record<string, any>;
     } catch {
@@ -108,16 +108,16 @@ async function loadWRATHCORDBadges(noCache = false): Promise<Record<string, any>
 }
 
 async function loadAllBadges(noCache = false) {
-    const [vencord, equicord, WRATHCORD, illegalcord] = await Promise.allSettled([
+    const [vencord, equicord, werathcord, illegalcord] = await Promise.allSettled([
         loadBadges("https://badges.vencord.dev/badges.json", noCache),
         loadBadges("https://badge.equicord.org/badges.json", noCache),
-        loadWRATHCORDBadges(noCache),
+        loadwerathcordBadges(noCache),
         loadBadges("https://raw.githubusercontent.com/ImHisako/ImHisako/refs/heads/main/Images/badges.json", noCache)
     ]);
 
     DonorBadges = (vencord.status === "fulfilled" && vencord.value) ? vencord.value : {};
     EquicordDonorBadges = (equicord.status === "fulfilled" && equicord.value) ? equicord.value : {};
-    WRATHCORDBadges = (WRATHCORD.status === "fulfilled" && WRATHCORD.value) ? WRATHCORD.value : {};
+    werathcordBadges = (werathcord.status === "fulfilled" && werathcord.value) ? werathcord.value : {};
     IllegalcordBadges = (illegalcord.status === "fulfilled" && illegalcord.value) ? illegalcord.value : {};
 }
 
@@ -196,8 +196,8 @@ export default definePlugin({
         return EquicordDonorBadges;
     },
 
-    get WRATHCORDBadges() {
-        return WRATHCORDBadges;
+    get werathcordBadges() {
+        return werathcordBadges;
     },
 
     toolboxActions: {
@@ -266,13 +266,13 @@ export default definePlugin({
                 }
             }
 
-            const primaryKey = icon || iconHash || (normId && !normId.startsWith("WRATHCORD") ? normId : "");
+            const primaryKey = icon || iconHash || (normId && !normId.startsWith("werathcord") ? normId : "");
             if (!primaryKey) return true;
 
             if (seenKeys.has(primaryKey)) return false;
 
             seenKeys.add(primaryKey);
-            if (normId && !normId.startsWith("WRATHCORD") && !normId.startsWith("nc-")) seenKeys.add(normId);
+            if (normId && !normId.startsWith("werathcord") && !normId.startsWith("nc-")) seenKeys.add(normId);
             if (iconHash) seenKeys.add(iconHash);
 
             return true;
@@ -358,18 +358,18 @@ export default definePlugin({
         } satisfies ProfileBadge));
     },
 
-    getWRATHCORDBadges(userId: string) {
+    getwerathcordBadges(userId: string) {
         try {
             if (!userId) return [];
-            const userBadges = WRATHCORDBadges[userId] || WRATHCORDBadges[String(userId)];
+            const userBadges = werathcordBadges[userId] || werathcordBadges[String(userId)];
             if (!userBadges || !Array.isArray(userBadges)) return [];
 
             return userBadges
                 .filter(badge => badge && (badge.icon || badge.badge) && badge.visible !== false)
                 .map(badge => {
                     const iconSrc = badge.icon || badge.badge;
-                    const description = badge.placeholder || badge.description || badge.tooltip || "WRATHCORD Badge";
-                    const badgeId = badge.uuid || badge.id || `WRATHCORD-${description}-${userId}`;
+                    const description = badge.placeholder || badge.description || badge.tooltip || "werathcord Badge";
+                    const badgeId = badge.uuid || badge.id || `werathcord-${description}-${userId}`;
 
                     return {
                         id: badgeId,
@@ -394,12 +394,12 @@ export default definePlugin({
                                 description,
                                 placeholder: description,
                                 ...badge
-                            }, "WRATHCORD");
+                            }, "werathcord");
                         }
                     } satisfies ProfileBadge;
                 });
         } catch (e) {
-            console.error("[BadgeAPI] Error processing WRATHCORD badges for", userId, e);
+            console.error("[BadgeAPI] Error processing werathcord badges for", userId, e);
             return [];
         }
     },

@@ -72,7 +72,7 @@ export async function installExt(id: string) {
 
         const buf = await fetchBuffer(url, {
             headers: {
-                "User-Agent": `Electron ${process.versions.electron} ~ WRATHCORD (https://git.${domain}/WRATHCORD/WRATHCORD)`
+                "User-Agent": `Electron ${process.versions.electron} ~ werathcord (https://git.${domain}/werathcord/werathcord)`
             }
         });
 

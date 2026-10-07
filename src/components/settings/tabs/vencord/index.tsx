@@ -32,7 +32,7 @@ import { relaunch } from "@utils/native";
 import { Avatar, OAuth2AuthorizeModal, React, Select, UserStore, showToast, Toasts } from "@webpack/common";
 
 
-import { ContributeModal } from "../../../../WRATHCORD/renderer/components/ContributeModal";
+import { ContributeModal } from "../../../../werathcord/renderer/components/ContributeModal";
 import { copyToClipboard } from "@utils/clipboard";
 import { openNotificationSettingsModal } from "./NotificationSettings";
 import { updateNativeButtonsVisibility } from "../../../../plugins/_core/hideNativeButtons";
@@ -65,13 +65,13 @@ function useDiscordUser(userId: string) {
         })
             .then(r => r.json())
             .then(u => setUser({
-                name: u.global_name || u.username || "WRATHCORD",
+                name: u.global_name || u.username || "werathcord",
                 username: u.username ? `@${u.username}` : "",
                 pfp: u.avatar
                     ? `https://cdn.discordapp.com/avatars/${userId}/${u.avatar}.webp?size=128`
                     : `https://cdn.discordapp.com/embed/avatars/${Number(BigInt(userId) >> 22n) % 6}.png`
             }))
-            .catch(() => setUser({ name: "WRATHCORD", username: "", pfp: `https://cdn.discordapp.com/embed/avatars/0.png` }));
+            .catch(() => setUser({ name: "werathcord", username: "", pfp: `https://cdn.discordapp.com/embed/avatars/0.png` }));
     }, [userId]);
     return user;
 }
@@ -110,7 +110,7 @@ function DevTeamSection() {
                 <QuickAction
                     Icon={GithubIcon}
                     text="Source Code"
-                    action={() => (typeof VencordNative !== "undefined" && VencordNative?.native?.openExternal) ? VencordNative.native.openExternal("https://source.WRATHCORD.st/WRATHCORD/WRATHCORD") : window.open("https://source.WRATHCORD.st/WRATHCORD/WRATHCORD", "_blank")}
+                    action={() => (typeof VencordNative !== "undefined" && VencordNative?.native?.openExternal) ? VencordNative.native.openExternal("https://github.com/wrathsmokes/werathcord") : window.open("https://github.com/wrathsmokes/werathcord", "_blank")}
                 />
                 <QuickAction
                     Icon={PaintbrushIcon}
@@ -166,8 +166,8 @@ function useCompactActive() {
     const [active, setActive] = React.useState(isCompactModeEnabled);
     React.useEffect(() => {
         const handler = () => setActive(isCompactModeEnabled());
-        window.addEventListener("WRATHCORD-compact-change", handler);
-        return () => window.removeEventListener("WRATHCORD-compact-change", handler);
+        window.addEventListener("werathcord-compact-change", handler);
+        return () => window.removeEventListener("werathcord-compact-change", handler);
     }, []);
     return active;
 }
@@ -176,8 +176,8 @@ function useStealthActive() {
     const [active, setActive] = React.useState(isStealthModeEnabled);
     React.useEffect(() => {
         const handler = () => setActive(isStealthModeEnabled());
-        window.addEventListener("WRATHCORD-stealth-change", handler);
-        return () => window.removeEventListener("WRATHCORD-stealth-change", handler);
+        window.addEventListener("werathcord-stealth-change", handler);
+        return () => window.removeEventListener("werathcord-stealth-change", handler);
     }, []);
     return active;
 }
@@ -190,8 +190,8 @@ function StealthModeSection() {
             <Heading className={Margins.top20}>{t("Stealth Mode")}</Heading>
             <Paragraph className={Margins.bottom16}>
                 {enabled
-                    ? "Stealth mode is enabled â€” all WRATHCORD visual elements are hidden. Shortcut: Ctrl+Shift+H"
-                    : t("Hides all WRATHCORD visual elements without disabling plugins. Shortcut: Ctrl+Shift+H")}
+                    ? "Stealth mode is enabled â€” all werathcord visual elements are hidden. Shortcut: Ctrl+Shift+H"
+                    : t("Hides all werathcord visual elements without disabling plugins. Shortcut: Ctrl+Shift+H")}
             </Paragraph>
             <Button
                 onClick={toggleStealthMode}
@@ -309,14 +309,14 @@ function EquicordSettings() {
             !IS_WEB && {
                 key: "disableAutoUpdate",
                 title: t("Disable Automatic Updates"),
-                description: t("Prevent WRATHCORD from automatically checking, downloading, or prompting for updates on startup. You can still update manually in the \"Updater\" settings tab."),
+                description: t("Prevent werathcord from automatically checking, downloading, or prompting for updates on startup. You can still update manually in the \"Updater\" settings tab."),
                 restartRequired: false,
                 warning: { enabled: false },
             },
             {
                 key: "enableInAppNotifications",
-                title: t("Enable WRATHCORD In-App Notifications"),
-                description: t("Show custom toast notifications in the top-right corner for updates, shortcuts (Stealth Mode, StreamProof), and status changes. Disable to silence all WRATHCORD notifications."),
+                title: t("Enable werathcord In-App Notifications"),
+                description: t("Show custom toast notifications in the top-right corner for updates, shortcuts (Stealth Mode, StreamProof), and status changes. Disable to silence all werathcord notifications."),
                 restartRequired: false,
                 warning: { enabled: false },
             },
@@ -347,7 +347,7 @@ function EquicordSettings() {
 
                 <Heading className={Margins.top20}>{t("Client Settings")}</Heading>
                 <Paragraph className={Margins.bottom16}>
-                    {t("Configure how WRATHCORD behaves and integrates with Discord. These settings affect the Discord client's appearance and behavior.")}
+                    {t("Configure how werathcord behaves and integrates with Discord. These settings affect the Discord client's appearance and behavior.")}
                 </Paragraph>
                 <Notice.Info className={Margins.bottom20} style={{ width: "100%" }}>
                     {t("You can customize where this settings section appears in Discord's settings menu by configuring the")} {" "}
@@ -471,7 +471,7 @@ function EquicordSettings() {
 
                 <Heading className={Margins.top20}>{t("Notifications")}</Heading>
                 <Paragraph className={Margins.bottom16}>
-                    {t("Configure how WRATHCORD handles notifications. You can customize when and how you receive alerts, or view a history of past notifications.")}
+                    {t("Configure how werathcord handles notifications. You can customize when and how you receive alerts, or view a history of past notifications.")}
                 </Paragraph>
 
                 <Flex gap="16px">
@@ -489,7 +489,7 @@ function EquicordSettings() {
 
             <Heading className={Margins.top20}>{t("Compact Mode")}</Heading>
             <Paragraph className={Margins.bottom16}>
-                {t("Replaces all WRATHCORD buttons with a single compact toggle icon. Click the icon in the header bar, channel toolbar, or chat bar to restore all buttons.")}
+                {t("Replaces all werathcord buttons with a single compact toggle icon. Click the icon in the header bar, channel toolbar, or chat bar to restore all buttons.")}
             </Paragraph>
             <Button
                 onClick={toggleCompactMode}
@@ -502,7 +502,7 @@ function EquicordSettings() {
 
             <Heading className={Margins.top20}>{t("Stealth Mode")}</Heading>
             <Paragraph className={Margins.bottom16}>
-                {t("Hides all WRATHCORD visual elements without disabling plugins. Shortcut: Ctrl+Shift+H")}
+                {t("Hides all werathcord visual elements without disabling plugins. Shortcut: Ctrl+Shift+H")}
             </Paragraph>
             <StealthModeButton />
 
@@ -510,7 +510,7 @@ function EquicordSettings() {
     );
 }
 
-export default wrapTab(EquicordSettings, "WRATHCORD Settings");
+export default wrapTab(EquicordSettings, "werathcord Settings");
 
 
 

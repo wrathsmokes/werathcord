@@ -1,11 +1,11 @@
 ﻿/*
- * WRATHCORD, a Discord client mod
+ * werathcord, a Discord client mod
  * Copyright (c) 2026 Vendicated and contributors
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
 import ErrorBoundary from "@components/ErrorBoundary";
-import { t } from "@WRATHCORDplugins/autoTranslateWRATHCORD";
+import { t } from "@werathcordplugins/autoTranslatewerathcord";
 import { Logger } from "@utils/Logger";
 import { findComponentByCodeLazy } from "@webpack";
 import { Popout, useEffect, useRef, useState } from "@webpack/common";
@@ -122,13 +122,13 @@ function UserAreaButtons({ props }: { props: UserAreaRenderProps; }) {
         const listener = () => forceUpdate(n => n + 1);
         addStealthListener(listener);
         addCompactListener(listener);
-        window.addEventListener("WRATHCORD-stealth-change", listener);
-        window.addEventListener("WRATHCORD-compact-change", listener);
+        window.addEventListener("werathcord-stealth-change", listener);
+        window.addEventListener("werathcord-compact-change", listener);
         return () => {
             removeStealthListener(listener);
             removeCompactListener(listener);
-            window.removeEventListener("WRATHCORD-stealth-change", listener);
-            window.removeEventListener("WRATHCORD-compact-change", listener);
+            window.removeEventListener("werathcord-stealth-change", listener);
+            window.removeEventListener("werathcord-compact-change", listener);
         };
     }, []);
 
@@ -215,7 +215,7 @@ function UserAreaButtons({ props }: { props: UserAreaRenderProps; }) {
                     flex-shrink: 0 !important;
                 }
 
-                /* ── WRATHCORD UserArea Bottom-Left Buttons Hover Spring Animation ── */
+                /* ── werathcord UserArea Bottom-Left Buttons Hover Spring Animation ── */
                 .vc-user-area-btns button svg,
                 .vc-user-area-btns [role="button"] svg,
                 .vc-user-area-btns svg {

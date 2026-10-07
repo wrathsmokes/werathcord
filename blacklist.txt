@@ -1,0 +1,17 @@
+﻿macOsButtons
+cursorMacOS
+wordBomb
+multiInstance
+soundcloudPlayer
+youtubePlayer
+autoTranslateWRATHCORD
+fixScreenshare
+mullvadDNS
+streamProof
+voiceDictation
+WRATHCORDUpdater
+stereoInstaller
+AutoCallRecorder
+PrivateBrowser
+Qxchat
+WRATHCORDnews
